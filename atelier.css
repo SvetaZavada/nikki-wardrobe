@@ -272,3 +272,18 @@ footer{border-top:1px solid #e7dde4;color:#a29aa7;letter-spacing:.04em}
 @media(prefers-reduced-motion:reduce){
  *,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
 }
+
+/* Category artwork: approved 10-icon transparent atlas. Main categories only. */
+#categories .cat .glyph{display:block;width:46px;height:46px;min-height:46px;flex:none;align-self:center;line-height:0;font-size:0;background-image:url("./assets/category-icons.webp");background-repeat:no-repeat;background-size:230px 92px;filter:drop-shadow(0 1px 1px #ac886431);transition:filter .2s,transform .2s}
+#categories .cat.active .glyph{filter:drop-shadow(0 1px 3px #a1814160)}
+#categories .cat:hover .glyph{transform:translateY(-1px)}
+#categories .cat .icon-outfits{background-position:0 0}
+#categories .cat .icon-hair{background-position:-46px 0}
+#categories .cat .icon-dresses{background-position:-92px 0}
+#categories .cat .icon-outerwear{background-position:-138px 0}
+#categories .cat .icon-tops{background-position:-184px 0}
+#categories .cat .icon-bottoms{background-position:0 -46px}
+#categories .cat .icon-socks{background-position:-46px -46px}
+#categories .cat .icon-shoes{background-position:-92px -46px}
+#categories .cat .icon-accessories{background-position:-138px -46px}
+#categories .cat .icon-makeup{background-position:-184px -46px}
