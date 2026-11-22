@@ -105,3 +105,10 @@
 @media(max-width:1320px){.analysis-example{grid-template-columns:54px minmax(0,1fr)}.analysis-example-actions{grid-column:2}}
 @media(max-width:760px){.analysis-example{grid-template-columns:50px minmax(0,1fr) auto}.analysis-example-thumbnail{width:50px;height:50px}.analysis-example-actions{grid-column:3}}
 @media(max-width:470px){.analysis-example{grid-template-columns:50px minmax(0,1fr)}.analysis-example-actions{grid-column:2}}
+
+/* The category chart itself is the selector. */
+.analysis-slot-row{width:100%;border:1px solid transparent;background:transparent;padding:7px 9px;margin:0 -9px;border-radius:9px;font:inherit;text-align:left;cursor:pointer;transition:background .14s,border-color .14s}
+.analysis-slot-row:hover{background:#f8f1fb}
+.analysis-slot-row.selected{background:#f4eafa;border-color:#d5bce1}
+.analysis-slot-row.selected>span:first-child{font-weight:900;color:#77558d}
+.analysis-slot-row.unavailable{cursor:pointer}
