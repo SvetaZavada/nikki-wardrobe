@@ -155,20 +155,21 @@ function draw(){
   return '<button type="button" class="analysis-label-row '+(chosen?'selected ':'')+(r.have===0?'is-gap':'')+'" data-label="'+esc(r.label)+'" aria-pressed="'+chosen+'"><span class="analysis-label-name">'+esc(r.label)+'</span>'+bar(r.have,r.can,r.have===0?'zero-coverage':'')+'<span class="analysis-numeric" title="Owned / matching catalog items">'+r.have+' / '+r.can+'</span><span class="analysis-row-note">'+(r.have===0?'MISSING':Math.round(100*r.have/r.can)+'%')+'</span></button>';
  }).join(''):'<div class="analysis-no-results">No combinations in the catalog for these conditions.</div>';
   $('anLabels').querySelectorAll('[data-label]').forEach(b=>{b.classList.toggle('selected',b.dataset.label===selectedLabel);b.setAttribute('aria-pressed',String(b.dataset.label===selectedLabel))});
- const selectedOwned=matched.filter(owned);
- $('anDetailTitle').textContent='Collection breakdown';
- $('anDetailSubtitle').textContent=(style||'All styles')+' · '+(selectedLabel||'All labels')+' · '+(rarity==='all'?'all rarities':rarity+'★')+' · '+selectedOwned.length+' owned / '+matched.length+' in catalog';
  const chosenSlots=[['all','All categories'],...(mode==='outfits'?[['outfit','Outfits']]:SLOTS)];
- $('anSlot').innerHTML=chosenSlots.map(([id,name])=>'<option value="'+id+'">'+name+'</option>').join('');
  if(!chosenSlots.some(([id])=>id===slot))slot='all';
+ const details=matched.filter(i=>slot==='all'||mode==='outfits'||slotName(i)===slot);
+ const selectedOwned=details.filter(owned);
+ const slotTitle=chosenSlots.find(([id])=>id===slot)?.[1]||'All categories';
+ $('anDetailTitle').textContent=slot==='all'?'Collection breakdown':'Collection breakdown · '+slotTitle;
+ $('anDetailSubtitle').textContent=(style||'All styles')+' · '+(selectedLabel||'All labels')+' · '+(rarity==='all'?'all rarities':rarity+'★')+' · '+selectedOwned.length+' owned / '+details.length+' in catalog';
+ $('anSlot').innerHTML=chosenSlots.map(([id,name])=>'<option value="'+id+'">'+name+'</option>').join('');
  $('anSlot').value=slot;
- const chartSlots=mode==='outfits'?[['outfit','Outfits']]:SLOTS;
+ const chartSlots=(mode==='outfits'?[['outfit','Outfits']]:SLOTS).filter(([id])=>slot==='all'||id===slot);
  $('anSlotChart').innerHTML=chartSlots.map(([id,name])=>{
   const list=matched.filter(i=>mode==='outfits'||slotName(i)===id);
   const have=list.filter(owned).length;
   return '<div class="analysis-slot-row '+(!list.length?'unavailable':have===0?'is-gap':'')+'"><span>'+name+'</span>'+bar(have,list.length)+'<b>'+have+' / '+list.length+'</b><small>'+(list.length===0?'Not in catalog':have===0?'Missing':'')+'</small></div>';
  }).join('');
- const details=matched.filter(i=>slot==='all'||mode==='outfits'||slotName(i)===slot);
  exampleLists={owned:details.filter(owned),missing:details.filter(i=>!owned(i))};
  exampleLimits={owned:12,missing:12};
  $('anExamples').innerHTML='<div class="analysis-example-columns"><div><h4>✓ In your collection ('+exampleLists.owned.length+')</h4>'+listHtml('owned')+'</div><div><h4>✧ Missing from collection ('+exampleLists.missing.length+')</h4>'+listHtml('missing')+'</div></div>';
