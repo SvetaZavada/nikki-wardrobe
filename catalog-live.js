@@ -42,7 +42,11 @@ function ensureWardrobeSentinel(){
   if(!wardrobeObserver&&'IntersectionObserver' in window){
     wardrobeObserver=new IntersectionObserver(entries=>{
       if(!entries.some(e=>e.isIntersecting)||scrollingMore||page!=='wardrobe'||visibleLimit>=filtered.length)return;
-      scrollingMore=true;visibleLimit+=48;render();
+      scrollingMore=true;
+      const begin=visibleLimit;
+      visibleLimit+=48;
+      appendWardrobeItems(begin,visibleLimit);
+      updateWardrobeSentinel();
       requestAnimationFrame(()=>{scrollingMore=false});
     },{rootMargin:'850px 0px',threshold:0});
     wardrobeObserver.observe(sentinel);
@@ -115,6 +119,27 @@ function imageFallback(img){
 }
 window.nikkiImageFallback=imageFallback;
 const STYLE_CLASSES={Elegant:'style-elegant',Sweet:'style-sweet',Cool:'style-cool',Fresh:'style-fresh',Sexy:'style-sexy'};
+function itemMarkup(i){
+    const itemName=safe(getName(i)),id=String(i.id),o=isOwned(i);
+    const sources=imageSources(i);
+    const image='<img loading="lazy" decoding="async" src="'+safe(sources[0])+'" data-sources="'+safe(JSON.stringify(sources))+'" data-image-index="0" alt="" onerror="window.nikkiImageFallback(this)"><span class="placeholder" hidden>✧</span>';
+    const mainStyle=i.style?'<span class="card-style '+(STYLE_CLASSES[i.style]||'')+'">'+safe(i.style)+'</span>':'';
+    const labels=(i.labels||[]).slice(0,2).map(label=>'<span class="card-label label-chip color-'+(LABEL_COLORS[label]||'gold')+'">'+safe(label)+'</span>').join('');
+    return '<article class="item '+(o?'':'not-owned')+'"><input class="owned" type="checkbox" data-kind="'+i.kind+'" data-owned="'+id+'" aria-label="Owned: '+itemName+'" '+(o?'checked':'')+'><div class="frame">'+image+'<span class="stars">'+('✦'.repeat(Math.min(i.stars||0,5)))+'</span></div><h3 title="'+itemName+'">'+itemName+'</h3><div class="badges">'+mainStyle+'<div class="card-labels">'+labels+'</div></div></article>';
+}
+function bindOwnedButtons(){
+  $('grid').querySelectorAll('[data-owned]:not([data-bound])').forEach(b=>{
+    b.dataset.bound='1';
+    b.onchange=()=>{
+      const i=items.find(item=>item.id===Number(b.dataset.owned)&&item.kind===b.dataset.kind);
+      if(i){setOwned(i,b.checked);render();}
+    };
+  });
+}
+function appendWardrobeItems(begin,end){
+  $('grid').insertAdjacentHTML('beforeend',filtered.slice(begin,end).map(itemMarkup).join(''));
+  bindOwnedButtons();
+}
 function render(){
   // Eureka currently has only 3★, 4★, 5★; keep 2★ available in Wardrobe.
   const twoStar=$('rarities').querySelector('[data-rarity="2"]');
@@ -150,19 +175,9 @@ function render(){
   const heading=page==='eureka'?'Eureka':page==='analysis'?'Analysis':(CATS.find(a=>a[0]===category)?.[1]||'Wardrobe');
   $('heading').firstChild.textContent=heading+' ';
   $('count').textContent=list.length+' items';
-  const shown=list.slice(0,visibleLimit);
-  $('grid').innerHTML=shown.map(i=>{
-    const itemName=safe(getName(i)),id=String(i.id),o=isOwned(i);
-    const sources=imageSources(i);
-    const image='<img loading="lazy" decoding="async" src="'+safe(sources[0])+'" data-sources="'+safe(JSON.stringify(sources))+'" data-image-index="0" alt="" onerror="window.nikkiImageFallback(this)"><span class="placeholder" hidden>✧</span>';
-    const mainStyle=i.style?'<span class="card-style '+(STYLE_CLASSES[i.style]||'')+'">'+safe(i.style)+'</span>':'';
-    const labels=(i.labels||[]).slice(0,2).map(label=>'<span class="card-label label-chip color-'+(LABEL_COLORS[label]||'gold')+'">'+safe(label)+'</span>').join('');
-    return '<article class="item '+(o?'':'not-owned')+'"><input class="owned" type="checkbox" data-kind="'+i.kind+'" data-owned="'+id+'" aria-label="Owned: '+itemName+'" '+(o?'checked':'')+'><div class="frame">'+image+'<span class="stars">'+('✦'.repeat(Math.min(i.stars||0,5)))+'</span></div><h3 title="'+itemName+'">'+itemName+'</h3><div class="badges">'+mainStyle+'<div class="card-labels">'+labels+'</div></div></article>';
-  }).join('');
-  $('grid').querySelectorAll('[data-owned]').forEach(b=>b.onchange=()=>{
-    const i=items.find(item=>item.id===Number(b.dataset.owned)&&item.kind===b.dataset.kind);
-    if(i){setOwned(i,b.checked);render();}
-  });
+  $('grid').innerHTML=list.slice(0,visibleLimit).map(itemMarkup).join('');
+  bindOwnedButtons();
+
   $('empty').hidden=list.length>0;
   $('grid').style.display=list.length?'grid':'none';
   updateWardrobeSentinel();
