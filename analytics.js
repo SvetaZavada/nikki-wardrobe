@@ -31,12 +31,19 @@ let listObserver=null;
 let exampleLists={owned:[],missing:[]};
 let exampleLimits={owned:12,missing:12};
 const EXAMPLE_BATCH=24;
+function exampleImage(i){
+ const path=i.kind==='outfit'?'/images/outfits/'+i.id+'.png'
+   :i.kind==='makeup'?(i.type==='full'?'/images/items/makeups/':'/images/items/icons/')+i.id+'.png'
+   :'/images/items/icons/'+i.id+'.png';
+ const sources=['https://ik.imagekit.io/gongeous','https://cdn.gongeo.us','https://gongeo.us'].map(host=>host+path);
+ return '<span class="analysis-example-thumbnail"><img loading="lazy" decoding="async" src="'+esc(sources[0])+'" data-sources="'+esc(JSON.stringify(sources))+'" data-image-index="0" alt="" onerror="window.nikkiImageFallback(this)"><span class="analysis-example-image-fallback" hidden>✧</span></span>';
+}
 function exampleMarkup(i){
  const name=window.NikkiAnalysisData?.names?.[i.kind+'_'+i.id]||'Item '+i.id;
  const wished=wishlist.has(wishKey(i.kind,i.id));
  return '<div class="analysis-example" role="link" tabindex="0" title="Open in Wardrobe" data-open-kind="'+esc(i.kind)+'" data-open-id="'+i.id+'">'
-   +'<span class="analysis-example-stars">'+('✦'.repeat(Math.min(i.stars,5)))+'</span>'
-   +'<span class="analysis-example-name">'+esc(name)+'</span>'
+   +exampleImage(i)
+   +'<span class="analysis-example-info"><span class="analysis-example-name">'+esc(name)+'</span><span class="analysis-example-stars">'+('✦'.repeat(Math.min(i.stars,5)))+'</span></span>'
    +'<div class="analysis-example-actions"><button type="button" class="analysis-wishlist '+(wished?'is-wished':'')+'" data-wish-kind="'+esc(i.kind)+'" data-wish-id="'+i.id+'" aria-pressed="'+wished+'" title="'+(wished?'Remove from wishlist':'Add to wishlist')+'">'+(wished?'♥ Wishlisted':'♡ Wishlist')+'</button>'
    +'<button type="button" class="analysis-howto" disabled title="How to get — coming soon">How to get</button></div></div>';
 }
