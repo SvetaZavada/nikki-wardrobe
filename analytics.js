@@ -8,6 +8,24 @@ const RARITIES=[5,4,3,2];
 const SLOTS=[['hair','Hair'],['dresses','Dresses'],['outerwear','Outerwear'],['tops','Tops'],['bottoms','Bottoms'],['socks','Socks'],['shoes','Shoes'],['accessories','Accessories']];
 const ACCESSORY=new Set(['hairAccessories','headwear','earrings','neckwear','bracelets','chokers','gloves','faceDecorations','chestAccessories','pendants','backpieces','rings','armDecorations','handhelds','bodyPaint']);
 let data=[],ownedIds=new Set(),labels=[],active=false;
+const WISHLIST_KEY='nikki-v2-wishlist';
+const wishKey=(kind,id)=>kind+':'+id;
+let wishlist=new Set();
+try{const stored=JSON.parse(localStorage.getItem(WISHLIST_KEY)||'[]');if(Array.isArray(stored))wishlist=new Set(stored.map(String))}catch{}
+function saveWishlist(){try{localStorage.setItem(WISHLIST_KEY,JSON.stringify([...wishlist]))}catch{}}
+function toggleWishlist(kind,id){
+ const key=wishKey(kind,id);
+ if(wishlist.has(key))wishlist.delete(key);else wishlist.add(key);
+ saveWishlist();
+ document.querySelectorAll('#anExamples [data-wish-kind][data-wish-id]').forEach(button=>{
+   if(button.dataset.wishKind!==kind||button.dataset.wishId!==String(id))return;
+   const selected=wishlist.has(key);
+   button.classList.toggle('is-wished',selected);
+   button.setAttribute('aria-pressed',String(selected));
+   button.textContent=selected?'♥ Wishlisted':'♡ Wishlist';
+   button.title=selected?'Remove from wishlist':'Add to wishlist';
+ });
+}
 let style=null,rarity='5',mode='items',order='missing',selectedLabel=null,slot='all',showAllLabels=false;
 function owned(i){return ownedIds.has(i.id)}
 function valid(){return data.filter(i=>(mode==='outfits'?i.kind==='outfit':i.kind==='item')&&(rarity==='all'||i.stars===Number(rarity)))}
@@ -42,6 +60,18 @@ function ensure(){
  $('anReset').onclick=()=>{style=null;rarity='5';mode='items';order='missing';selectedLabel=null;slot='all';showAllLabels=false;draw()};
  $('anShowLabels').onclick=()=>{showAllLabels=!showAllLabels;draw()};
  $('anLabels').addEventListener('click',e=>{const btn=e.target.closest('button[data-label]');if(btn){selectedLabel=selectedLabel===btn.dataset.label?null:btn.dataset.label;draw()}});
+ $('anExamples').addEventListener('click',e=>{
+   const wish=e.target.closest('button[data-wish-kind][data-wish-id]');
+   if(wish){toggleWishlist(wish.dataset.wishKind,Number(wish.dataset.wishId));return}
+   const card=e.target.closest('[data-open-kind][data-open-id]');
+   if(card)window.NikkiNavigateToItem?.(card.dataset.openKind,Number(card.dataset.openId));
+ });
+ $('anExamples').addEventListener('keydown',e=>{
+   if((e.key==='Enter'||e.key===' ')&&e.target.matches('[data-open-kind][data-open-id]')){
+     e.preventDefault();
+     window.NikkiNavigateToItem?.(e.target.dataset.openKind,Number(e.target.dataset.openId));
+   }
+ });
 }
 function bar(have,total,klass=''){
  const percent=total?Math.round(100*have/total):0;
@@ -98,7 +128,15 @@ function draw(){
  const samples=details.filter(owned).slice(0,12);
  const unowned=details.filter(i=>!owned(i)).slice(0,8);
  const title=i=>(window.NikkiAnalysisData?.names?.[i.kind+'_'+i.id]||'Item '+i.id);
- const renderList=arr=>arr.length?'<div class="analysis-examples">'+arr.map(i=>'<div class="analysis-example"><span class="analysis-example-stars">'+('✦'.repeat(Math.min(i.stars,5)))+'</span><span>'+esc(title(i))+'</span></div>').join('')+'</div>':'<p class="analysis-muted">None in this category.</p>';
+ const renderList=arr=>arr.length?'<div class="analysis-examples">'+arr.map(i=>{
+   const wished=wishlist.has(wishKey(i.kind,i.id));
+   return '<div class="analysis-example" role="link" tabindex="0" title="Open in Wardrobe" data-open-kind="'+esc(i.kind)+'" data-open-id="'+i.id+'">'
+     +'<span class="analysis-example-stars">'+('✦'.repeat(Math.min(i.stars,5)))+'</span>'
+     +'<span class="analysis-example-name">'+esc(title(i))+'</span>'
+     +'<div class="analysis-example-actions"><button type="button" class="analysis-wishlist '+(wished?'is-wished':'')+'" data-wish-kind="'+esc(i.kind)+'" data-wish-id="'+i.id+'" aria-pressed="'+wished+'" title="'+(wished?'Remove from wishlist':'Add to wishlist')+'">'+(wished?'♥ Wishlisted':'♡ Wishlist')+'</button>'
+     +'<button type="button" class="analysis-howto" disabled title="How to get — coming soon">How to get</button></div>'
+     +'</div>';
+ }).join('')+'</div>':'<p class="analysis-muted">None in this category.</p>';
  $('anExamples').innerHTML='<div class="analysis-example-columns"><div><h4>✓ In your collection ('+details.filter(owned).length+')</h4>'+renderList(samples)+'</div><div><h4>✧ Missing from collection ('+details.filter(i=>!owned(i)).length+')</h4>'+renderList(unowned)+'</div></div>';
 }
 function activate(on,entries,ownedSet,nameMap){
