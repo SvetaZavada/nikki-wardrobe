@@ -208,3 +208,9 @@ footer{border-top:1px solid #e7d1dc;padding-top:25px;margin-top:33px;letter-spac
 @media(prefers-reduced-motion:reduce){
  *,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
 }
+
+/* Blooming page corners echo the chosen whimsical concept without covering controls. */
+.wings:before,.wings:after{content:"";position:fixed;bottom:-20px;width:min(24vw,320px);height:min(31vw,380px);background:url("./assets/bloom-corner.svg") bottom left/contain no-repeat;opacity:.83;filter:drop-shadow(0 0 11px #fff8ff99);pointer-events:none}
+.wings:before{left:-23px}.wings:after{right:-23px;transform:scaleX(-1)}
+@media(max-width:1000px){.wings:before,.wings:after{opacity:.38;width:180px;height:215px}}
+@media(max-width:650px){.wings:before,.wings:after{display:none}}
