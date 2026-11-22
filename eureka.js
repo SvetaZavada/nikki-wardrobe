@@ -130,14 +130,12 @@ function makeSummary(){
  const total=statsAll.reduce((a,s)=>a+s.totalColors,0);
  const complete=statsAll.filter(s=>s.total>0&&s.have===s.total).length;
  const allParts=sets.flatMap(availableParts);
- const zero=allParts.filter(p=>copiesFor(p.id)===0).length;
  const iridescentVariants=allParts.flatMap(p=>(p.colors||[]).filter(c=>Number(c.type)===8));
  const iridescentOwned=iridescentVariants.filter(c=>isColorOwned(c.id)).length;
  return '<div class="eureka-summary-item"><strong>'+collected+' <span>/ '+parts+'</span></strong><small>Unique parts</small></div>'
    +'<div class="eureka-summary-item"><strong>'+complete+' <span>/ '+sets.length+'</span></strong><small>Complete sets</small></div>'
    +'<div class="eureka-summary-item"><strong>'+colors+' <span>/ '+total+'</span></strong><small>Colors collected</small></div>'
-   +'<div class="eureka-summary-item eureka-iridescent-summary" title="Collected iridescent color variants across all Eureka sets"><strong>'+iridescentOwned+' <span>/ '+iridescentVariants.length+'</span></strong><small>✦ Iridescent collected</small></div>'
-   +'<div class="eureka-summary-item" title="Individual Eureka parts with exactly 0 uncolored copies recorded. Unknown quantities are not counted."><strong>'+zero+'</strong><small>0 uncolored copies</small></div>';
+   +'<div class="eureka-summary-item eureka-iridescent-summary" title="Collected iridescent color variants across all Eureka sets"><strong>'+iridescentOwned+' <span>/ '+iridescentVariants.length+'</span></strong><small>✦ Iridescent collected</small></div>';
 }
 function draw(){
  if(!active||!ready)return;
