@@ -103,17 +103,22 @@
     const rows = await readRows();
     const remote = rowsToItems(rows);
     if (initial && items.length && JSON.stringify(items) !== JSON.stringify(remote)) {
-      // Never silently overwrite local changes or the remote collection.
+      if (remote.length === 0) {
+        lastRemote = signature(rows);
+        lastRows = rows.length;
+        status('Google Таблица пустая, а локально есть ' + items.length + ' вещей. Нажми «↑ Записать локальное» для первой загрузки.');
+        return;
+      }
       const ok = confirm(
         'В Google Таблице: ' + remote.length + ' вещей. В этом браузере: ' +
-        items.length + '.\n\nЗагрузить Google-коллекцию? Локальную можно заранее выгрузить через ↓ JSON.\n' +
-        'Нажми «Отмена», если хочешь сначала сохранить локальную коллекцию.'
+        items.length + '.\n\nЗагрузить Google-коллекцию? Сначала можешь выгрузить локальную через ↓ JSON.\n' +
+        'При отмене локальная коллекция останется на месте, без автосохранения.'
       );
       if (!ok) {
-        connected = false;
-        token = null;
-        renderAuth();
-        status('Вход отменён для защиты локальных данных. Сохрани JSON и войди снова.');
+        stopped = true;
+        lastRemote = signature(rows);
+        lastRows = rows.length;
+        status('Локальная коллекция сохранена. Экспортируй JSON, затем загрузи данные Google или выбери «↑ Записать локальное».');
         return;
       }
     } else if (!initial && items.length && JSON.stringify(items) !== JSON.stringify(remote)) {
@@ -134,6 +139,7 @@
     if (busy) return;
     if (!confirm('Заменить содержимое вкладки Wardrobe (' + lastRows +
       ' строк) текущими ' + items.length + ' вещами? Это действие нельзя отменить из сайта.')) return;
+    stopped = false;
     queued = true;
     await flush(true);
   }
