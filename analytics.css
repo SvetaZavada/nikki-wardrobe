@@ -62,3 +62,14 @@
 .main.analysis-layout>.filters{display:none!important}
 .main.analysis-layout .collection{width:100%;min-width:0}
 .main.analysis-layout .catalog-tools[hidden]{display:none!important}
+
+/* Clear controls and short, annotated label ranking */
+.analysis-reset{align-self:end;min-height:39px;padding:9px 14px;border-radius:11px;border:1px solid #d8c2dc;background:#f5eafa;color:#745c86;cursor:pointer;font:800 12px Nunito,system-ui,sans-serif;white-space:nowrap}
+.analysis-reset:hover,.analysis-more-labels:hover{background:#ead8f1}
+.analysis-chart-hint{font-size:11px;color:#8b8093;line-height:1.55;margin:7px 0 2px}
+.analysis-chart-hint b{color:#786482}
+.analysis-label-chart{max-height:none;overflow:visible}
+.analysis-more-labels{width:100%;border:1px solid #e2d3e6;background:#fbf6fc;color:#7f678d;border-radius:10px;padding:10px;cursor:pointer;font:800 12px Nunito,system-ui,sans-serif;margin-top:10px}
+.analysis-style-row.selected .analysis-style-name:before{content:'✓ ';color:#9272ab}
+.analysis-detail-tools{margin-top:4px}
+@media(max-width:760px){.analysis-reset{width:100%}}
