@@ -118,7 +118,7 @@ function setCard(s){
    +'<div class="eureka-set-footer"><span>🎨 '+t.colors+' / '+t.totalColors+' colors</span><span>✧ '+t.spare+' uncolored copies</span></div></article>';
 }
 function makeSummary(){
- const statsAll=sets.map(stats);const parts=statsAll.reduce((a,s)=>a+s.total,0),collected=statsAll.reduce((a,s)=>a+s.have,0),colors=statsAll.reduce((a,s)=>a+s.colors,0),total=statsAll.reduce((a,s)=>a+s.totalColors,0),complete=statsAll.filter(s=>s.total>0&&s.have===s.total).length,zero=sets.reduce((a,s)=>a+s.parts.filter(p=>copiesFor(p.id)===0).length,0);
+ const statsAll=sets.map(stats);const parts=statsAll.reduce((a,s)=>a+s.total,0),collected=statsAll.reduce((a,s)=>a+s.have,0),colors=statsAll.reduce((a,s)=>a+s.colors,0),total=statsAll.reduce((a,s)=>a+s.totalColors,0),complete=statsAll.filter(s=>s.total>0&&s.have===s.total).length,zero=sets.reduce((a,s)=>a+availableParts(s).filter(p=>copiesFor(p.id)===0).length,0);
  return '<div class="eureka-summary-item"><strong>'+collected+' <span>/ '+parts+'</span></strong><small>Unique parts</small></div>'
    +'<div class="eureka-summary-item"><strong>'+complete+' <span>/ '+sets.length+'</span></strong><small>Complete sets</small></div>'
    +'<div class="eureka-summary-item"><strong>'+colors+' <span>/ '+total+'</span></strong><small>Colors collected</small></div>'
