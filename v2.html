@@ -26,7 +26,7 @@ nav{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 .categorybar{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:8px}
 .cat{min-width:0;min-height:94px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px;padding:8px 3px;background:linear-gradient(180deg,#fffdfd,#f7eefd);border:1px solid #d5bad7;outline:1px solid #fff;border-radius:13px;box-shadow:0 4px 8px #8b729e22}
 .cat.active{background:linear-gradient(155deg,#bda0dc,#8562ad);border-color:#dfc2bd;color:#fff;box-shadow:0 0 0 2px #f3e2e9,0 4px 13px #a579b95c}
-.cat .glyph{font-size:31px;line-height:1.3;filter:drop-shadow(0 2px 1px #8466a82a)}.cat span:last-child{font:700 clamp(11px,1.23vw,15px) Nunito,serif}
+.cat .glyph{font-size:31px;line-height:1.3;filter:drop-shadow(0 2px 1px #8466a82a)}.cat span:last-child{font:800 15px/1.18 Nunito,sans-serif;letter-spacing:0;text-align:center;overflow-wrap:anywhere}
 .subbar{min-height:39px;display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:17px;padding:0 3px}
 .pill{border-radius:30px;font-size:11px;padding:7px 13px;white-space:nowrap}.pill.active{font-weight:800}
 .main{display:grid;grid-template-columns:270px minmax(0,1fr);gap:20px;margin-top:12px}
@@ -79,6 +79,9 @@ footer{text-align:center;font-size:11px;color:#817391;padding:3px 0}
 #rarities .rarity-chip{height:32px;min-height:32px;box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;font-size:15px;letter-spacing:1.3px;padding:0 11px}
 #styleChips .style-chip{height:32px;min-height:32px;box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;padding:0 5px!important}
 #labelList .label-chip{height:32px;min-height:32px;box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;font-size:15px!important;padding:0 12px!important}
+/* Match upper category and rectangular style labels to 15px Label chips. */
+#categories .cat span:last-child{font-size:15px;font-weight:800;line-height:1.18}
+#styleChips .style-chip{font-size:15px!important;font-weight:800!important;font-family:Nunito,sans-serif!important}
 </style></head><body><div class="sky"></div><div class="wings"></div>
 <header class="top"><div class="brand"><h1>✧ Nikki Wardrobe</h1><p>Infinity Nikki collection</p></div><nav><button class="tab active" data-page="wardrobe">♧ Wardrobe</button><button class="tab" data-page="eureka">✧ Eureka</button><button class="tab" data-page="analysis">▥ Analysis</button></nav></header>
 <main class="shell"><div class="utility"><div class="status"><span id="catalogVersion">✧ Catalog · Preview</span><span id="collectionStatus">☁ Collection · local</span></div><div class="sync-wrap"><button class="sync-btn" id="syncToggle" aria-expanded="false" aria-controls="syncMenu">☁ Sync ⌄</button><div class="sync-menu" id="syncMenu"><button id="importJson">↧ Import JSON</button><button id="syncCatalog">↻ Sync with gongeo</button><button id="checkUpdates">☁ Check updates</button><small id="syncFoot">Catalog source: gongeo.us</small></div></div></div>
