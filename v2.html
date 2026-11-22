@@ -74,6 +74,11 @@ footer{text-align:center;font-size:11px;color:#817391;padding:3px 0}
 .rarity-chip:hover{transform:translateY(-1px);background:#efdadc}
 .rarity-chip.active{background:linear-gradient(135deg,#d4badc,#ad8ec2);color:#fff6da;border-color:#a07bb7;box-shadow:0 0 0 2px #f8e9f5,0 2px 8px #8662a94d;text-shadow:0 1px 3px #745587}
 .rarity-chip:focus-visible{outline:2px solid #8d6cb3;outline-offset:3px}
+
+/* Unified filter-chip rhythm: 32px high across Rarity, Main Style and Labels. */
+#rarities .rarity-chip{height:32px;min-height:32px;box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;font-size:15px;letter-spacing:1.3px;padding:0 11px}
+#styleChips .style-chip{height:32px;min-height:32px;box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;padding:0 5px!important}
+#labelList .label-chip{height:32px;min-height:32px;box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;font-size:15px!important;padding:0 12px!important}
 </style></head><body><div class="sky"></div><div class="wings"></div>
 <header class="top"><div class="brand"><h1>✧ Nikki Wardrobe</h1><p>Infinity Nikki collection</p></div><nav><button class="tab active" data-page="wardrobe">♧ Wardrobe</button><button class="tab" data-page="eureka">✧ Eureka</button><button class="tab" data-page="analysis">▥ Analysis</button></nav></header>
 <main class="shell"><div class="utility"><div class="status"><span id="catalogVersion">✧ Catalog · Preview</span><span id="collectionStatus">☁ Collection · local</span></div><div class="sync-wrap"><button class="sync-btn" id="syncToggle" aria-expanded="false" aria-controls="syncMenu">☁ Sync ⌄</button><div class="sync-menu" id="syncMenu"><button id="importJson">↧ Import JSON</button><button id="syncCatalog">↻ Sync with gongeo</button><button id="checkUpdates">☁ Check updates</button><small id="syncFoot">Catalog source: gongeo.us</small></div></div></div>
