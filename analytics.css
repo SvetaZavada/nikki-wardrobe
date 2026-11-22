@@ -56,3 +56,9 @@
 .analysis-footnote{font-size:11px;line-height:1.5;color:#94869a;margin:0 3px 10px}
 @media(max-width:1170px){.analysis-board{grid-template-columns:1fr}}
 @media(max-width:760px){.analysis-intro{display:grid}.analysis-caveat{justify-self:start}.analysis-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.analysis-example-columns{grid-template-columns:1fr}.analysis-label-row{grid-template-columns:minmax(70px,90px) minmax(45px,1fr) 58px 55px}.analysis-slot-row{grid-template-columns:90px 1fr 50px}.analysis-slot-row>small{display:none}}
+
+/* Give Analysis the full content width instead of preserving the hidden filter sidebar. */
+.main.analysis-layout{grid-template-columns:minmax(0,1fr)!important}
+.main.analysis-layout>.filters{display:none!important}
+.main.analysis-layout .collection{width:100%;min-width:0}
+.main.analysis-layout .catalog-tools[hidden]{display:none!important}
