@@ -1,0 +1,235 @@
+/* Nikki Wardrobe V2 — live public catalog. Names, rarity, styles and tags:
+   dastrokes/gongeo.us-nikki-tracker (MIT); artwork © respective owners.
+   Personal ownership is kept separately in this browser. */
+(()=>{'use strict';
+const $=id=>document.getElementById(id);
+const ROOT='https://raw.githubusercontent.com/dastrokes/gongeo.us-nikki-tracker/master/';
+const CDN='https://cdn.gongeo.us';
+const CATS=[['outfits','Outfits'],['hair','Hair'],['dresses','Dresses'],['outerwear','Outerwear'],['tops','Tops'],['bottoms','Bottoms'],['socks','Socks'],['shoes','Shoes'],['accessories','Accessories'],['makeup','Makeup']];
+const SUB={
+  accessories:[['hairAccessories','Hair Accessories'],['headwear','Headwear'],['earrings','Earrings'],['neckwear','Neckwear'],['bracelets','Bracelets'],['chokers','Chokers'],['gloves','Gloves'],['faceDecorations','Face Decorations'],['chestAccessories','Chest Accessories'],['pendants','Pendants'],['backpieces','Backpieces'],['rings','Rings'],['armDecorations','Arm Decorations'],['handhelds','Handhelds'],['bodyPaint','Body Paint']],
+  makeup:[['all','All Makeup'],['full','Full Makeup'],['base','Base Makeup'],['eyebrows','Eyebrows'],['eyelashes','Eyelashes'],['contacts','Contact Lenses'],['lips','Lips']],
+  outfits:[['all','All Outfits'],['limited','Limited'],['permanent','Permanent'],['event','Event'],['collab','Collab']]
+};
+const ITEM_TYPES=['hair','outerwear','shoes','hairAccessories','headwear','earrings','neckwear','chokers','dresses','chestAccessories','handhelds','socks','gloves','faceDecorations','backpieces','tops','bracelets','armDecorations','pendants','bottoms','bodyPaint','rings'];
+const MAKEUP_TYPES=['full','base','eyebrows','eyelashes','contacts','lips'];
+const STYLES=['Sweet','Sexy','Fresh','Cool','Elegant'];
+const LABELS=['Warm','Summer','Home','Formal','Simple','Fantasy','Intellectual','Adventure','Romance','Retro','Fashion','Uniform','Fairy','Ballroom','Royal','Linlang','Pastoral','Playful','Trendy','Cute','Light','More Light','Divine','Forest','Spirited','Classical','Terra','Aesthetic','Whimsy','Glow'];
+const LABEL_COLORS={
+  Warm:'blue',Summer:'pink',Home:'green',Formal:'gold',Simple:'coral',
+  Fantasy:'mint',Intellectual:'orange',Adventure:'coral',Romance:'pink',Retro:'orange',
+  Fashion:'green',Uniform:'blue',Fairy:'mint',Ballroom:'orange',Royal:'coral',
+  Linlang:'gold',Pastoral:'green',Playful:'blue',Trendy:'orange',Cute:'pink',
+  Light:'gold','More Light':'gold',Divine:'orange',Forest:'mint',Spirited:'blue',
+  Classical:'coral',Terra:'gold',Aesthetic:'blue',Whimsy:'pink',Glow:'green'
+};
+const ALL_LABEL_IDS=[1,2,3,4,5,6,7,8,9,10,11,12,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117];
+const idLabel=Object.fromEntries(ALL_LABEL_IDS.map((id,i)=>[id,LABELS[i]]));
+const accessoryTypes=new Set(SUB.accessories.map(x=>x[0]));
+let page='wardrobe',category='dresses',sub='all',catalog=null,items=[],names={},filtered=[],visibleLimit=120;
+let selectedStyles=new Set(),selectedLabels=new Set(),selectedRarities=new Set();
+const safeSet=(key)=>{try{return new Set(JSON.parse(localStorage.getItem(key)||'[]').map(Number).filter(Number.isSafeInteger))}catch{return new Set()}};
+let owned=safeSet('nikki-v2-owned'),ownedMakeup=safeSet('nikki-v2-makeup');
+let currentLoad=null;
+const safe=t=>String(t??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function notice(s){$('notice').textContent=s}
+function showModal(title,message,action){
+  $('modalTitle').textContent=title;$('modalText').textContent=message;
+  $('modalConfirm').hidden=!action;
+  $('modalConfirm').onclick=()=>{action?.();$('modal').close()};
+  $('modal').showModal();
+}
+$('modalClose').onclick=()=>$('modal').close();
+function persist(){
+  localStorage.setItem('nikki-v2-owned',JSON.stringify([...owned]));
+  localStorage.setItem('nikki-v2-makeup',JSON.stringify([...ownedMakeup]));
+  $('collectionStatus').textContent='✓ Owned · '+owned.size+' clothes · '+ownedMakeup.size+' makeup (local)';
+}
+function isOwned(i){return i.kind==='makeup'?ownedMakeup.has(i.id):owned.has(i.id)}
+function setOwned(i,yes){const set=i.kind==='makeup'?ownedMakeup:owned;yes?set.add(i.id):set.delete(i.id);persist()}
+const STARS=[5,4,3,2];
+$('rarities').classList.add('rarity-chips');
+$('rarities').innerHTML=STARS.map(n=>'<button type="button" class="rarity-chip" data-rarity="'+n+'" aria-pressed="false">'+('✦'.repeat(n))+'</button>').join('');
+function renderLabelPicker(){
+  $('labelList').innerHTML=LABELS.map(label=>'<button type="button" class="label-chip color-'+LABEL_COLORS[label]+(selectedLabels.has(label)?' selected':'')+'" data-label="'+label+'" aria-pressed="'+selectedLabels.has(label)+'">'+label+'</button>').join('');
+  $('labelList').querySelectorAll('[data-label]').forEach(b=>b.onclick=()=>{
+    const label=b.dataset.label;selectedLabels.has(label)?selectedLabels.delete(label):selectedLabels.add(label);
+    b.classList.toggle('selected',selectedLabels.has(label));b.setAttribute('aria-pressed',String(selectedLabels.has(label)));
+    visibleLimit=120;render();
+  });
+}
+function initCategories(){
+  $('categories').innerHTML=CATS.map(([id,label])=>'<button class="cat '+(id===category?'active':'')+'" data-cat="'+id+'"><span class="glyph icon-'+id+'" aria-hidden="true"></span><span>'+label+'</span></button>').join('');
+  $('categories').querySelectorAll('button').forEach(b=>b.onclick=()=>{category=b.dataset.cat;sub='all';visibleLimit=120;render()});
+  const subs=SUB[category]||[];
+  $('subcategories').innerHTML=subs.map(([id,label])=>'<button class="pill '+(sub===id?'active':'')+'" data-sub="'+id+'">'+label+'</button>').join('');
+  $('subcategories').querySelectorAll('button').forEach(b=>b.onclick=()=>{sub=b.dataset.sub;visibleLimit=120;render()});
+}
+function categoryMatch(i){
+  if(page==='analysis')return false;
+  if(page==='eureka')return i.kind==='eureka';
+  if(category==='outfits')return i.kind==='outfit';
+  if(category==='makeup')return i.kind==='makeup'&&(sub==='all'||i.type===sub);
+  if(i.kind!=='item')return false;
+  if(category==='accessories')return accessoryTypes.has(i.type)&&(sub==='all'||i.type===sub);
+  return i.type===category;
+}
+function getName(i){return names[i.kind+'_'+i.id]||i.name||'Item #'+i.id}
+function getImage(i){
+  if(i.kind==='outfit')return CDN+'/images/outfits/'+i.id+'.png';
+  if(i.kind==='eureka')return CDN+'/images/eurekas/'+i.id+'.png';
+  if(i.kind==='makeup')return CDN+'/images/items/makeups/'+i.id+'.png';
+  return CDN+'/images/items/icons/'+i.id+'.png';
+}
+function render(){
+  document.querySelectorAll('[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===page));
+  $('categories').style.display=page==='wardrobe'?'grid':'none';
+  $('subcategories').style.display=page==='wardrobe'?'flex':'none';
+  initCategories();
+  let list=items.filter(categoryMatch);
+  const search=$('search').value.trim().toLowerCase();
+  if(search)list=list.filter(i=>getName(i).toLowerCase().includes(search)||String(i.id).includes(search));
+  const o=document.querySelector('input[name=owned]:checked')?.value||'all';
+  if(o==='owned')list=list.filter(isOwned);
+  if(o==='missing')list=list.filter(i=>!isOwned(i));
+  if(selectedRarities.size)list=list.filter(i=>selectedRarities.has(i.stars));
+  if(selectedStyles.size)list=list.filter(i=>selectedStyles.has(i.style));
+  if(selectedLabels.size)list=list.filter(i=>[...selectedLabels].every(l=>i.labels.includes(l)));
+  const sort=$('sort').value;
+  if(sort==='rarity')list.sort((a,b)=>b.stars-a.stars||Number(b.id)-Number(a.id));
+  else if(sort==='id')list.sort((a,b)=>Number(a.id)-Number(b.id));
+  else list.sort((a,b)=>Number(b.id)-Number(a.id));
+  filtered=list;
+  const heading=page==='eureka'?'Eureka':page==='analysis'?'Analysis':(CATS.find(a=>a[0]===category)?.[1]||'Wardrobe');
+  $('heading').firstChild.textContent=heading+' ';
+  $('count').textContent=list.length+' items';
+  const shown=list.slice(0,visibleLimit);
+  $('grid').innerHTML=shown.map(i=>{
+    const itemName=safe(getName(i)),id=String(i.id),o=isOwned(i);
+    const image='<img loading="lazy" decoding="async" src="'+safe(getImage(i))+'" alt="" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="placeholder" hidden>✧</span>';
+    return '<article class="item '+(o?'':'not-owned')+'"><input class="owned" type="checkbox" data-kind="'+i.kind+'" data-owned="'+id+'" aria-label="Owned: '+itemName+'" '+(o?'checked':'')+'><div class="frame">'+image+'<span class="stars">'+('✦'.repeat(Math.min(i.stars||0,5)))+'</span></div><h3 title="'+itemName+'">'+itemName+'</h3><div class="badges"><span>'+safe(i.style||i.type||i.kind)+'</span><span>#'+id+'</span></div></article>';
+  }).join('');
+  $('grid').querySelectorAll('[data-owned]').forEach(b=>b.onchange=()=>{
+    const i=items.find(item=>item.id===Number(b.dataset.owned)&&item.kind===b.dataset.kind);
+    if(i){setOwned(i,b.checked);render();}
+  });
+  $('empty').hidden=list.length>0;
+  $('grid').style.display=list.length?'grid':'none';
+  let more=$('loadMore');
+  if(!more){more=document.createElement('button');more.id='loadMore';more.type='button';more.className='action';more.style.cssText='display:block;margin:24px auto 10px;';$('grid').after(more);more.onclick=()=>{visibleLimit+=120;render()};}
+  more.hidden=list.length<=visibleLimit;
+  more.textContent='Show more · '+Math.min(visibleLimit,list.length)+' / '+list.length;
+  if(page==='analysis'){
+    $('empty').querySelector('h3').textContent='Analysis is the next chapter';
+    $('empty').querySelector('p').textContent='The style × label matrix is still under construction.';
+  }else{
+    $('empty').querySelector('h3').textContent=catalog?'No matching items':'Your wardrobe awaits';
+    $('empty').querySelector('p').textContent=catalog?'Try another category or reset the filters.':'Loading game catalog…';
+  }
+}
+async function loadCatalog(checkOnly=false){
+  if(currentLoad&&!checkOnly)return currentLoad;
+  const task=(async()=>{
+    $('syncFoot').textContent='Checking catalog…';
+    try{
+      const r=await fetch(ROOT+'public/catalog/index.json',{cache:'no-store'});
+      if(!r.ok)throw Error('Catalog HTTP '+r.status);
+      const m=await r.json();
+      if(checkOnly){
+        $('syncFoot').textContent='Source '+m.gameVersion;
+        showModal('Catalog updates','Current public catalog: '+m.gameVersion+'. '+(catalog?.gameVersion===m.gameVersion?'You already have this version loaded.':'Choose Sync with gongeo to refresh the items.'));
+        return;
+      }
+      const required=['items','outfits','eurekas','makeups'];
+      const parts=await Promise.all(required.map(async k=>{
+        const url=ROOT+'public'+m.files[k].path;
+        const res=await fetch(url);
+        if(!res.ok)throw Error('Failed to fetch '+k+': '+res.status);
+        const body=await res.json();
+        return [k,Array.isArray(body)?body:body.r||[]];
+      }));
+      const dictionaries=await Promise.all(['item','outfit','eureka','makeup','misc'].map(async k=>{
+        const res=await fetch(ROOT+'app/locales/en/'+k+'.json');
+        if(!res.ok)throw Error('Failed to fetch '+k+' names: '+res.status);
+        return [k,await res.json()];
+      }));
+      const db=Object.fromEntries(parts),tr=Object.fromEntries(dictionaries),newNames={};
+      const unpack=x=>Array.isArray(x)?x:[x];
+      const mapped=[];
+      const append=(kind,ids,quality,styleIndex,labels,type,translation)=>{
+        for(const rawId of unpack(ids)){
+          const id=Number(rawId);if(!Number.isSafeInteger(id))continue;
+          const style=STYLES[styleIndex]||'';
+          const entry={id,kind,stars:Number(quality)||0,style,labels, type};
+          mapped.push(entry);
+          const translationKey=kind+'.'+id+'.name';
+          const label=translation[translationKey];
+          if(label)newNames[kind+'_'+id]=label;
+        }
+      };
+      db.items.forEach(row=>append('item',row[0],row[1],row[3],(row[4]||[]).map(id=>tr.misc['label.'+id+'.name']||idLabel[id]).filter(Boolean),ITEM_TYPES[row[2]]||'',tr.item));
+      db.outfits.forEach(row=>append('outfit',row[0],row[1],row[2],(row[3]||[]).map(id=>tr.misc['label.'+id+'.name']||idLabel[id]).filter(Boolean),'',tr.outfit));
+      db.makeups.forEach(row=>append('makeup',row[0],row[1],row[3],[],MAKEUP_TYPES[row[2]]||'',tr.makeup));
+      db.eurekas.forEach(row=>append('eureka',row[0],row[3],row[5],(row[6]||[]).map(id=>tr.misc['label.'+id+'.name']||idLabel[id]).filter(Boolean),['head','hands','feet'][row[2]]||'',tr.eureka));
+      if(mapped.length<3000)throw Error('Unexpectedly small catalog ('+mapped.length+')');
+      items=mapped;names=newNames;catalog=m;
+      $('catalogVersion').textContent='✧ Catalog · '+m.gameVersion;
+      $('syncFoot').textContent='Catalog '+m.gameVersion+' · '+items.length+' records';
+      notice('Loaded '+items.length.toLocaleString()+' catalog records. Clothing images © Infinity Nikki.');
+      render();
+    }catch(e){
+      notice('Catalog could not be loaded: '+e.message);
+      $('syncFoot').textContent='Catalog unavailable — retry Sync';
+      if(!catalog)showModal('Catalog unavailable','Could not load the public catalog. Check your connection and try Sync again. '+e.message);
+    }
+  })();
+  currentLoad=task;
+  try{await task}finally{if(currentLoad===task)currentLoad=null}
+}
+$('syncToggle').onclick=()=>{
+  const open=$('syncMenu').classList.toggle('open');
+  $('syncToggle').setAttribute('aria-expanded',String(open));
+};
+document.addEventListener('click',e=>{
+  if(!e.target.closest('.sync-wrap')){$('syncMenu').classList.remove('open');$('syncToggle').setAttribute('aria-expanded','false')}
+});
+$('syncCatalog').onclick=()=>loadCatalog();
+$('checkUpdates').onclick=()=>loadCatalog(true);
+function importJSON(){$('fileInput').click()}
+$('importJson').onclick=importJSON;$('emptyImport').onclick=importJSON;
+$('fileInput').onchange=async e=>{
+  const file=e.target.files[0];e.target.value='';if(!file)return;
+  try{
+    const obj=JSON.parse(await file.text()),wardrobe=obj?.wardrobe;
+    if(!Array.isArray(wardrobe?.ownedItemIds))throw Error('No wardrobe.ownedItemIds found');
+    const newClothes=new Set(wardrobe.ownedItemIds.filter(Number.isSafeInteger));
+    const newMakeup=Array.isArray(wardrobe.ownedMakeupIds)?new Set(wardrobe.ownedMakeupIds.filter(Number.isSafeInteger)):new Set(ownedMakeup);
+    const suffix=Array.isArray(wardrobe.ownedMakeupIds)?' and '+newMakeup.size+' makeup IDs':'';
+    showModal('Import gongeo JSON','Found '+newClothes.size+' clothing IDs'+suffix+'. Replace your local owned lists? The file is not uploaded anywhere.',()=>{
+      owned=newClothes;ownedMakeup=newMakeup;persist();render();notice('Imported ownership: '+owned.size+' clothing, '+ownedMakeup.size+' makeup');
+    });
+  }catch(err){showModal('Import failed',err.message)}
+};
+document.querySelectorAll('[data-page]').forEach(b=>b.onclick=()=>{page=b.dataset.page;visibleLimit=120;render()});
+$('search').oninput=()=>{visibleLimit=120;render()};
+$('sort').onchange=render;
+$('rarities').querySelectorAll('[data-rarity]').forEach(b=>b.onclick=()=>{
+  const n=Number(b.dataset.rarity);selectedRarities.has(n)?selectedRarities.delete(n):selectedRarities.add(n);
+  b.classList.toggle('active',selectedRarities.has(n));b.setAttribute('aria-pressed',String(selectedRarities.has(n)));
+  visibleLimit=120;render();
+});
+document.querySelectorAll('input[name=owned]').forEach(b=>b.onchange=()=>{visibleLimit=120;render()});
+$('styleChips').querySelectorAll('[data-style]').forEach(b=>b.onclick=()=>{
+  const v=b.dataset.style;selectedStyles.has(v)?selectedStyles.delete(v):selectedStyles.add(v);
+  b.classList.toggle('active',selectedStyles.has(v));b.setAttribute('aria-pressed',String(selectedStyles.has(v)));
+  visibleLimit=120;render();
+});
+$('reset').onclick=()=>{
+  $('search').value='';document.querySelector('input[name=owned][value=all]').checked=true;
+  selectedRarities.clear();selectedStyles.clear();selectedLabels.clear();
+  $('rarities').querySelectorAll('[data-rarity]').forEach(b=>{b.classList.remove('active');b.setAttribute('aria-pressed','false')});
+  $('styleChips').querySelectorAll('[data-style]').forEach(b=>{b.classList.remove('active');b.setAttribute('aria-pressed','false')});
+  renderLabelPicker();visibleLimit=120;render();
+};
+renderLabelPicker();persist();render();loadCatalog();
+})();
