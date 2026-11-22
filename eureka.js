@@ -11,24 +11,29 @@ const OPTIONS=[['all','All'],['complete','Complete'],['partial','In progress'],[
 const LABEL_COLORS={Warm:'blue',Summer:'pink',Home:'green',Formal:'gold',Simple:'coral',Fantasy:'mint',Intellectual:'orange',Adventure:'coral',Romance:'pink',Retro:'orange',Fashion:'green',Uniform:'blue',Fairy:'mint',Ballroom:'orange',Royal:'coral',Linlang:'gold',Pastoral:'green',Playful:'blue',Trendy:'orange',Cute:'pink',Light:'gold','More Light':'gold',Divine:'orange',Forest:'mint',Spirited:'blue',Classical:'coral',Terra:'gold',Aesthetic:'blue',Whimsy:'pink',Glow:'green'};
 const STYLE_CLASSES={Elegant:'style-elegant',Sweet:'style-sweet',Cool:'style-cool',Fresh:'style-fresh',Sexy:'style-sexy'};
 const CACHE_KEY='nikki-v2-eureka-progress-v1';
+const IMPORT_KEY='nikki-v2-eureka-json-ids-v1';
 let local;
 try {const obj=JSON.parse(localStorage.getItem(CACHE_KEY)||'{}');local={colors:obj.colors||{},copies:obj.copies||{}}}
 catch{local={colors:{},copies:{}}}
 let all=[],names={},filters={},sets=[],active=false,ready=false;
+let importedIds=[];
+try{const stored=JSON.parse(localStorage.getItem(IMPORT_KEY)||'[]');if(Array.isArray(stored))importedIds=stored.map(Number).filter(Number.isSafeInteger)}catch{}
+let importReport={sourceIds:importedIds.length,matched:0,unmatched:0};
 const setName=s=>s?.replace(/:\s*(Head|Hands|Feet)$/i,'').trim()||'Unknown Set';
 const isColorOwned=id=>!!local.colors[id];
-const copiesFor=id=>Math.max(0,Number(local.copies[id])||0);
+// Missing quantity information is UNKNOWN, not zero: gongeo JSON has no uncolored-stock counts.
+const copiesFor=id=>Object.prototype.hasOwnProperty.call(local.copies,id)?Math.max(0,Number(local.copies[id])||0):null;
 const colorCount=p=>(p.colors||[]).filter(c=>isColorOwned(c.id)).length;
 const totalColorCount=p=>(p.colors||[]).length;
-const hasPart=p=>!!p&&(colorCount(p)>0||copiesFor(p.id)>0);
+const hasPart=p=>!!p&&(colorCount(p)>0||(copiesFor(p.id)??0)>0);
 const availableParts=set=>PARTS.map(part=>set.parts[part]).filter(Boolean);
 const partsToCheck=set=>PARTS.filter(x=>document.querySelector('#eurekaPart')?.value==='all'||document.querySelector('#eurekaPart')?.value===x).map(x=>set.parts[x]).filter(Boolean);
 const stats=s=>{
   const parts=availableParts(s),have=parts.filter(hasPart).length,total=parts.length;
   const colors=parts.reduce((a,p)=>a+colorCount(p),0);
   const totalColors=parts.reduce((a,p)=>a+totalColorCount(p),0);
-  const spare=parts.reduce((a,p)=>a+copiesFor(p.id),0);
-  return {parts,have,total,colors,totalColors,spare};
+  const spare=parts.reduce((a,p)=>a+(copiesFor(p.id)??0),0),unknownCopies=parts.filter(p=>copiesFor(p.id)===null).length;
+  return {parts,have,total,colors,totalColors,spare,unknownCopies};
 };
 function save(){try{localStorage.setItem(CACHE_KEY,JSON.stringify(local))}catch{}}
 function patchStyles(){let el=$('eurekaFilterControls');if(el)return;
@@ -43,7 +48,7 @@ function patchStyles(){let el=$('eurekaFilterControls');if(el)return;
   $('eurekaImportCsv').onclick=()=>$('eurekaCsvFile').click();
   $('eurekaCsvFile').onchange=async e=>{const file=e.target.files[0];e.target.value='';if(!file)return;try{const data=await file.text();const result=importCsv(data);$('notice').textContent='Eureka imported: '+result.parts+' parts, '+result.colors+' colors, '+result.copies+' uncolored copies.';draw()}catch(err){$('notice').textContent='Eureka CSV: '+err.message}};
   const main=$('grid').parentElement;
-  const dashboard=document.createElement('div');dashboard.id='eurekaView';dashboard.hidden=true;dashboard.innerHTML='<div id="eurekaStats" class="eureka-stats"></div><div id="eurekaSetGrid" class="eureka-set-grid"></div><div id="eurekaNoResults" class="eureka-no-results" hidden>No sets match the filters.</div>';
+  const dashboard=document.createElement('div');dashboard.id='eurekaView';dashboard.hidden=true;dashboard.innerHTML='<div id="eurekaImportStatus" class="eureka-import-status"></div><div id="eurekaStats" class="eureka-stats"></div><div id="eurekaSetGrid" class="eureka-set-grid"></div><div id="eurekaNoResults" class="eureka-no-results" hidden>No sets match the filters.</div>';
   $('grid').before(dashboard);
   ready=true;
 }
@@ -92,8 +97,8 @@ function isMatch(set){
   if(colorFilter==='none'&&!subset.every(p=>colorCount(p)===0))return false;
   const farm=$('eurekaFarm').value;
   if(farm==='zero'&&!subset.some(p=>copiesFor(p.id)===0))return false;
-  if(farm==='low'&&!subset.some(p=>copiesFor(p.id)<=1))return false;
-  if(farm==='stocked'&&!subset.every(p=>copiesFor(p.id)>=2))return false;
+  if(farm==='low'&&!subset.some(p=>copiesFor(p.id)!==null&&copiesFor(p.id)<=1))return false;
+  if(farm==='stocked'&&!subset.every(p=>copiesFor(p.id)!==null&&copiesFor(p.id)>=2))return false;
   return true;
 }
 function colorButton(p,c){
@@ -107,7 +112,7 @@ function partCard(p,part,chosen){
    +'<div class="eureka-art">'+imageMarkup(p)+'</div>'
    +'<div class="eureka-part-progress"><span>Colors</span><b>'+count+' / '+total+'</b></div>'
    +'<div class="eureka-colors">'+(p.colors||[]).map(c=>colorButton(p,c)).join('')+'</div>'
-   +'<div class="eureka-part-stock"><span>Uncolored copies</span><div class="eureka-stepper"><button type="button" data-step="-1" data-id="'+p.id+'" aria-label="Decrease uncolored copies">−</button><strong>'+copies+'</strong><button type="button" data-step="1" data-id="'+p.id+'" aria-label="Increase uncolored copies">+</button></div></div></div>';
+   +'<div class="eureka-part-stock"><span>Uncolored copies</span><div class="eureka-stepper"><button type="button" data-step="-1" data-id="'+p.id+'" aria-label="Decrease uncolored copies">−</button><strong title="'+(copies===null?'Not provided by gongeo JSON':'Recorded uncolored copies')+'">'+(copies===null?'—':copies)+'</strong><button type="button" data-step="1" data-id="'+p.id+'" aria-label="Increase uncolored copies">+</button></div></div></div>';
 }
 function setCard(s){
   const t=stats(s);
@@ -115,14 +120,14 @@ function setCard(s){
   const partSelected=$('eurekaPart').value;
   return '<article class="eureka-set-card"><div class="eureka-set-header"><div class="eureka-set-heading"><h3>'+esc(s.name)+'</h3><div class="eureka-set-tags"><span class="eureka-rarity">'+('✦'.repeat(Math.min(5,s.stars)))+'</span>'+(s.style?'<span class="eureka-style style-chip '+(STYLE_CLASSES[s.style]||'')+'">'+esc(s.style)+'</span>':'')+badges+'</div></div><div class="eureka-set-progress">'+t.have+' / '+t.total+' <small>parts</small></div></div>'
    +'<div class="eureka-parts">'+PARTS.map(part=>partSelected==='all'||partSelected===part?partCard(s.parts[part],part):'').join('')+'</div>'
-   +'<div class="eureka-set-footer"><span>🎨 '+t.colors+' / '+t.totalColors+' colors</span><span>✧ '+t.spare+' uncolored copies</span></div></article>';
+   +'<div class="eureka-set-footer"><span>🎨 '+t.colors+' / '+t.totalColors+' colors</span><span>✧ '+(t.unknownCopies?'Stock incomplete · '+t.unknownCopies+' unknown':t.spare+' uncolored copies')+'</span></div></article>';
 }
 function makeSummary(){
  const statsAll=sets.map(stats);const parts=statsAll.reduce((a,s)=>a+s.total,0),collected=statsAll.reduce((a,s)=>a+s.have,0),colors=statsAll.reduce((a,s)=>a+s.colors,0),total=statsAll.reduce((a,s)=>a+s.totalColors,0),complete=statsAll.filter(s=>s.total>0&&s.have===s.total).length,zero=sets.reduce((a,s)=>a+availableParts(s).filter(p=>copiesFor(p.id)===0).length,0);
  return '<div class="eureka-summary-item"><strong>'+collected+' <span>/ '+parts+'</span></strong><small>Unique parts</small></div>'
    +'<div class="eureka-summary-item"><strong>'+complete+' <span>/ '+sets.length+'</span></strong><small>Complete sets</small></div>'
    +'<div class="eureka-summary-item"><strong>'+colors+' <span>/ '+total+'</span></strong><small>Colors collected</small></div>'
-   +'<div class="eureka-summary-item"><strong>'+zero+'</strong><small>No uncolored copies</small></div>';
+   +'<div class="eureka-summary-item"><strong>'+zero+'</strong><small>Confirmed 0 copies</small></div>';
 }
 function draw(){
  if(!active||!ready)return;
@@ -134,6 +139,12 @@ function draw(){
  $('heading').firstChild.textContent='Eureka Sets ';
  $('count').textContent=list.length+' sets';
  $('eurekaStats').innerHTML=makeSummary();
+ const matched=importReport.matched;
+ $('eurekaImportStatus').innerHTML=importReport.sourceIds
+   ?'✓ gongeo JSON: '+matched+' of '+importReport.sourceIds+' Eureka colors matched'+(importReport.unmatched?' · '+importReport.unmatched+' IDs not found':'')+'. Uncolored quantities require separate tracking.'
+   :Object.keys(local.colors).some(k=>local.colors[k])
+     ?'Some Eureka colors are marked locally. No imported JSON snapshot saved yet.'
+     :'No Eureka colors imported yet. Reimport your gongeo JSON once via Sync → Import JSON. Future catalog updates will preserve them.';
  $('eurekaSetGrid').innerHTML=list.map(setCard).join('');
  $('eurekaNoResults').textContent='No sets match these filters. Reset filters to see all '+sets.length+' catalog sets, including uncollected Eureka.';
  $('eurekaNoResults').hidden=list.length>0;
@@ -144,8 +155,16 @@ function activate(on){
  if(ownership?.classList.contains('filter'))ownership.hidden=on;
  if(on)draw();
 }
+function matchImportedIds(){
+ if(!importedIds.length){importReport={sourceIds:0,matched:0,unmatched:0};return}
+ const available=new Set(all.filter(i=>i.kind==='eureka').flatMap(i=>(i.colors||[]).map(c=>c.id)));
+ const matching=importedIds.filter(id=>available.has(id));
+ for(const id of matching)local.colors[id]=true;
+ importReport={sourceIds:importedIds.length,matched:matching.length,unmatched:importedIds.length-matching.length};
+ save();
+}
 function setCatalog(entries,translations,sharedFilters){
- all=entries;names=translations;filters=sharedFilters;buildSets();if(active)draw();
+ all=entries;names=translations;filters=sharedFilters;buildSets();matchImportedIds();if(active)draw();
 }
 function reset(){
  if(!ready)return;
@@ -192,10 +211,31 @@ function importCsv(text){
  local.colors=newColors;local.copies=newCopies;save();return {parts:matched,colors,copies};
 }
 function importIds(ids){
- if(!Array.isArray(ids))return 0;
- const available=new Set(all.filter(i=>i.kind==='eureka').flatMap(i=>(i.colors||[]).map(c=>c.id)));
- let n=0;for(const id of ids){if(available.has(id)){local.colors[id]=true;n++}}
- save();if(active)draw();return n;
+ if(!Array.isArray(ids))return {sourceIds:0,matched:0,unmatched:0};
+ importedIds=[...new Set(ids.map(Number).filter(Number.isSafeInteger))];
+ try{localStorage.setItem(IMPORT_KEY,JSON.stringify(importedIds))}catch{}
+ // Persist source IDs even when catalog is still loading.
+ matchImportedIds();
+ if(active)draw();
+ return {...importReport};
 }
+function handleSetClick(event){
+ const colorButton=event.target.closest('button[data-color-id]');
+ if(colorButton){
+   const id=Number(colorButton.dataset.colorId);
+   if(!Number.isSafeInteger(id))return;
+   if(isColorOwned(id))delete local.colors[id];else local.colors[id]=true;
+   save();draw();return;
+ }
+ const step=event.target.closest('button[data-step][data-id]');
+ if(step){
+   const id=Number(step.dataset.id),delta=Number(step.dataset.step);
+   if(!Number.isSafeInteger(id)||![-1,1].includes(delta))return;
+   const current=copiesFor(id)??0;
+   local.copies[id]=Math.max(0,current+delta);
+   save();draw();
+ }
+}
+document.addEventListener('click',event=>{if(event.target.closest('#eurekaSetGrid'))handleSetClick(event)});
 window.NikkiEureka={activate,setCatalog,draw,reset,importIds};
 })();
