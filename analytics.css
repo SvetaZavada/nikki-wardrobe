@@ -92,3 +92,16 @@
 /* Incremental analytics lists, no pagination. */
 .analysis-example-sentinel{height:22px;pointer-events:none;opacity:0}
 .analysis-example-sentinel[hidden]{display:none!important}
+
+/* Compact art previews in both owned and missing item lists. */
+.analysis-example{grid-template-columns:54px minmax(0,1fr) auto;min-height:68px;gap:10px}
+.analysis-example-thumbnail{display:flex;align-items:center;justify-content:center;width:54px;height:54px;border-radius:11px;overflow:hidden;background:linear-gradient(145deg,#f4edf7,#e9e2f3);border:1px solid #e9ddec;flex:none}
+.analysis-example-thumbnail img{display:block;width:100%;height:100%;object-fit:contain}
+.analysis-example-thumbnail img[hidden]{display:none}
+.analysis-example-image-fallback{color:#b4a3c3;font-size:23px}
+.analysis-example-image-fallback[hidden]{display:none}
+.analysis-example-info{display:flex;flex-direction:column;gap:4px;min-width:0}
+.analysis-example-stars{letter-spacing:-1px;font-size:11px}
+@media(max-width:1320px){.analysis-example{grid-template-columns:54px minmax(0,1fr)}.analysis-example-actions{grid-column:2}}
+@media(max-width:760px){.analysis-example{grid-template-columns:50px minmax(0,1fr) auto}.analysis-example-thumbnail{width:50px;height:50px}.analysis-example-actions{grid-column:3}}
+@media(max-width:470px){.analysis-example{grid-template-columns:50px minmax(0,1fr)}.analysis-example-actions{grid-column:2}}
