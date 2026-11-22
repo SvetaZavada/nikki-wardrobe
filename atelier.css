@@ -292,3 +292,17 @@ footer{border-top:1px solid #e7dde4;color:#a29aa7;letter-spacing:.04em}
 .item img[hidden],.item .placeholder[hidden]{display:none!important}
 .item .frame{position:relative}
 .item .frame .placeholder:not([hidden]){position:absolute;inset:0;display:grid;place-items:center}
+
+/* Catalog cards: two-line names; game-color style and label tags. */
+.item{display:flex;flex-direction:column;min-width:0}
+.item h3{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;overflow:hidden;text-overflow:ellipsis;white-space:normal!important;line-height:1.28;min-height:calc(2 * 1.28em);max-height:calc(2 * 1.28em);overflow-wrap:anywhere;margin:9px 3px 8px}
+.item .frame{position:relative}
+.item .stars{top:7px!important;left:7px!important;right:auto!important;z-index:3;white-space:nowrap;color:#f8de9f!important;font-size:14px;background:#635b7a55;padding:2px 4px;border-radius:4px;text-shadow:0 1px 3px #544267}
+.item .owned{top:12px!important;right:11px!important;left:auto!important;z-index:4}
+.item .badges{display:flex;flex-direction:column;justify-content:start;align-items:center;gap:6px;min-height:66px;margin-top:auto;padding:0 4px 8px}
+.item .badges .card-style{display:inline-flex;align-items:center;justify-content:center;min-height:25px;max-width:100%;padding:2px 12px;border-radius:2px;border:1px solid #ffffff88;font-family:Nunito,sans-serif;font-weight:800;font-size:12px;line-height:1.1;color:white;text-shadow:0 1px 2px #453b5460}
+.item .card-labels{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:4px}
+.item .badges .card-label{display:inline-flex;align-items:center;justify-content:center;min-height:23px;height:auto;max-width:100%;padding:3px 8px!important;border-radius:99px!important;border:1px solid var(--chip-color)!important;background:var(--chip-bg)!important;color:var(--chip-color)!important;font-family:Nunito,sans-serif!important;font-size:11px!important;font-weight:800!important;line-height:1.15;white-space:normal;overflow-wrap:anywhere;text-align:center;box-shadow:none!important}
+.item .badges:empty{min-height:0}
+.item img[hidden],.item .placeholder[hidden]{display:none!important}
+.item .frame .placeholder:not([hidden]){position:absolute;inset:0;display:grid;place-items:center}
