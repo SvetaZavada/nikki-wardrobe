@@ -78,7 +78,7 @@ function getName(i){return names[i.kind+'_'+i.id]||i.name||'Item #'+i.id}
 function getImage(i){
   if(i.kind==='outfit')return CDN+'/images/outfits/'+i.id+'.png';
   if(i.kind==='eureka')return CDN+'/images/eurekas/'+i.id+'.png';
-  if(i.kind==='makeup')return CDN+'/images/items/makeups/'+i.id+'.png';
+  if(i.kind==='makeup')return CDN+(i.type==='full'?'/images/items/makeups/':'/images/items/icons/')+i.id+'.png';
   return CDN+'/images/items/icons/'+i.id+'.png';
 }
 function render(){
