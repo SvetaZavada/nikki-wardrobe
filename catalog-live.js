@@ -125,7 +125,7 @@ function itemMarkup(i){
     const image='<img loading="lazy" decoding="async" src="'+safe(sources[0])+'" data-sources="'+safe(JSON.stringify(sources))+'" data-image-index="0" alt="" onerror="window.nikkiImageFallback(this)"><span class="placeholder" hidden>✧</span>';
     const mainStyle=i.style?'<span class="card-style '+(STYLE_CLASSES[i.style]||'')+'">'+safe(i.style)+'</span>':'';
     const labels=(i.labels||[]).slice(0,2).map(label=>'<span class="card-label label-chip color-'+(LABEL_COLORS[label]||'gold')+'">'+safe(label)+'</span>').join('');
-    return '<article class="item '+(o?'':'not-owned')+'"><input class="owned" type="checkbox" data-kind="'+i.kind+'" data-owned="'+id+'" aria-label="Owned: '+itemName+'" '+(o?'checked':'')+'><div class="frame">'+image+'<span class="stars">'+('✦'.repeat(Math.min(i.stars||0,5)))+'</span></div><h3 title="'+itemName+'">'+itemName+'</h3><div class="badges">'+mainStyle+'<div class="card-labels">'+labels+'</div></div></article>';
+    return '<article class="item '+(o?'':'not-owned')+'" data-card-kind="'+i.kind+'" data-card-id="'+id+'"><input class="owned" type="checkbox" data-kind="'+i.kind+'" data-owned="'+id+'" aria-label="Owned: '+itemName+'" '+(o?'checked':'')+'><div class="frame">'+image+'<span class="stars">'+('✦'.repeat(Math.min(i.stars||0,5)))+'</span></div><h3 title="'+itemName+'">'+itemName+'</h3><div class="badges">'+mainStyle+'<div class="card-labels">'+labels+'</div></div></article>';
 }
 function bindOwnedButtons(){
   $('grid').querySelectorAll('[data-owned]:not([data-bound])').forEach(b=>{
@@ -140,6 +140,37 @@ function appendWardrobeItems(begin,end){
   $('grid').insertAdjacentHTML('beforeend',filtered.slice(begin,end).map(itemMarkup).join(''));
   bindOwnedButtons();
 }
+function navigateToWardrobeItem(kind,id){
+  const item=items.find(i=>i.kind===kind&&i.id===Number(id));
+  if(!item)return;
+  page='wardrobe';
+  if(kind==='outfit'){category='outfits';sub='all'}
+  else if(kind==='makeup'){category='makeup';sub='all'}
+  else if(kind==='item'){
+    if(accessoryTypes.has(item.type)){category='accessories';sub='all'}
+    else {category=item.type;sub='all'}
+  }else return;
+  // Show the exact item regardless of unrelated filters left over from browsing.
+  $('search').value=String(id);
+  document.querySelector('input[name=owned][value=all]').checked=true;
+  selectedStyles.clear();selectedLabels.clear();selectedRarities.clear();
+  $('rarities').querySelectorAll('[data-rarity]').forEach(b=>{
+    b.classList.remove('active');b.setAttribute('aria-pressed','false');
+  });
+  $('styleChips').querySelectorAll('[data-style]').forEach(b=>{
+    b.classList.remove('active');b.setAttribute('aria-pressed','false');
+  });
+  renderLabelPicker();
+  visibleLimit=48;
+  render();
+  const element=[...$('grid').querySelectorAll('[data-card-kind][data-card-id]')]
+    .find(el=>el.dataset.cardKind===kind&&Number(el.dataset.cardId)===item.id);
+  if(element){
+    element.classList.add('wardrobe-jump-highlight');
+    element.scrollIntoView({behavior:'smooth',block:'center'});
+  }
+}
+window.NikkiNavigateToItem=navigateToWardrobeItem;
 function render(){
   // Eureka currently has only 3★, 4★, 5★; keep 2★ available in Wardrobe.
   const twoStar=$('rarities').querySelector('[data-rarity="2"]');
