@@ -262,11 +262,16 @@ $('fileInput').onchange=async e=>{
     const newClothes=new Set(wardrobe.ownedItemIds.filter(Number.isSafeInteger));
     const newMakeup=Array.isArray(wardrobe.ownedMakeupIds)?new Set(wardrobe.ownedMakeupIds.filter(Number.isSafeInteger)):new Set(ownedMakeup);
     const eurekaColorIds=Array.isArray(wardrobe.ownedEurekaColorIds)?wardrobe.ownedEurekaColorIds:null;
-    const suffix=Array.isArray(wardrobe.ownedMakeupIds)?' and '+newMakeup.size+' makeup IDs':'';
+    const suffix=(Array.isArray(wardrobe.ownedMakeupIds)?' and '+newMakeup.size+' makeup IDs':'')+
+      (eurekaColorIds?' and '+eurekaColorIds.length+' Eureka color IDs':'');
     showModal('Import gongeo JSON','Found '+newClothes.size+' clothing IDs'+suffix+'. Replace your local owned lists? The file is not uploaded anywhere.',()=>{
       owned=newClothes;ownedMakeup=newMakeup;
-      const n=eurekaColorIds?window.NikkiEureka?.importIds(eurekaColorIds)||0:0;
-      persist();render();notice('Imported ownership: '+owned.size+' clothing, '+ownedMakeup.size+' makeup'+(eurekaColorIds?', '+n+' Eureka colors':''));
+      const eurekaResult=eurekaColorIds?window.NikkiEureka?.importIds(eurekaColorIds):null;
+      persist();render();
+      notice('Imported ownership: '+owned.size+' clothing, '+ownedMakeup.size+' makeup'
+        +(eurekaResult?', '+eurekaResult.matched+' of '+eurekaResult.sourceIds+' Eureka colors matched':'')
+        +(eurekaColorIds===null?' · This JSON contains no Eureka color data.':''));
+
     });
   }catch(err){showModal('Import failed',err.message)}
 };
