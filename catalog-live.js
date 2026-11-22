@@ -26,7 +26,7 @@ const LABEL_COLORS={
 const ALL_LABEL_IDS=[1,2,3,4,5,6,7,8,9,10,11,12,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117];
 const idLabel=Object.fromEntries(ALL_LABEL_IDS.map((id,i)=>[id,LABELS[i]]));
 const accessoryTypes=new Set(SUB.accessories.map(x=>x[0]));
-let page='wardrobe',category='dresses',sub='all',catalog=null,items=[],names={},filtered=[],visibleLimit=48;
+let page='wardrobe',category='outfits',sub='all',catalog=null,items=[],names={},filtered=[],visibleLimit=48;
 let selectedStyles=new Set(),selectedLabels=new Set(),selectedRarities=new Set();
 const safeSet=(key)=>{try{return new Set(JSON.parse(localStorage.getItem(key)||'[]').map(Number).filter(Number.isSafeInteger))}catch{return new Set()}};
 let owned=safeSet('nikki-v2-owned'),ownedMakeup=safeSet('nikki-v2-makeup');
@@ -307,7 +307,7 @@ $('fileInput').onchange=async e=>{
     });
   }catch(err){showModal('Import failed',err.message)}
 };
-document.querySelectorAll('[data-page]').forEach(b=>b.onclick=()=>{page=b.dataset.page;visibleLimit=48;render()});
+document.querySelectorAll('[data-page]').forEach(b=>b.onclick=()=>{page=b.dataset.page;if(page==='wardrobe'){category='outfits';sub='all'}visibleLimit=48;render()});
 $('search').oninput=()=>{visibleLimit=48;render()};
 $('sort').onchange=render;
 $('rarities').querySelectorAll('[data-rarity]').forEach(b=>b.onclick=()=>{
