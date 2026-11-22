@@ -287,3 +287,8 @@ footer{border-top:1px solid #e7dde4;color:#a29aa7;letter-spacing:.04em}
 #categories .cat .icon-shoes{background-position:-92px -46px}
 #categories .cat .icon-accessories{background-position:-138px -46px}
 #categories .cat .icon-makeup{background-position:-184px -46px}
+
+/* Respect lazy-image fallback visibility; existing card styles otherwise override HTML hidden. */
+.item img[hidden],.item .placeholder[hidden]{display:none!important}
+.item .frame{position:relative}
+.item .frame .placeholder:not([hidden]){position:absolute;inset:0;display:grid;place-items:center}
