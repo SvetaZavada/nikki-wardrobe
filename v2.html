@@ -85,7 +85,7 @@ footer{text-align:center;font-size:11px;color:#817391;padding:3px 0}
 
 /* Match Outfit and Accessories subcategory chips to Labels: 32px / 15px. */
 #subcategories .pill{min-height:32px;height:32px;box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;padding:0 12px;font-size:15px;font-weight:700;line-height:1.2}
-</style><link rel="stylesheet" href="./atelier.css?v=3"></head><body><div class="sky"></div><div class="wings"></div>
+</style><link rel="stylesheet" href="./atelier.css?v=4"></head><body><div class="sky"></div><div class="wings"></div>
 <header class="top"><div class="brand"><h1>✧ Nikki Wardrobe</h1><p>Infinity Nikki collection</p></div><nav><button class="tab active" data-page="wardrobe">♧ Wardrobe</button><button class="tab" data-page="eureka">✧ Eureka</button><button class="tab" data-page="analysis">▥ Analysis</button></nav></header>
 <main class="shell"><div class="utility"><div class="status"><span id="catalogVersion">✧ Catalog · Preview</span><span id="collectionStatus">☁ Collection · local</span></div><div class="sync-wrap"><button class="sync-btn" id="syncToggle" aria-expanded="false" aria-controls="syncMenu">☁ Sync ⌄</button><div class="sync-menu" id="syncMenu"><button id="importJson">↧ Import JSON</button><button id="syncCatalog">↻ Sync with gongeo</button><button id="checkUpdates">☁ Check updates</button><small id="syncFoot">Catalog source: gongeo.us</small></div></div></div>
 <div class="categorybar" id="categories"></div><div class="subbar" id="subcategories"></div>
@@ -108,7 +108,7 @@ $('modalClose').onclick=()=>$('modal').close();
 $('syncToggle').onclick=()=>{$('syncMenu').classList.toggle('open');$('syncToggle').setAttribute('aria-expanded',$('syncMenu').classList.contains('open'))};
 document.addEventListener('click',e=>{if(!e.target.closest('.sync-wrap')){$('syncMenu').classList.remove('open');$('syncToggle').setAttribute('aria-expanded','false')}});
 function persist(){localStorage.setItem('nikki-v2-owned',JSON.stringify([...owned]));$('collectionStatus').textContent='✓ Owned · '+owned.size+' items (local preview)'}
-function initCategories(){ $('categories').innerHTML=CATS.map(([id,label,ico])=>'<button class="cat '+(id===category?'active':'')+'" data-cat="'+id+'"><span class="glyph">'+ico+'</span><span>'+label+'</span></button>').join('');
+function initCategories(){ $('categories').innerHTML=CATS.map(([id,label,ico])=>'<button class="cat '+(id===category?'active':'')+'" data-cat="'+id+'"><span class="glyph icon-'+id+'" aria-hidden="true"></span><span>'+label+'</span></button>').join('');
 $('categories').querySelectorAll('button').forEach(b=>b.onclick=()=>{category=b.dataset.cat;sub='all';render()});
 $('subcategories').innerHTML=(SUB[category]||[]).map(([id,label])=>'<button class="pill '+(sub===id?'active':'')+'" data-sub="'+id+'">'+label+'</button>').join('');$('subcategories').querySelectorAll('button').forEach(b=>{b.onclick=()=>{sub=b.dataset.sub;render()}})}
 const ALL_LABELS=['Warm','Summer','Home','Formal','Simple','Fantasy','Intellectual','Adventure','Romance','Retro','Fashion','Uniform','Fairy','Ballroom','Royal','Linlang','Pastoral','Playful','Trendy','Cute','Light','More Light','Divine','Forest','Spirited','Classical','Terra','Aesthetic','Whimsy','Glow'];
