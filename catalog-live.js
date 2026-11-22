@@ -98,6 +98,15 @@ function render(){
   $('categories').style.display=page==='wardrobe'?'grid':'none';
   $('subcategories').style.display=page==='wardrobe'?'flex':'none';
   initCategories();
+  if(page==='eureka'){
+    $('grid').hidden=true;$('grid').style.display='none';
+    $('empty').hidden=true;
+    const more=$('loadMore');if(more)more.hidden=true;
+    window.NikkiEureka?.activate(true);
+    return;
+  }
+  window.NikkiEureka?.activate(false);
+  $('grid').hidden=false;
   let list=items.filter(categoryMatch);
   const search=$('search').value.trim().toLowerCase();
   if(search)list=list.filter(i=>getName(i).toLowerCase().includes(search)||String(i.id).includes(search));
@@ -188,9 +197,16 @@ async function loadCatalog(checkOnly=false){
         const type=MAKEUP_TYPES[row[2]]||'';
         append('makeup',row[0],row[1],row[3],[],type,type==='full'?tr.makeup:tr.item);
       });
-      db.eurekas.forEach(row=>append('eureka',row[0],row[3],row[5],(row[6]||[]).map(id=>tr.misc['label.'+id+'.name']||idLabel[id]).filter(Boolean),['head','hands','feet'][row[2]]||'',tr.eureka));
+      db.eurekas.forEach(row=>{
+        const id=Number(row[0]),type=['head','hands','feet'][row[2]]||'';
+        const labels=(row[6]||[]).map(labelId=>tr.misc['label.'+labelId+'.name']||idLabel[labelId]).filter(Boolean);
+        const colors=(row[8]||[]).filter(color=>Array.isArray(color)&&Number.isSafeInteger(color[0])).map(color=>({id:color[0],type:color[1]}));
+        mapped.push({id,kind:'eureka',suitId:Number(row[1]),type,stars:Number(row[3]),style:STYLES[row[5]]||'',labels,colors});
+        const label=tr.eureka['eureka.'+id+'.name'];if(label)newNames['eureka_'+id]=label;
+      });
       if(mapped.length<3000)throw Error('Unexpectedly small catalog ('+mapped.length+')');
       items=mapped;names=newNames;catalog=m;
+      window.NikkiEureka?.setCatalog(items,names,{styles:selectedStyles,labels:selectedLabels,rarities:selectedRarities});
       $('catalogVersion').textContent='✧ Catalog · '+m.gameVersion;
       $('syncFoot').textContent='Catalog '+m.gameVersion+' · '+items.length+' records';
       notice('Loaded '+items.length.toLocaleString()+' catalog records. Clothing images © Infinity Nikki.');
@@ -222,9 +238,12 @@ $('fileInput').onchange=async e=>{
     if(!Array.isArray(wardrobe?.ownedItemIds))throw Error('No wardrobe.ownedItemIds found');
     const newClothes=new Set(wardrobe.ownedItemIds.filter(Number.isSafeInteger));
     const newMakeup=Array.isArray(wardrobe.ownedMakeupIds)?new Set(wardrobe.ownedMakeupIds.filter(Number.isSafeInteger)):new Set(ownedMakeup);
+    const eurekaColorIds=Array.isArray(wardrobe.ownedEurekaColorIds)?wardrobe.ownedEurekaColorIds:null;
     const suffix=Array.isArray(wardrobe.ownedMakeupIds)?' and '+newMakeup.size+' makeup IDs':'';
     showModal('Import gongeo JSON','Found '+newClothes.size+' clothing IDs'+suffix+'. Replace your local owned lists? The file is not uploaded anywhere.',()=>{
-      owned=newClothes;ownedMakeup=newMakeup;persist();render();notice('Imported ownership: '+owned.size+' clothing, '+ownedMakeup.size+' makeup');
+      owned=newClothes;ownedMakeup=newMakeup;
+      const n=eurekaColorIds?window.NikkiEureka?.importIds(eurekaColorIds)||0:0;
+      persist();render();notice('Imported ownership: '+owned.size+' clothing, '+ownedMakeup.size+' makeup'+(eurekaColorIds?', '+n+' Eureka colors':''));
     });
   }catch(err){showModal('Import failed',err.message)}
 };
@@ -247,7 +266,7 @@ $('reset').onclick=()=>{
   selectedRarities.clear();selectedStyles.clear();selectedLabels.clear();
   $('rarities').querySelectorAll('[data-rarity]').forEach(b=>{b.classList.remove('active');b.setAttribute('aria-pressed','false')});
   $('styleChips').querySelectorAll('[data-style]').forEach(b=>{b.classList.remove('active');b.setAttribute('aria-pressed','false')});
-  renderLabelPicker();visibleLimit=120;render();
+  renderLabelPicker();visibleLimit=120;window.NikkiEureka?.reset();render();
 };
 renderLabelPicker();persist();render();loadCatalog();
 })();
