@@ -15,7 +15,7 @@ const IMPORT_KEY='nikki-v2-eureka-json-ids-v1';
 let local;
 try {const obj=JSON.parse(localStorage.getItem(CACHE_KEY)||'{}');local={colors:obj.colors||{},copies:obj.copies||{}}}
 catch{local={colors:{},copies:{}}}
-let all=[],names={},filters={},sets=[],active=false,ready=false;
+let all=[],names={},filters={},sets=[],active=false,ready=false,eurekaLimit=8,eurekaVisible=[],eurekaObserver=null,eurekaAppending=false;
 let importedIds=[];
 try{const stored=JSON.parse(localStorage.getItem(IMPORT_KEY)||'[]');if(Array.isArray(stored))importedIds=stored.map(Number).filter(Number.isSafeInteger)}catch{}
 let importReport={sourceIds:importedIds.length,matched:0,unmatched:0};
@@ -44,11 +44,11 @@ function patchStyles(){let el=$('eurekaFilterControls');if(el)return;
   +'<details class="filter" open><summary>Uncolored copies</summary><div class="eureka-filter-block"><select id="eurekaFarm" aria-label="Uncolored copies"><option value="all">Any quantity</option><option value="zero">0 copies — farm</option><option value="low">0–1 copies</option><option value="stocked">2+ copies</option></select></div></details>'
   +'<div class="eureka-filter-block eureka-import-wrap"><button type="button" class="eureka-import" id="eurekaImportCsv">↧ Import Eureka CSV</button><input type="file" id="eurekaCsvFile" accept=".csv,text/csv" hidden><p class="eureka-import-hint">Import your 5★ sheet as CSV. Saved only in this browser.</p></div>';
   $('reset').before(section);
-  section.querySelectorAll('select').forEach(el=>el.onchange=draw);
+  section.querySelectorAll('select').forEach(el=>el.onchange=()=>{eurekaLimit=8;draw()});
   $('eurekaImportCsv').onclick=()=>$('eurekaCsvFile').click();
   $('eurekaCsvFile').onchange=async e=>{const file=e.target.files[0];e.target.value='';if(!file)return;try{const data=await file.text();const result=importCsv(data);$('notice').textContent='Eureka imported: '+result.parts+' parts, '+result.colors+' colors, '+result.copies+' uncolored copies.';draw()}catch(err){$('notice').textContent='Eureka CSV: '+err.message}};
   const main=$('grid').parentElement;
-  const dashboard=document.createElement('div');dashboard.id='eurekaView';dashboard.hidden=true;dashboard.innerHTML='<div id="eurekaImportStatus" class="eureka-import-status"></div><div id="eurekaStats" class="eureka-stats"></div><div id="eurekaSetGrid" class="eureka-set-grid"></div><div id="eurekaNoResults" class="eureka-no-results" hidden>No sets match the filters.</div>';
+  const dashboard=document.createElement('div');dashboard.id='eurekaView';dashboard.hidden=true;dashboard.innerHTML='<div id="eurekaImportStatus" class="eureka-import-status"></div><div id="eurekaStats" class="eureka-stats"></div><div id="eurekaSetGrid" class="eureka-set-grid"></div><div id="eurekaScrollSentinel" class="catalog-scroll-sentinel" aria-hidden="true"></div><div id="eurekaNoResults" class="eureka-no-results" hidden>No sets match the filters.</div>';
   $('grid').before(dashboard);
   ready=true;
 }
@@ -145,9 +145,24 @@ function draw(){
    :Object.keys(local.colors).some(k=>local.colors[k])
      ?'Some Eureka colors are marked locally. No imported JSON snapshot saved yet.'
      :'No Eureka colors imported yet. Reimport your gongeo JSON once via Sync → Import JSON. Future catalog updates will preserve them.';
- $('eurekaSetGrid').innerHTML=list.map(setCard).join('');
+ eurekaVisible=list;
+ $('eurekaSetGrid').innerHTML=list.slice(0,eurekaLimit).map(setCard).join('');
  $('eurekaNoResults').textContent='No sets match these filters. Reset filters to see all '+sets.length+' catalog sets, including uncollected Eureka.';
  $('eurekaNoResults').hidden=list.length>0;
+ const sentinel=$('eurekaScrollSentinel');
+ sentinel.hidden=list.length<=eurekaLimit;
+ if(!eurekaObserver&&'IntersectionObserver' in window){
+   eurekaObserver=new IntersectionObserver(entries=>{
+     if(!active||eurekaAppending||!entries.some(entry=>entry.isIntersecting)||eurekaLimit>=eurekaVisible.length)return;
+     eurekaAppending=true;
+     const begin=eurekaLimit;
+     eurekaLimit+=8;
+     $('eurekaSetGrid').insertAdjacentHTML('beforeend',eurekaVisible.slice(begin,eurekaLimit).map(setCard).join(''));
+     sentinel.hidden=eurekaLimit>=eurekaVisible.length;
+     requestAnimationFrame(()=>{eurekaAppending=false});
+   },{rootMargin:'700px 0px',threshold:0});
+   eurekaObserver.observe(sentinel);
+ }
 }
 function activate(on){
  patchStyles();active=on;$('eurekaFilterControls').hidden=!on;$('eurekaView').hidden=!on;
@@ -159,15 +174,20 @@ function matchImportedIds(){
  if(!importedIds.length){importReport={sourceIds:0,matched:0,unmatched:0};return}
  const available=new Set(all.filter(i=>i.kind==='eureka').flatMap(i=>(i.colors||[]).map(c=>c.id)));
  const matching=importedIds.filter(id=>available.has(id));
- for(const id of matching)local.colors[id]=true;
+ // Import once. Do not overwrite manual changes on every catalog refresh.
+ if(localStorage.getItem('nikki-v2-eureka-import-applied-v1')!=='true'&&available.size){
+   for(const id of matching)local.colors[id]=true;
+   save();
+   localStorage.setItem('nikki-v2-eureka-import-applied-v1','true');
+ }
  importReport={sourceIds:importedIds.length,matched:matching.length,unmatched:importedIds.length-matching.length};
- save();
 }
 function setCatalog(entries,translations,sharedFilters){
  all=entries;names=translations;filters=sharedFilters;buildSets();matchImportedIds();if(active)draw();
 }
 function reset(){
  if(!ready)return;
+ eurekaLimit=8;
  ['eurekaPart','eurekaProgress','eurekaColors','eurekaFarm'].forEach(id=>$(id).value='all');draw();
 }
 function parseCsv(text){
@@ -213,7 +233,10 @@ function importCsv(text){
 function importIds(ids){
  if(!Array.isArray(ids))return {sourceIds:0,matched:0,unmatched:0};
  importedIds=[...new Set(ids.map(Number).filter(Number.isSafeInteger))];
- try{localStorage.setItem(IMPORT_KEY,JSON.stringify(importedIds))}catch{}
+ try{
+   localStorage.setItem(IMPORT_KEY,JSON.stringify(importedIds));
+   localStorage.setItem('nikki-v2-eureka-import-applied-v1','false');
+ }catch{}
  // Persist source IDs even when catalog is still loading.
  matchImportedIds();
  if(active)draw();
