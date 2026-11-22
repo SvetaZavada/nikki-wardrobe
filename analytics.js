@@ -91,7 +91,7 @@ function ensure(){
  +'<div class="analysis-toolbar"><label>Collection type<select id="anMode"><option value="items">Individual items</option><option value="outfits">Outfit entries</option></select></label><label>Rarity<select id="anRarity"><option value="5">5 ✦</option><option value="4">4 ✦</option><option value="3">3 ✦</option><option value="2">2 ✦</option><option value="all">All rarities</option></select></label><label>Style<select id="anStyle"><option value="">All styles</option></select></label><label>Label<select id="anLabel"><option value="">All labels</option></select></label><label>Order labels<select id="anOrder"><option value="missing">Weakest coverage first</option><option value="strong">Best coverage first</option><option value="name">Alphabetical</option></select></label><button type="button" class="analysis-reset" id="anReset">↺ Reset filters</button></div>'
  +'<div id="anStats" class="analysis-stats"></div>'
  +'<div class="analysis-board"><div class="analysis-card"><div class="analysis-card-title"><h3>Style coverage</h3><small>Click a style to filter; click again to show all styles. Bars compare your owned items with the public catalog.</small></div><div id="anStyles" class="analysis-style-chart"></div></div><div class="analysis-card"><div class="analysis-card-title"><h3>Label coverage</h3><small id="anLabelSubtitle"></small><p class="analysis-chart-hint">Example: 1 / 12 means you own 1 item out of 12 matching items in the game catalog. A red row means you own none. This is <b>not a styling score</b>.</p></div><div id="anLabels" class="analysis-label-chart"></div><button type="button" id="anShowLabels" class="analysis-more-labels" hidden>Show all labels</button></div></div>'
- +'<div class="analysis-card analysis-detail"><div class="analysis-card-title"><h3 id="anDetailTitle">Collection breakdown</h3><small id="anDetailSubtitle"></small></div><div class="analysis-detail-tools"><label>Category<select id="anSlot"></select></label></div><div id="anSlotChart" class="analysis-slot-chart"></div><div id="anExamples"></div></div>'
+ +'<div class="analysis-card analysis-detail"><div class="analysis-card-title"><h3 id="anDetailTitle">Collection breakdown</h3><small id="anDetailSubtitle"></small><small>Click a category bar to show its items below. Click again to show all categories.</small></div><div id="anSlotChart" class="analysis-slot-chart"></div><div id="anExamples"></div></div>'
  +'<p class="analysis-footnote">Counts use the public gongeo catalog and ownership imported into this browser. Outfit entries are ownership markers, not verification that every piece of a single outfit is available. Base style values, Glow Up levels, battle bonuses and final scores are not included yet.</p>';
  $('grid').parentElement.append(section);
  $('anMode').onchange=e=>{mode=e.target.value;slot='all';showAllLabels=false;draw()};
@@ -99,7 +99,7 @@ function ensure(){
  $('anOrder').onchange=e=>{order=e.target.value;draw()};
  $('anStyle').onchange=e=>{style=e.target.value||null;showAllLabels=false;draw()};
  $('anLabel').onchange=e=>{selectedLabel=e.target.value||null;draw()};
- $('anSlot').onchange=e=>{slot=e.target.value;draw()};
+ $('anSlotChart').addEventListener('click',e=>{const b=e.target.closest('[data-analysis-slot]');if(!b)return;slot=slot===b.dataset.analysisSlot?'all':b.dataset.analysisSlot;draw()});
  $('anStyles').addEventListener('click',e=>{const btn=e.target.closest('button[data-style]');if(btn){style=style===btn.dataset.style?null:btn.dataset.style;slot='all';showAllLabels=false;draw()}});
  $('anReset').onclick=()=>{style=null;rarity='5';mode='items';order='missing';selectedLabel=null;slot='all';showAllLabels=false;draw()};
  $('anShowLabels').onclick=()=>{showAllLabels=!showAllLabels;draw()};
@@ -162,13 +162,12 @@ function draw(){
  const slotTitle=chosenSlots.find(([id])=>id===slot)?.[1]||'All categories';
  $('anDetailTitle').textContent=slot==='all'?'Collection breakdown':'Collection breakdown · '+slotTitle;
  $('anDetailSubtitle').textContent=(style||'All styles')+' · '+(selectedLabel||'All labels')+' · '+(rarity==='all'?'all rarities':rarity+'★')+' · '+selectedOwned.length+' owned / '+details.length+' in catalog';
- $('anSlot').innerHTML=chosenSlots.map(([id,name])=>'<option value="'+id+'">'+name+'</option>').join('');
- $('anSlot').value=slot;
- const chartSlots=(mode==='outfits'?[['outfit','Outfits']]:SLOTS).filter(([id])=>slot==='all'||id===slot);
+ const chartSlots=mode==='outfits'?[['outfit','Outfits']]:SLOTS;
  $('anSlotChart').innerHTML=chartSlots.map(([id,name])=>{
   const list=matched.filter(i=>mode==='outfits'||slotName(i)===id);
   const have=list.filter(owned).length;
-  return '<div class="analysis-slot-row '+(!list.length?'unavailable':have===0?'is-gap':'')+'"><span>'+name+'</span>'+bar(have,list.length)+'<b>'+have+' / '+list.length+'</b><small>'+(list.length===0?'Not in catalog':have===0?'Missing':'')+'</small></div>';
+  const picked=slot===id;
+  return '<button type="button" class="analysis-slot-row '+(picked?'selected ':'')+(!list.length?'unavailable':have===0?'is-gap':'')+'" data-analysis-slot="'+id+'" aria-pressed="'+picked+'"><span>'+name+'</span>'+bar(have,list.length)+'<b>'+have+' / '+list.length+'</b><small>'+(list.length===0?'Not in catalog':have===0?'Missing':'')+'</small></button>';
  }).join('');
  exampleLists={owned:details.filter(owned),missing:details.filter(i=>!owned(i))};
  exampleLimits={owned:12,missing:12};
