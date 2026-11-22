@@ -149,6 +149,23 @@ function render(){
   $('categories').style.display=page==='wardrobe'?'grid':'none';
   $('subcategories').style.display=page==='wardrobe'?'flex':'none';
   initCategories();
+  const isAnalysis=page==='analysis';
+  const filtersPanel=document.querySelector('.main > aside.filters');
+  if(filtersPanel)filtersPanel.hidden=isAnalysis;
+  document.querySelector('.main')?.classList.toggle('analysis-layout',isAnalysis);
+  if(isAnalysis){
+    $('grid').hidden=true;$('grid').style.display='none';
+    $('empty').hidden=true;
+    const sentinel=$('wardrobeScrollSentinel');if(sentinel)sentinel.hidden=true;
+    window.NikkiEureka?.activate(false);
+    window.NikkiAnalysis?.activate(true,items,owned,names);
+    $('heading').firstChild.textContent='Analysis ';
+    $('count').textContent='Competition coverage';
+    document.querySelector('.catalog-tools').hidden=true;
+    return;
+  }
+  window.NikkiAnalysis?.activate(false);
+  document.querySelector('.catalog-tools').hidden=false;
   if(page==='eureka'){
     $('grid').hidden=true;$('grid').style.display='none';
     $('empty').hidden=true;
