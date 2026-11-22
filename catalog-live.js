@@ -94,6 +94,10 @@ function imageFallback(img){
 window.nikkiImageFallback=imageFallback;
 const STYLE_CLASSES={Elegant:'style-elegant',Sweet:'style-sweet',Cool:'style-cool',Fresh:'style-fresh',Sexy:'style-sexy'};
 function render(){
+  // Eureka currently has only 3★, 4★, 5★; keep 2★ available in Wardrobe.
+  const twoStar=$('rarities').querySelector('[data-rarity="2"]');
+  if(twoStar){twoStar.hidden=page==='eureka';twoStar.style.display=page==='eureka'?'none':'';
+    if(page==='eureka'&&selectedRarities.has(2)){selectedRarities.delete(2);twoStar.classList.remove('active');twoStar.setAttribute('aria-pressed','false');}}
   document.querySelectorAll('[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===page));
   $('categories').style.display=page==='wardrobe'?'grid':'none';
   $('subcategories').style.display=page==='wardrobe'?'flex':'none';
