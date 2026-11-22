@@ -106,6 +106,7 @@
       if (remote.length === 0) {
         lastRemote = signature(rows);
         lastRows = rows.length;
+        stopped = true;
         status('Google Таблица пустая, а локально есть ' + items.length + ' вещей. Нажми «↑ Записать локальное» для первой загрузки.');
         return;
       }
