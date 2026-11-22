@@ -78,7 +78,7 @@ function draw(){
  $('anShowLabels').textContent=showAllLabels?'Show fewer labels':'Show all '+ordered.length+' labels';
  $('anLabels').innerHTML=visibleRows.length?visibleRows.map(r=>{
   const chosen=selectedLabel===r.label;
-  return '<button type="button" class="analysis-label-row '+(chosen?'selected ':'')+(r.have===0?'is-gap':'')+'" data-label="'+esc(r.label)+'" aria-pressed="'+chosen+'"><span class="analysis-label-name">'+esc(r.label)+'</span>'+bar(r.have,r.can,r.have===0?'empty':'')+'<span class="analysis-numeric">'+r.have+' / '+r.can+'</span><span class="analysis-row-note">'+(r.have===0?'MISSING':Math.round(100*r.have/r.can)+'%')+'</span></button>';
+  return '<button type="button" class="analysis-label-row '+(chosen?'selected ':'')+(r.have===0?'is-gap':'')+'" data-label="'+esc(r.label)+'" aria-pressed="'+chosen+'"><span class="analysis-label-name">'+esc(r.label)+'</span>'+bar(r.have,r.can,r.have===0?'zero-coverage':'')+'<span class="analysis-numeric" title="Owned / matching catalog items">'+r.have+' / '+r.can+'</span><span class="analysis-row-note">'+(r.have===0?'MISSING':Math.round(100*r.have/r.can)+'%')+'</span></button>';
  }).join(''):'<div class="analysis-no-results">No combinations in the catalog for these conditions.</div>';
   $('anLabels').querySelectorAll('[data-label]').forEach(b=>{b.classList.toggle('selected',b.dataset.label===selectedLabel);b.setAttribute('aria-pressed',String(b.dataset.label===selectedLabel))});
  const selectedOwned=matched.filter(owned);
