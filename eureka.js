@@ -135,6 +135,7 @@ function draw(){
  $('count').textContent=list.length+' sets';
  $('eurekaStats').innerHTML=makeSummary();
  $('eurekaSetGrid').innerHTML=list.map(setCard).join('');
+ $('eurekaNoResults').textContent='No sets match these filters. Reset filters to see all '+sets.length+' catalog sets, including uncollected Eureka.';
  $('eurekaNoResults').hidden=list.length>0;
 }
 function activate(on){
