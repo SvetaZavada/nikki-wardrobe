@@ -177,14 +177,17 @@ async function loadCatalog(checkOnly=false){
           const style=STYLES[styleIndex]||'';
           const entry={id,kind,stars:Number(quality)||0,style,labels, type};
           mapped.push(entry);
-          const translationKey=kind+'.'+id+'.name';
+          const translationKey=(kind==='makeup'&&type!=='full'?'item':kind)+'.'+id+'.name';
           const label=translation[translationKey];
           if(label)newNames[kind+'_'+id]=label;
         }
       };
       db.items.forEach(row=>append('item',row[0],row[1],row[3],(row[4]||[]).map(id=>tr.misc['label.'+id+'.name']||idLabel[id]).filter(Boolean),ITEM_TYPES[row[2]]||'',tr.item));
       db.outfits.forEach(row=>append('outfit',row[0],row[1],row[2],(row[3]||[]).map(id=>tr.misc['label.'+id+'.name']||idLabel[id]).filter(Boolean),'',tr.outfit));
-      db.makeups.forEach(row=>append('makeup',row[0],row[1],row[3],[],MAKEUP_TYPES[row[2]]||'',tr.makeup));
+      db.makeups.forEach(row=>{
+        const type=MAKEUP_TYPES[row[2]]||'';
+        append('makeup',row[0],row[1],row[3],[],type,type==='full'?tr.makeup:tr.item);
+      });
       db.eurekas.forEach(row=>append('eureka',row[0],row[3],row[5],(row[6]||[]).map(id=>tr.misc['label.'+id+'.name']||idLabel[id]).filter(Boolean),['head','hands','feet'][row[2]]||'',tr.eureka));
       if(mapped.length<3000)throw Error('Unexpectedly small catalog ('+mapped.length+')');
       items=mapped;names=newNames;catalog=m;
