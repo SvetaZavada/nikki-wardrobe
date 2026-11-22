@@ -88,3 +88,7 @@
 @media(max-width:1320px){.analysis-example{grid-template-columns:45px minmax(0,1fr)}.analysis-example-actions{grid-column:2;justify-content:flex-start}}
 @media(max-width:760px){.analysis-example{grid-template-columns:45px minmax(0,1fr) auto}.analysis-example-actions{grid-column:3;flex-wrap:wrap;justify-content:flex-end}}
 @media(max-width:470px){.analysis-example{grid-template-columns:45px minmax(0,1fr)}.analysis-example-actions{grid-column:2;justify-content:flex-start}}
+
+/* Incremental analytics lists, no pagination. */
+.analysis-example-sentinel{height:22px;pointer-events:none;opacity:0}
+.analysis-example-sentinel[hidden]{display:none!important}
