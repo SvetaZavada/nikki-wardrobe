@@ -75,12 +75,24 @@ function categoryMatch(i){
   return i.type===category;
 }
 function getName(i){return names[i.kind+'_'+i.id]||i.name||'Item #'+i.id}
-function getImage(i){
-  if(i.kind==='outfit')return CDN+'/images/outfits/'+i.id+'.png';
-  if(i.kind==='eureka')return CDN+'/images/eurekas/'+i.id+'.png';
-  if(i.kind==='makeup')return CDN+(i.type==='full'?'/images/items/makeups/':'/images/items/icons/')+i.id+'.png';
-  return CDN+'/images/items/icons/'+i.id+'.png';
+function getImagePath(i){
+  if(i.kind==='outfit')return '/images/outfits/'+i.id+'.png';
+  if(i.kind==='eureka')return '/images/eurekas/'+i.id+'.png';
+  if(i.kind==='makeup')return (i.type==='full'?'/images/items/makeups/':'/images/items/icons/')+i.id+'.png';
+  return '/images/items/icons/'+i.id+'.png';
 }
+function imageSources(i){
+  const path=getImagePath(i);
+  return ['https://ik.imagekit.io/gongeous'+path,CDN+path,'https://gongeo.us'+path];
+}
+function imageFallback(img){
+  const sources=JSON.parse(img.dataset.sources||'[]');
+  const next=Number(img.dataset.imageIndex||0)+1;
+  if(next<sources.length){img.dataset.imageIndex=String(next);img.src=sources[next]}
+  else{img.hidden=true;img.nextElementSibling.hidden=false}
+}
+window.nikkiImageFallback=imageFallback;
+const STYLE_CLASSES={Elegant:'style-elegant',Sweet:'style-sweet',Cool:'style-cool',Fresh:'style-fresh',Sexy:'style-sexy'};
 function render(){
   document.querySelectorAll('[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===page));
   $('categories').style.display=page==='wardrobe'?'grid':'none';
@@ -106,8 +118,11 @@ function render(){
   const shown=list.slice(0,visibleLimit);
   $('grid').innerHTML=shown.map(i=>{
     const itemName=safe(getName(i)),id=String(i.id),o=isOwned(i);
-    const image='<img loading="lazy" decoding="async" src="'+safe(getImage(i))+'" alt="" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="placeholder" hidden>✧</span>';
-    return '<article class="item '+(o?'':'not-owned')+'"><input class="owned" type="checkbox" data-kind="'+i.kind+'" data-owned="'+id+'" aria-label="Owned: '+itemName+'" '+(o?'checked':'')+'><div class="frame">'+image+'<span class="stars">'+('✦'.repeat(Math.min(i.stars||0,5)))+'</span></div><h3 title="'+itemName+'">'+itemName+'</h3><div class="badges"><span>'+safe(i.style||i.type||i.kind)+'</span><span>#'+id+'</span></div></article>';
+    const sources=imageSources(i);
+    const image='<img loading="lazy" decoding="async" src="'+safe(sources[0])+'" data-sources="'+safe(JSON.stringify(sources))+'" data-image-index="0" alt="" onerror="window.nikkiImageFallback(this)"><span class="placeholder" hidden>✧</span>';
+    const mainStyle=i.style?'<span class="card-style '+(STYLE_CLASSES[i.style]||'')+'">'+safe(i.style)+'</span>':'';
+    const labels=(i.labels||[]).slice(0,2).map(label=>'<span class="card-label label-chip color-'+(LABEL_COLORS[label]||'gold')+'">'+safe(label)+'</span>').join('');
+    return '<article class="item '+(o?'':'not-owned')+'"><input class="owned" type="checkbox" data-kind="'+i.kind+'" data-owned="'+id+'" aria-label="Owned: '+itemName+'" '+(o?'checked':'')+'><div class="frame">'+image+'<span class="stars">'+('✦'.repeat(Math.min(i.stars||0,5)))+'</span></div><h3 title="'+itemName+'">'+itemName+'</h3><div class="badges">'+mainStyle+'<div class="card-labels">'+labels+'</div></div></article>';
   }).join('');
   $('grid').querySelectorAll('[data-owned]').forEach(b=>b.onchange=()=>{
     const i=items.find(item=>item.id===Number(b.dataset.owned)&&item.kind===b.dataset.kind);
