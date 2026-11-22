@@ -26,11 +26,33 @@ const LABEL_COLORS={
 const ALL_LABEL_IDS=[1,2,3,4,5,6,7,8,9,10,11,12,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117];
 const idLabel=Object.fromEntries(ALL_LABEL_IDS.map((id,i)=>[id,LABELS[i]]));
 const accessoryTypes=new Set(SUB.accessories.map(x=>x[0]));
-let page='wardrobe',category='dresses',sub='all',catalog=null,items=[],names={},filtered=[],visibleLimit=120;
+let page='wardrobe',category='dresses',sub='all',catalog=null,items=[],names={},filtered=[],visibleLimit=48;
 let selectedStyles=new Set(),selectedLabels=new Set(),selectedRarities=new Set();
 const safeSet=(key)=>{try{return new Set(JSON.parse(localStorage.getItem(key)||'[]').map(Number).filter(Number.isSafeInteger))}catch{return new Set()}};
 let owned=safeSet('nikki-v2-owned'),ownedMakeup=safeSet('nikki-v2-makeup');
 let currentLoad=null;
+let wardrobeObserver=null,scrollingMore=false;
+function ensureWardrobeSentinel(){
+  let sentinel=$('wardrobeScrollSentinel');
+  if(!sentinel){
+    sentinel=document.createElement('div');sentinel.id='wardrobeScrollSentinel';
+    sentinel.className='catalog-scroll-sentinel';sentinel.setAttribute('aria-hidden','true');
+    $('grid').after(sentinel);
+  }
+  if(!wardrobeObserver&&'IntersectionObserver' in window){
+    wardrobeObserver=new IntersectionObserver(entries=>{
+      if(!entries.some(e=>e.isIntersecting)||scrollingMore||page!=='wardrobe'||visibleLimit>=filtered.length)return;
+      scrollingMore=true;visibleLimit+=48;render();
+      requestAnimationFrame(()=>{scrollingMore=false});
+    },{rootMargin:'850px 0px',threshold:0});
+    wardrobeObserver.observe(sentinel);
+  }
+  return sentinel;
+}
+function updateWardrobeSentinel(){
+  const sentinel=ensureWardrobeSentinel();
+  sentinel.hidden=page!=='wardrobe'||visibleLimit>=filtered.length;
+}
 const safe=t=>String(t??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function notice(s){$('notice').textContent=s}
 function showModal(title,message,action){
@@ -55,15 +77,15 @@ function renderLabelPicker(){
   $('labelList').querySelectorAll('[data-label]').forEach(b=>b.onclick=()=>{
     const label=b.dataset.label;selectedLabels.has(label)?selectedLabels.delete(label):selectedLabels.add(label);
     b.classList.toggle('selected',selectedLabels.has(label));b.setAttribute('aria-pressed',String(selectedLabels.has(label)));
-    visibleLimit=120;render();
+    visibleLimit=48;render();
   });
 }
 function initCategories(){
   $('categories').innerHTML=CATS.map(([id,label])=>'<button class="cat '+(id===category?'active':'')+'" data-cat="'+id+'"><span class="glyph icon-'+id+'" aria-hidden="true"></span><span>'+label+'</span></button>').join('');
-  $('categories').querySelectorAll('button').forEach(b=>b.onclick=()=>{category=b.dataset.cat;sub='all';visibleLimit=120;render()});
+  $('categories').querySelectorAll('button').forEach(b=>b.onclick=()=>{category=b.dataset.cat;sub='all';visibleLimit=48;render()});
   const subs=SUB[category]||[];
   $('subcategories').innerHTML=subs.map(([id,label])=>'<button class="pill '+(sub===id?'active':'')+'" data-sub="'+id+'">'+label+'</button>').join('');
-  $('subcategories').querySelectorAll('button').forEach(b=>b.onclick=()=>{sub=b.dataset.sub;visibleLimit=120;render()});
+  $('subcategories').querySelectorAll('button').forEach(b=>b.onclick=()=>{sub=b.dataset.sub;visibleLimit=48;render()});
 }
 function categoryMatch(i){
   if(page==='analysis')return false;
@@ -105,7 +127,7 @@ function render(){
   if(page==='eureka'){
     $('grid').hidden=true;$('grid').style.display='none';
     $('empty').hidden=true;
-    const more=$('loadMore');if(more)more.hidden=true;
+    const sentinel=$('wardrobeScrollSentinel');if(sentinel)sentinel.hidden=true;
     window.NikkiEureka?.activate(true);
     return;
   }
@@ -143,10 +165,7 @@ function render(){
   });
   $('empty').hidden=list.length>0;
   $('grid').style.display=list.length?'grid':'none';
-  let more=$('loadMore');
-  if(!more){more=document.createElement('button');more.id='loadMore';more.type='button';more.className='action';more.style.cssText='display:block;margin:24px auto 10px;';$('grid').after(more);more.onclick=()=>{visibleLimit+=120;render()};}
-  more.hidden=list.length<=visibleLimit;
-  more.textContent='Show more · '+Math.min(visibleLimit,list.length)+' / '+list.length;
+  updateWardrobeSentinel();
   if(page==='analysis'){
     $('empty').querySelector('h3').textContent='Analysis is the next chapter';
     $('empty').querySelector('p').textContent='The style × label matrix is still under construction.';
@@ -251,26 +270,26 @@ $('fileInput').onchange=async e=>{
     });
   }catch(err){showModal('Import failed',err.message)}
 };
-document.querySelectorAll('[data-page]').forEach(b=>b.onclick=()=>{page=b.dataset.page;visibleLimit=120;render()});
-$('search').oninput=()=>{visibleLimit=120;render()};
+document.querySelectorAll('[data-page]').forEach(b=>b.onclick=()=>{page=b.dataset.page;visibleLimit=48;render()});
+$('search').oninput=()=>{visibleLimit=48;render()};
 $('sort').onchange=render;
 $('rarities').querySelectorAll('[data-rarity]').forEach(b=>b.onclick=()=>{
   const n=Number(b.dataset.rarity);selectedRarities.has(n)?selectedRarities.delete(n):selectedRarities.add(n);
   b.classList.toggle('active',selectedRarities.has(n));b.setAttribute('aria-pressed',String(selectedRarities.has(n)));
-  visibleLimit=120;render();
+  visibleLimit=48;render();
 });
-document.querySelectorAll('input[name=owned]').forEach(b=>b.onchange=()=>{visibleLimit=120;render()});
+document.querySelectorAll('input[name=owned]').forEach(b=>b.onchange=()=>{visibleLimit=48;render()});
 $('styleChips').querySelectorAll('[data-style]').forEach(b=>b.onclick=()=>{
   const v=b.dataset.style;selectedStyles.has(v)?selectedStyles.delete(v):selectedStyles.add(v);
   b.classList.toggle('active',selectedStyles.has(v));b.setAttribute('aria-pressed',String(selectedStyles.has(v)));
-  visibleLimit=120;render();
+  visibleLimit=48;render();
 });
 $('reset').onclick=()=>{
   $('search').value='';document.querySelector('input[name=owned][value=all]').checked=true;
   selectedRarities.clear();selectedStyles.clear();selectedLabels.clear();
   $('rarities').querySelectorAll('[data-rarity]').forEach(b=>{b.classList.remove('active');b.setAttribute('aria-pressed','false')});
   $('styleChips').querySelectorAll('[data-style]').forEach(b=>{b.classList.remove('active');b.setAttribute('aria-pressed','false')});
-  renderLabelPicker();visibleLimit=120;window.NikkiEureka?.reset();render();
+  renderLabelPicker();visibleLimit=48;window.NikkiEureka?.reset();render();
 };
 renderLabelPicker();persist();render();loadCatalog();
 })();
