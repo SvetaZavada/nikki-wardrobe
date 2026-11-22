@@ -327,3 +327,7 @@ footer{border-top:1px solid #e7dde4;color:#a29aa7;letter-spacing:.04em}
 .item:not(.not-owned):hover{box-shadow:0 0 0 2px #dfc180b3,0 10px 22px #a48c5961}
 .item.not-owned{opacity:.84;filter:saturate(.76);border-color:#e2dce6}
 .item.not-owned:hover{opacity:1;filter:saturate(1)}
+
+/* Invisible viewport sentinel for progressive card loading across sections. */
+.catalog-scroll-sentinel{display:block;height:24px;min-height:24px;pointer-events:none;opacity:0}
+.catalog-scroll-sentinel[hidden]{display:none!important}
