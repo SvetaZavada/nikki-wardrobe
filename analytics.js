@@ -27,6 +27,43 @@ function toggleWishlist(kind,id){
  });
 }
 let style=null,rarity='5',mode='items',order='missing',selectedLabel=null,slot='all',showAllLabels=false;
+let listObserver=null;
+let exampleLists={owned:[],missing:[]};
+let exampleLimits={owned:12,missing:12};
+const EXAMPLE_BATCH=24;
+function exampleMarkup(i){
+ const name=window.NikkiAnalysisData?.names?.[i.kind+'_'+i.id]||'Item '+i.id;
+ const wished=wishlist.has(wishKey(i.kind,i.id));
+ return '<div class="analysis-example" role="link" tabindex="0" title="Open in Wardrobe" data-open-kind="'+esc(i.kind)+'" data-open-id="'+i.id+'">'
+   +'<span class="analysis-example-stars">'+('✦'.repeat(Math.min(i.stars,5)))+'</span>'
+   +'<span class="analysis-example-name">'+esc(name)+'</span>'
+   +'<div class="analysis-example-actions"><button type="button" class="analysis-wishlist '+(wished?'is-wished':'')+'" data-wish-kind="'+esc(i.kind)+'" data-wish-id="'+i.id+'" aria-pressed="'+wished+'" title="'+(wished?'Remove from wishlist':'Add to wishlist')+'">'+(wished?'♥ Wishlisted':'♡ Wishlist')+'</button>'
+   +'<button type="button" class="analysis-howto" disabled title="How to get — coming soon">How to get</button></div></div>';
+}
+function listHtml(kind){
+ const all=exampleLists[kind];
+ if(!all.length)return '<p class="analysis-muted">None in this category.</p>';
+ return '<div class="analysis-examples" data-example-list="'+kind+'">'+all.slice(0,exampleLimits[kind]).map(exampleMarkup).join('')
+   +'<div class="analysis-example-sentinel" data-example-sentinel="'+kind+'" aria-hidden="true" '+(all.length<=exampleLimits[kind]?'hidden':'')+'></div></div>';
+}
+function observeExampleLists(){
+ if(listObserver)listObserver.disconnect();
+ if(!('IntersectionObserver' in window))return;
+ listObserver=new IntersectionObserver(entries=>{
+   if(!active)return;
+   for(const entry of entries){
+     if(!entry.isIntersecting)continue;
+     const sentinel=entry.target,kind=sentinel.dataset.exampleSentinel,all=exampleLists[kind];
+     if(!all||exampleLimits[kind]>=all.length){sentinel.hidden=true;continue}
+     const from=exampleLimits[kind];
+     exampleLimits[kind]=Math.min(from+EXAMPLE_BATCH,all.length);
+     sentinel.insertAdjacentHTML('beforebegin',all.slice(from,exampleLimits[kind]).map(exampleMarkup).join(''));
+     sentinel.hidden=exampleLimits[kind]>=all.length;
+   }
+ },{rootMargin:'700px 0px',threshold:0});
+ document.querySelectorAll('#anExamples [data-example-sentinel]').forEach(el=>listObserver.observe(el));
+}
+
 function owned(i){return ownedIds.has(i.id)}
 function valid(){return data.filter(i=>(mode==='outfits'?i.kind==='outfit':i.kind==='item')&&(rarity==='all'||i.stars===Number(rarity)))}
 function withStyle(arr,s){return arr.filter(i=>i.style===s)}
@@ -125,19 +162,10 @@ function draw(){
   return '<div class="analysis-slot-row '+(!list.length?'unavailable':have===0?'is-gap':'')+'"><span>'+name+'</span>'+bar(have,list.length)+'<b>'+have+' / '+list.length+'</b><small>'+(list.length===0?'Not in catalog':have===0?'Missing':'')+'</small></div>';
  }).join('');
  const details=matched.filter(i=>slot==='all'||mode==='outfits'||slotName(i)===slot);
- const samples=details.filter(owned).slice(0,12);
- const unowned=details.filter(i=>!owned(i)).slice(0,8);
- const title=i=>(window.NikkiAnalysisData?.names?.[i.kind+'_'+i.id]||'Item '+i.id);
- const renderList=arr=>arr.length?'<div class="analysis-examples">'+arr.map(i=>{
-   const wished=wishlist.has(wishKey(i.kind,i.id));
-   return '<div class="analysis-example" role="link" tabindex="0" title="Open in Wardrobe" data-open-kind="'+esc(i.kind)+'" data-open-id="'+i.id+'">'
-     +'<span class="analysis-example-stars">'+('✦'.repeat(Math.min(i.stars,5)))+'</span>'
-     +'<span class="analysis-example-name">'+esc(title(i))+'</span>'
-     +'<div class="analysis-example-actions"><button type="button" class="analysis-wishlist '+(wished?'is-wished':'')+'" data-wish-kind="'+esc(i.kind)+'" data-wish-id="'+i.id+'" aria-pressed="'+wished+'" title="'+(wished?'Remove from wishlist':'Add to wishlist')+'">'+(wished?'♥ Wishlisted':'♡ Wishlist')+'</button>'
-     +'<button type="button" class="analysis-howto" disabled title="How to get — coming soon">How to get</button></div>'
-     +'</div>';
- }).join('')+'</div>':'<p class="analysis-muted">None in this category.</p>';
- $('anExamples').innerHTML='<div class="analysis-example-columns"><div><h4>✓ In your collection ('+details.filter(owned).length+')</h4>'+renderList(samples)+'</div><div><h4>✧ Missing from collection ('+details.filter(i=>!owned(i)).length+')</h4>'+renderList(unowned)+'</div></div>';
+ exampleLists={owned:details.filter(owned),missing:details.filter(i=>!owned(i))};
+ exampleLimits={owned:12,missing:12};
+ $('anExamples').innerHTML='<div class="analysis-example-columns"><div><h4>✓ In your collection ('+exampleLists.owned.length+')</h4>'+listHtml('owned')+'</div><div><h4>✧ Missing from collection ('+exampleLists.missing.length+')</h4>'+listHtml('missing')+'</div></div>';
+ observeExampleLists();
 }
 function activate(on,entries,ownedSet,nameMap){
  ensure();active=!!on;$('analysisPanel').hidden=!active;
