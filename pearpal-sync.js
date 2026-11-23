@@ -31,7 +31,7 @@ function decodeSnappy(bytes){
   else if(type===2){length=(tag>>>2)+1;dist=bytes[offset]|(bytes[offset+1]<<8);offset+=2;}
   else{length=(tag>>>2)+1;dist=(bytes[offset]|(bytes[offset+1]<<8)|(bytes[offset+2]<<16)|(bytes[offset+3]<<24))>>>0;offset+=4;}
   if(!dist||dist>pos||pos+length>size||offset>bytes.length)throw Error('Invalid Snappy copy');
-  for(let j=0;j<length;j++)out[pos++]=out[pos-dist];
+  for(let j=0;j<length;j++){out[pos]=out[pos-dist];pos++;}
  }
  if(pos!==size)throw Error('Incomplete compressed response');
  return JSON.parse(new TextDecoder().decode(out));
