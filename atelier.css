@@ -346,3 +346,9 @@ footer{border-top:1px solid #e7dde4;color:#a29aa7;letter-spacing:.04em}
 .pearpal-actions button{border:1px solid #d9c5e1;border-radius:10px;background:#f8f0fa;padding:9px 12px;color:#745b85;font:800 12px Nunito,system-ui,sans-serif;cursor:pointer}
 .pearpal-actions #pearpalCheck,.pearpal-actions #pearpalApply{background:#ad8dcb;border-color:#ad8dcb;color:white}
 .pearpal-actions button:disabled{opacity:.5;cursor:wait}
+
+#pearpalInspect{margin:14px 0;border:1px solid #e6d8ea;border-radius:12px;padding:10px 12px;background:#fcf7fc;color:#715f78}
+#pearpalInspect summary{cursor:pointer;font-weight:800;font-size:12px}
+#pearpalInspect .pearpal-inspect-help{margin:8px 0;font-size:11px}
+#pearpalMap{white-space:pre-wrap;overflow-wrap:anywhere;max-height:340px;overflow:auto;font:11px/1.5 ui-monospace,Consolas,monospace;padding:10px;border-radius:7px;background:white;color:#695b71}
+#pearpalCopyMap{margin:8px 0 0;border:1px solid #cfbcdb;padding:8px 12px;border-radius:8px;background:white;color:#735d7c;font-weight:700;cursor:pointer}
