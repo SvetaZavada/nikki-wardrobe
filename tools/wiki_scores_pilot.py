@@ -46,7 +46,7 @@ def page_html(base,title):
         api_error = str(raw.get("error","No parse text"))
     except Exception as exc:
         api_error = str(exc)
-    url = base+"/wiki/"+urllib.parse.quote(title.replace(" ","_"),safe="")
+    url = base+("/wiki/" if "fandom.com" in base else "/")+urllib.parse.quote(title.replace(" ","_"),safe="")
     try:
         return get(url), "html", url
     except Exception as exc:
@@ -57,26 +57,45 @@ def score_number(text):
     m = re.search(r"(?<!\d)\d{1,7}(?!\d)",text)
     return int(m.group()) if m else None
 
+def identify_style(cell):
+    # Wiki templates often store style names in image alt/title attributes.
+    hints = [cell.get_text(" ",strip=True)]
+    hints += [img.get("alt","") for img in cell.select("img")]
+    hints += [img.get("title","") for img in cell.select("img")]
+    for hint in hints:
+        for style in STYLES:
+            if re.search(r"(?<![a-z])"+style+r"(?![a-z])",hint,re.I):
+                return style
+    return None
+
 def score_rows(soup):
-    """Only rows with an explicit style and at least two numeric score cells."""
-    data = {}
-    for tr in soup.select("tr"):
-        cells = tr.find_all(["td","th"],recursive=False)
-        if len(cells)<3: continue
-        style = cells[0].get_text(" ",strip=True)
-        match = next((x for x in STYLES if re.fullmatch(r"\W*"+x+r"\W*",style,re.I)),None)
-        if not match: continue
-        first = score_number(cells[1].get_text(" ",strip=True))
-        last = score_number(cells[2].get_text(" ",strip=True))
-        if first is None or last is None or last<first:continue
-        # Rows often include 0..11 columns: choose first=base, last=max.
-        if len(cells)>3:
-            numbers=[score_number(c.get_text(" ",strip=True)) for c in cells[1:]]
-            numbers=[n for n in numbers if n is not None]
-            if len(numbers)>=2:last=numbers[-1]
-        if match not in data or last>data[match]["max"]:
-            data[match]={"base":first,"max":last}
-    return data
+    """Extract scores ONLY from the Base Score / Max Glow Up table.
+    Style names might be image-only; use order when all five rows are present.
+    """
+    candidate = {}
+    for table in soup.select("table"):
+        headers = " ".join(th.get_text(" ",strip=True) for th in table.select("th")).lower()
+        if "score" not in headers or "glow" not in headers:
+            continue
+        rows=[]
+        for tr in table.select("tr"):
+            cells=tr.find_all(["td","th"],recursive=False)
+            if len(cells)<3 or cells[0].name=="th":continue
+            base=score_number(cells[1].get_text(" ",strip=True))
+            max_score=score_number(cells[2].get_text(" ",strip=True))
+            if base is None or max_score is None or max_score<base:continue
+            rows.append((identify_style(cells[0]),base,max_score))
+        if len(rows)!=5: continue
+        named=[style for style,_,_ in rows if style is not None]
+        if named and len(named)!=5:continue
+        if named and set(named)!=set(STYLES):continue
+        scores={}
+        for i,(style,base,max_score) in enumerate(rows):
+            key=style or STYLES[i]
+            scores[key]={"base":base,"max":max_score}
+        if len(scores)==5:return scores
+        candidate=scores
+    return candidate
 
 def parse_item(html,title,url,method):
     soup=BeautifulSoup(html,"html.parser")
