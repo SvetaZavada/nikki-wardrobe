@@ -38,12 +38,12 @@ function decodeSnappy(bytes){
 }
 const html='<dialog id="pearpalDialog" class="pearpal-dialog"><form method="dialog" id="pearpalForm">'
  +'<h2>✧ Import from PearlPal</h2>'
- +'<p>Read ownership directly from PearlPal. Existing checked items are kept. Credentials are used only for this request and are not saved.</p>'
+ +'<p>One check for clothing, completed outfits and Eurekas. Existing ownership is kept. Credentials are used only for this request and are not saved.</p>'
  +'<label>Region<select id="pearpalRegion"><option value="global">Global (America / Europe / Asia / TW)</option><option value="china">China</option></select></label>'
  +'<label>Momo Token<input id="pearpalToken" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="momoToken" required></label>'
  +'<label>Momo ID<input id="pearpalId" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="momoNid" required></label>'
  +'<small>Get these values from your own logged-in PearlPal session (browser DevTools → Application → Cookies). Do not paste them into chat or share them with others.</small>'
- +'<p class="pearpal-note">PearlPal may only provide parts of complete outfits. The import cannot reliably prove that unreported items are missing.</p>'
+ +'<p class="pearpal-note">A single PearlPal response may contain only completed outfits and may omit Eurekas. Missing information will be reported, never treated as unowned.</p>'
  +'<div id="pearpalResult" role="status" aria-live="polite"></div>'
  +'<div class="pearpal-actions"><button type="button" id="pearpalCancel">Close</button><button type="button" id="pearpalCheck">Check PearlPal</button><button type="button" id="pearpalApply" hidden>Import found items</button></div>'
  +'</form></dialog>';
@@ -76,24 +76,38 @@ function init(){
    if(!res.ok)throw Error('PearlPal notebook HTTP '+res.status);
    const data=decodeSnappy(new Uint8Array(await res.arrayBuffer()));
    const clothes=data?.info_from_gm?.clothes;
-   let source='',ids=[];
+   const suitList=data?.info_from_self?.suit_list;
+   const eurekaList=data?.info_from_self?.magic_ball_list;
+   let source='',ids=[],outfitIds=[];
+   const completed=Array.isArray(suitList)?[...new Set(suitList.map(Number).filter(Number.isSafeInteger))]:[];
+   outfitIds=completed;
    if(Array.isArray(clothes)&&clothes.length){
     ids=clothes.map(x=>Number(x?.item_id)).filter(Number.isSafeInteger);
-    source='Direct item list';
-   }else{
-    const suits=data?.info_from_self?.suit_list;
-    if(!Array.isArray(suits))throw Error('No clothing list or completed outfit list in PearlPal response.');
-    source='Completed outfits only';
-    result.textContent='Loading complete-outfit mappings…';
+    source='Direct clothing list';
+   }else if(Array.isArray(suitList)){
+    source='Completed outfits only (partial wardrobe)';
+    result.textContent='Loading completed outfit mappings…';
     const index=await fetch('https://raw.githubusercontent.com/dastrokes/gongeo.us-nikki-tracker/master/public/catalog/index.json').then(r=>{if(!r.ok)throw Error('Catalog lookup failed');return r.json()});
     const outfits=await fetch('https://raw.githubusercontent.com/dastrokes/gongeo.us-nikki-tracker/master/public'+index.files.outfitItems.path).then(r=>{if(!r.ok)throw Error('Outfit mapping failed');return r.json()});
     const byOutfit=new Map(outfits.map(row=>[Number(row[0]),row[1]]));
-    ids=suits.flatMap(x=>byOutfit.get(Number(x))||[]);
+    ids=completed.flatMap(x=>byOutfit.get(x)||[]);
+   }else{
+    source='No clothing data';
    }
-   const preview=byId().preview(ids);
-   candidate=ids;
-   result.textContent=source+': '+preview.total+' IDs returned; '+preview.clothes.length+' catalog clothes and '+preview.makeup.length+' makeup recognized. New: '+preview.newClothes.length+' clothing, '+preview.newMakeup.length+' makeup. Heartfelt Blues: '+(preview.heartfeltBlues?'found':preview.heartfeltBluesVariant?'variant found':'not reported')+'.';
-   apply.hidden=preview.newClothes.length+preview.newMakeup.length===0;
+   const clothing=byId().preview(ids,outfitIds);
+   const eureka=Array.isArray(eurekaList)?window.NikkiEureka?.previewPearpalColors(eurekaList):null;
+   candidate={ids,outfitIds,eurekaRows:Array.isArray(eurekaList)?eurekaList:[]};
+   const eurekaStatus=!Array.isArray(eurekaList)?'not provided by PearlPal':
+     !eureka?.catalogReady?'catalog not ready':
+     eureka.received+' entries; '+eureka.recognized+' recognized; '+eureka.newColors.length+' new colors'+(eureka.invalid?', '+eureka.invalid+' unrecognized':'');
+   result.textContent=source
+     +'\\nClothes: '+clothing.clothes.length+' identified, '+clothing.newClothes.length+' new.'
+     +'\\nCompleted outfits: '+clothing.outfits.length+' identified, '+clothing.newOutfits.length+' new.'
+     +'\\nEureka: '+eurekaStatus+'.'
+     +'\\nHeartfelt Blues: '+(clothing.heartfeltBlues||clothing.heartfeltBluesVariant?'reported':'not reported')+'.'
+     +'\\nExisting ownership will be preserved.';
+   apply.hidden=clothing.newClothes.length+clothing.newMakeup.length+clothing.newOutfits.length+(eureka?.newColors.length||0)===0;
+
   }catch(err){
    const cors=err instanceof TypeError;
    result.textContent=cors?'Browser blocked the direct request (possibly CORS or network). No data was changed.':'Import failed: '+(err?.message||'Unknown error')+'. No data was changed.';
@@ -103,9 +117,12 @@ function init(){
  };
  apply.onclick=()=>{
   if(!candidate)return;
-  const updated=byId().merge(candidate);
-  result.textContent='Added '+updated.newClothes.length+' clothes and '+updated.newMakeup.length+' makeup. Existing items were preserved.';
-  candidate=null;apply.hidden=true;
+  try{
+   const clothing=byId().merge(candidate.ids,candidate.outfitIds);
+   const colors=window.NikkiEureka?.mergePearpalColors(candidate.eurekaRows);
+   result.textContent='Added '+clothing.newClothes.length+' clothes, '+clothing.newOutfits.length+' outfits, '+clothing.newMakeup.length+' makeup, and '+(colors?.newColors.length||0)+' Eureka colors. Previous ownership remains intact.';
+   candidate=null;apply.hidden=true;
+  }catch(err){result.textContent='Import error: '+(err?.message||'Unknown error')+'. Check the collection before retrying.'}
  };
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
