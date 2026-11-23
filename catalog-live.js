@@ -66,6 +66,27 @@ function showModal(title,message,action){
   $('modal').showModal();
 }
 $('modalClose').onclick=()=>$('modal').close();
+window.NikkiPearpalBridge={
+  preview(ids){
+    const incoming=[...new Set(ids.map(Number).filter(Number.isSafeInteger))];
+    const clothes=incoming.filter(id=>items.some(i=>i.kind==='item'&&i.id===id));
+    const makeup=incoming.filter(id=>items.some(i=>i.kind==='makeup'&&i.id===id));
+    return {total:incoming.length,clothes,makeup,
+      newClothes:clothes.filter(id=>!owned.has(id)),
+      newMakeup:makeup.filter(id=>!ownedMakeup.has(id)),
+      catalogReady:items.length>0,
+      heartfeltBlues:incoming.includes(1021410045),
+      heartfeltBluesVariant:incoming.includes(1026410045)};
+  },
+  merge(ids){
+    const preview=this.preview(ids);
+    if(!preview.catalogReady)throw Error('The catalog is not loaded yet.');
+    preview.newClothes.forEach(id=>owned.add(id));
+    preview.newMakeup.forEach(id=>ownedMakeup.add(id));
+    persist();render();
+    return preview;
+  }
+};
 function persist(){
   localStorage.setItem('nikki-v2-owned',JSON.stringify([...owned]));
   localStorage.setItem('nikki-v2-makeup',JSON.stringify([...ownedMakeup]));
