@@ -1,0 +1,36 @@
+{
+  "source": "Infinity Nikki Wiki (Fandom)",
+  "status": "verified-from-public-page",
+  "items": [
+    {
+      "id": 1029600007,
+      "name": "Entering Glow",
+      "rarity": 5,
+      "type": "shoes",
+      "wiki_url": "https://infinity-nikki.fandom.com/wiki/Entering_Glow",
+      "scores": {
+        "Elegant": {
+          "base": 41,
+          "max": 255
+        },
+        "Fresh": {
+          "base": 138,
+          "max": 856
+        },
+        "Sweet": {
+          "base": 32,
+          "max": 199
+        },
+        "Sexy": {
+          "base": 30,
+          "max": 186
+        },
+        "Cool": {
+          "base": 269,
+          "max": 1668
+        }
+      },
+      "notes": "Verified public score table; matched gongeo catalog by exact English name."
+    }
+  ]
+}
