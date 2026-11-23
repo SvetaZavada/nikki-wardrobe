@@ -101,11 +101,11 @@ function init(){
      !eureka?.catalogReady?'catalog not ready':
      eureka.received+' entries; '+eureka.recognized+' recognized; '+eureka.newColors.length+' new colors'+(eureka.invalid?', '+eureka.invalid+' unrecognized':'');
    result.textContent=source
-     +'\\nClothes: '+clothing.clothes.length+' identified, '+clothing.newClothes.length+' new.'
-     +'\\nCompleted outfits: '+clothing.outfits.length+' identified, '+clothing.newOutfits.length+' new.'
-     +'\\nEureka: '+eurekaStatus+'.'
-     +'\\nHeartfelt Blues: '+(clothing.heartfeltBlues||clothing.heartfeltBluesVariant?'reported':'not reported')+'.'
-     +'\\nExisting ownership will be preserved.';
+     +'\nClothes: '+clothing.clothes.length+' identified, '+clothing.newClothes.length+' new.'
+     +'\nCompleted outfits: '+clothing.outfits.length+' identified, '+clothing.newOutfits.length+' new.'
+     +'\nEureka: '+eurekaStatus+'.'
+     +'\nHeartfelt Blues: '+(clothing.heartfeltBlues||clothing.heartfeltBluesVariant?'reported':'not reported')+'.'
+     +'\nExisting ownership will be preserved.';
    apply.hidden=clothing.newClothes.length+clothing.newMakeup.length+clothing.newOutfits.length+(eureka?.newColors.length||0)===0;
 
   }catch(err){
