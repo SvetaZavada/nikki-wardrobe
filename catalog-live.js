@@ -67,25 +67,31 @@ function showModal(title,message,action){
 }
 $('modalClose').onclick=()=>$('modal').close();
 window.NikkiPearpalBridge={
-  preview(ids){
-    const incoming=[...new Set(ids.map(Number).filter(Number.isSafeInteger))];
-    const clothes=incoming.filter(id=>items.some(i=>i.kind==='item'&&i.id===id));
-    const makeup=incoming.filter(id=>items.some(i=>i.kind==='makeup'&&i.id===id));
-    return {total:incoming.length,clothes,makeup,
-      newClothes:clothes.filter(id=>!owned.has(id)),
-      newMakeup:makeup.filter(id=>!ownedMakeup.has(id)),
-      catalogReady:items.length>0,
-      heartfeltBlues:incoming.includes(1021410045),
-      heartfeltBluesVariant:incoming.includes(1026410045)};
-  },
-  merge(ids){
-    const preview=this.preview(ids);
-    if(!preview.catalogReady)throw Error('The catalog is not loaded yet.');
-    preview.newClothes.forEach(id=>owned.add(id));
-    preview.newMakeup.forEach(id=>ownedMakeup.add(id));
-    persist();render();
-    return preview;
-  }
+ preview(ids,outfitIds=[]){
+   const incoming=[...new Set(ids.map(Number).filter(Number.isSafeInteger))];
+   const clothingIds=new Set(items.filter(i=>i.kind==='item').map(i=>i.id));
+   const makeupIds=new Set(items.filter(i=>i.kind==='makeup').map(i=>i.id));
+   const outfitCatalog=new Set(items.filter(i=>i.kind==='outfit').map(i=>i.id));
+   const clothes=incoming.filter(id=>clothingIds.has(id));
+   const makeup=incoming.filter(id=>makeupIds.has(id));
+   const outfits=[...new Set(outfitIds.map(Number).filter(id=>Number.isSafeInteger(id)&&outfitCatalog.has(id)))];
+   return {total:incoming.length,clothes,makeup,outfits,
+     newClothes:clothes.filter(id=>!owned.has(id)),
+     newMakeup:makeup.filter(id=>!ownedMakeup.has(id)),
+     newOutfits:outfits.filter(id=>!owned.has(id)),
+     catalogReady:items.length>0,
+     heartfeltBlues:incoming.includes(1021410045),
+     heartfeltBluesVariant:incoming.includes(1026410045)};
+ },
+ merge(ids,outfitIds=[]){
+   const preview=this.preview(ids,outfitIds);
+   if(!preview.catalogReady)throw Error('The catalog is not loaded yet.');
+   preview.newClothes.forEach(id=>owned.add(id));
+   preview.newMakeup.forEach(id=>ownedMakeup.add(id));
+   preview.newOutfits.forEach(id=>owned.add(id));
+   persist();render();
+   return preview;
+ }
 };
 function persist(){
   localStorage.setItem('nikki-v2-owned',JSON.stringify([...owned]));
