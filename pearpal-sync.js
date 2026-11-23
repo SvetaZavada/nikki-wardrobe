@@ -36,6 +36,25 @@ function decodeSnappy(bytes){
  if(pos!==size)throw Error('Incomplete compressed response');
  return JSON.parse(new TextDecoder().decode(out));
 }
+function dataMap(value,path='',depth=0){
+ const rows=[];
+ const walk=(v,p,d)=>{
+  if(rows.length>=200)return;
+  if(Array.isArray(v)){
+   rows.push(p+': array ('+v.length+' entries)');
+   if(v.length&&d<5&&v[0]&&typeof v[0]==='object')walk(v[0],p+'[sample item]',d+1);
+  }else if(v&&typeof v==='object'){
+   const entries=Object.entries(v);
+   if(p)rows.push(p+': object ('+entries.length+' fields)');
+   if(d<5)for(const [key,child] of entries){
+    if(rows.length>=200)break;
+    if(/token|cookie|openid|roleid|password|secret|auth|signature|session|uid|email|phone|name|nickname|avatar|address/i.test(key))continue;
+    walk(child,p?p+'.'+key:key,d+1);
+   }
+  }else if(p)rows.push(p+': '+(v===null?'null':typeof v));
+ };
+ walk(value,path,depth);return rows;
+}
 const html='<dialog id="pearpalDialog" class="pearpal-dialog"><form method="dialog" id="pearpalForm">'
  +'<h2>✧ Import from PearlPal</h2>'
  +'<p>One check for clothing, completed outfits and Eurekas. Existing ownership is kept. Credentials are used only for this request and are not saved.</p>'
@@ -45,6 +64,7 @@ const html='<dialog id="pearpalDialog" class="pearpal-dialog"><form method="dial
  +'<small>Get these values from your own logged-in PearlPal session (browser DevTools → Application → Cookies). Do not paste them into chat or share them with others.</small>'
  +'<p class="pearpal-note">A single PearlPal response may contain only completed outfits and may omit Eurekas. Missing information will be reported, never treated as unowned.</p>'
  +'<div id="pearpalResult" role="status" aria-live="polite"></div>'
+ +'<details id="pearpalInspect" hidden><summary>Explore returned PearlPal data</summary><p class="pearpal-inspect-help">Field names and record counts only. Personal values and account credentials are excluded.</p><pre id="pearpalMap"></pre><button type="button" id="pearpalCopyMap">Copy data map</button></details>'
  +'<div class="pearpal-actions"><button type="button" id="pearpalCancel">Close</button><button type="button" id="pearpalCheck">Check PearlPal</button><button type="button" id="pearpalApply" hidden>Import found items</button></div>'
  +'</form></dialog>';
 function init(){
@@ -53,8 +73,8 @@ function init(){
  sync.insertBefore(button,$('syncCatalog'));
  document.body.insertAdjacentHTML('beforeend',html);
  const dialog=$('pearpalDialog'),result=$('pearpalResult'),check=$('pearpalCheck'),apply=$('pearpalApply');
- let candidate=null;
- const wipe=()=>{$('pearpalToken').value='';$('pearpalId').value='';candidate=null;apply.hidden=true;};
+ let candidate=null;let inspection='';
+ const wipe=()=>{$('pearpalToken').value='';$('pearpalId').value='';candidate=null;inspection='';apply.hidden=true;$('pearpalInspect').hidden=true;};
  dialog.addEventListener('close',wipe);
  $('pearpalCancel').onclick=()=>dialog.close();
  button.onclick=()=>{$('syncMenu').classList.remove('open');wipe();result.textContent='';dialog.showModal();};
@@ -75,6 +95,10 @@ function init(){
    const res=await fetch(endpoint+'/v1/strategy/user/note/book/info',opts);
    if(!res.ok)throw Error('PearlPal notebook HTTP '+res.status);
    const data=decodeSnappy(new Uint8Array(await res.arrayBuffer()));
+   inspection='PEARLPAL NOTEBOOK RESPONSE (structure only)\n'+dataMap(data).join('\n')
+      +'\n\nACCOUNT INFO RESPONSE (structure only)\n'+dataMap(account).join('\n');
+   $('pearpalMap').textContent=inspection;
+   $('pearpalInspect').hidden=false;
    const clothes=data?.info_from_gm?.clothes;
    const suitList=data?.info_from_self?.suit_list;
    const eurekaList=data?.info_from_self?.magic_ball_list;
@@ -114,6 +138,11 @@ function init(){
   }finally{
    check.disabled=false;$('pearpalToken').value='';$('pearpalId').value='';
   }
+ };
+ $('pearpalCopyMap').onclick=()=>{
+  if(!inspection)return;
+  if(navigator.clipboard?.writeText)navigator.clipboard.writeText(inspection).then(()=>{$('pearpalCopyMap').textContent='Copied data map';}).catch(()=>{$('pearpalCopyMap').textContent='Copy unavailable';});
+  else $('pearpalCopyMap').textContent='Clipboard unavailable';
  };
  apply.onclick=()=>{
   if(!candidate)return;
