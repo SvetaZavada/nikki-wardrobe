@@ -331,3 +331,18 @@ footer{border-top:1px solid #e7dde4;color:#a29aa7;letter-spacing:.04em}
 /* Invisible viewport sentinel for progressive card loading across sections. */
 .catalog-scroll-sentinel{display:block;height:24px;min-height:24px;pointer-events:none;opacity:0}
 .catalog-scroll-sentinel[hidden]{display:none!important}
+
+/* PearlPal import dialog: temporary authentication, preview and explicit merge. */
+.pearpal-dialog{border:1px solid #decae2;border-radius:20px;background:#fffdfd;color:#655574;width:min(520px,calc(100vw - 30px));max-height:min(92vh,860px);overflow:auto;padding:23px;box-shadow:0 22px 70px #51416935;font-family:Nunito,system-ui,sans-serif}
+.pearpal-dialog::backdrop{background:#32283b99;backdrop-filter:blur(3px)}
+.pearpal-dialog h2{font-size:22px;color:#785b88;margin:0 0 8px}
+.pearpal-dialog p{font-size:13px;line-height:1.55;margin:0 0 16px;color:#7b7083}
+.pearpal-dialog label{display:grid;gap:6px;margin:12px 0;font-weight:800;font-size:12px}
+.pearpal-dialog label input,.pearpal-dialog label select{width:100%;box-sizing:border-box;padding:11px 12px;border-radius:10px;background:white;border:1px solid #dacdde;color:#554c60;font:600 13px Nunito,system-ui,sans-serif}
+.pearpal-dialog small{display:block;font-size:11px;line-height:1.5;color:#94849a}
+.pearpal-dialog .pearpal-note{margin:12px 0;background:#faf2f7;padding:10px;border-radius:10px;font-size:12px}
+#pearpalResult{font-size:12px;line-height:1.55;color:#735d7c;min-height:22px;margin:12px 0;white-space:pre-wrap;overflow-wrap:anywhere}
+.pearpal-actions{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end}
+.pearpal-actions button{border:1px solid #d9c5e1;border-radius:10px;background:#f8f0fa;padding:9px 12px;color:#745b85;font:800 12px Nunito,system-ui,sans-serif;cursor:pointer}
+.pearpal-actions #pearpalCheck,.pearpal-actions #pearpalApply{background:#ad8dcb;border-color:#ad8dcb;color:white}
+.pearpal-actions button:disabled{opacity:.5;cursor:wait}
