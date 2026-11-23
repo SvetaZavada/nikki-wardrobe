@@ -250,6 +250,24 @@ function importIds(ids){
  if(active)draw();
  return {...importReport};
 }
+function previewPearpalColors(rows){
+ const available=new Map(all.filter(i=>i.kind==='eureka').map(i=>[Number(i.id),new Set((i.colors||[]).map(c=>Number(c.id)))]));
+ const found=new Set();let invalid=0;
+ for(const row of rows||[]){
+   const part=Number(row?.magic_ball_id),color=Number(row?.magic_ball_color);
+   if(!available.get(part)?.has(color)){invalid++;continue}
+   found.add(color);
+ }
+ const ids=[...found];
+ return {received:(rows||[]).length,recognized:ids.length,invalid,ids,newColors:ids.filter(id=>!local.colors[id]),catalogReady:available.size>0};
+}
+function mergePearpalColors(rows){
+ const info=previewPearpalColors(rows);
+ if(!info.catalogReady)throw Error('Eureka catalog is not loaded yet.');
+ for(const id of info.newColors)local.colors[id]=true;
+ save();if(active)draw();
+ return info;
+}
 function handleSetClick(event){
  const colorButton=event.target.closest('button[data-color-id]');
  if(colorButton){
@@ -268,5 +286,5 @@ function handleSetClick(event){
  }
 }
 document.addEventListener('click',event=>{if(event.target.closest('#eurekaSetGrid'))handleSetClick(event)});
-window.NikkiEureka={activate,setCatalog,draw,reset,importIds};
+window.NikkiEureka={activate,setCatalog,draw,reset,importIds,previewPearpalColors,mergePearpalColors};
 })();
