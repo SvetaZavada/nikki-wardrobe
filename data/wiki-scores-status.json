@@ -8,14 +8,46 @@
         "independent: IncompleteRead IncompleteRead(50119 bytes read)",
         "fandom: HTTPError HTTP Error 403: Forbidden"
       ]
+    },
+    "1021720085": {
+      "title": "Drifting Bloom",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "1021770018": {
+      "title": "Seaward Blossoms",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "1021900030": {
+      "title": "Giant Momo",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "1021920036": {
+      "title": "Dreamsea Glow",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
     }
   },
   "gameVersion": "2.11.2",
   "totalCatalogEntries": 2109,
-  "matchedEntries": 239,
-  "unattempted": 1869,
-  "lastRunUTC": "2026-11-24T02:17:32.892738+00:00",
+  "matchedEntries": 355,
+  "unattempted": 1749,
+  "lastRunUTC": "2026-11-24T13:45:55.664911+00:00",
   "summary": {
-    "not_found_or_unparsed": 1
+    "not_found_or_unparsed": 5
   }
 }
