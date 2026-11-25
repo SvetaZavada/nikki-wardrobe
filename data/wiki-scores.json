@@ -16774,6 +16774,4204 @@
       },
       "source": "independent",
       "url": "https://infinitynikki.wiki/Wasteland_Relic"
+    },
+    "1021780075": {
+      "id": "1021780075",
+      "title": "Eternal Bones",
+      "variantIds": [
+        1021780075,
+        1026780075
+      ],
+      "rarity": 5,
+      "categoryId": 10,
+      "scores": {
+        "Elegant": {
+          "base": 20,
+          "max": 124
+        },
+        "Fresh": {
+          "base": 136,
+          "max": 844
+        },
+        "Sweet": {
+          "base": 22,
+          "max": 137
+        },
+        "Sexy": {
+          "base": 16,
+          "max": 100
+        },
+        "Cool": {
+          "base": 67,
+          "max": 416
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Eternal_Bones"
+    },
+    "1021780076": {
+      "id": "1021780076",
+      "title": "Floral Intent",
+      "variantIds": [
+        1021780076,
+        1026780076
+      ],
+      "rarity": 5,
+      "categoryId": 10,
+      "scores": {
+        "Elegant": {
+          "base": 18,
+          "max": 112
+        },
+        "Fresh": {
+          "base": 70,
+          "max": 434
+        },
+        "Sweet": {
+          "base": 133,
+          "max": 825
+        },
+        "Sexy": {
+          "base": 22,
+          "max": 137
+        },
+        "Cool": {
+          "base": 19,
+          "max": 118
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Floral_Intent"
+    },
+    "1020100215": {
+      "id": "1020100215",
+      "title": "Fluttering White Dream",
+      "variantIds": [
+        1020100215,
+        1022100215,
+        1023100215
+      ],
+      "rarity": 4,
+      "categoryId": 0,
+      "scores": {
+        "Elegant": {
+          "base": 185,
+          "max": 1147
+        },
+        "Fresh": {
+          "base": 67,
+          "max": 416
+        },
+        "Sweet": {
+          "base": 45,
+          "max": 279
+        },
+        "Sexy": {
+          "base": 363,
+          "max": 2251
+        },
+        "Cool": {
+          "base": 61,
+          "max": 379
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Fluttering_White_Dream"
+    },
+    "1020600215": {
+      "id": "1020600215",
+      "title": "Soaring into Tomorrow",
+      "variantIds": [
+        1020600215,
+        1022600215,
+        1023600215
+      ],
+      "rarity": 4,
+      "categoryId": 2,
+      "scores": {
+        "Elegant": {
+          "base": 90,
+          "max": 558
+        },
+        "Fresh": {
+          "base": 31,
+          "max": 193
+        },
+        "Sweet": {
+          "base": 26,
+          "max": 162
+        },
+        "Sexy": {
+          "base": 185,
+          "max": 1147
+        },
+        "Cool": {
+          "base": 28,
+          "max": 174
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Soaring_into_Tomorrow"
+    },
+    "1020600275": {
+      "id": "1020600275",
+      "title": "Unspoken Vow",
+      "variantIds": [
+        1020600275,
+        1022600275
+      ],
+      "rarity": 4,
+      "categoryId": 2,
+      "scores": {
+        "Elegant": {
+          "base": 217,
+          "max": 1346
+        },
+        "Fresh": {
+          "base": 21,
+          "max": 131
+        },
+        "Sweet": {
+          "base": 34,
+          "max": 211
+        },
+        "Sexy": {
+          "base": 114,
+          "max": 707
+        },
+        "Cool": {
+          "base": 34,
+          "max": 211
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Unspoken_Vow"
+    },
+    "1020710215": {
+      "id": "1020710215",
+      "title": "Whispering Plume",
+      "variantIds": [
+        1020710215,
+        1022710215,
+        1023710215
+      ],
+      "rarity": 4,
+      "categoryId": 3,
+      "scores": {
+        "Elegant": {
+          "base": 47,
+          "max": 292
+        },
+        "Fresh": {
+          "base": 14,
+          "max": 87
+        },
+        "Sweet": {
+          "base": 14,
+          "max": 87
+        },
+        "Sexy": {
+          "base": 96,
+          "max": 596
+        },
+        "Cool": {
+          "base": 9,
+          "max": 56
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Whispering_Plume"
+    },
+    "1020720215": {
+      "id": "1020720215",
+      "title": "Drifting Midnight",
+      "variantIds": [
+        1020720215,
+        1022720215,
+        1023720215
+      ],
+      "rarity": 4,
+      "categoryId": 4,
+      "scores": {
+        "Elegant": {
+          "base": 48,
+          "max": 298
+        },
+        "Fresh": {
+          "base": 9,
+          "max": 56
+        },
+        "Sweet": {
+          "base": 12,
+          "max": 75
+        },
+        "Sexy": {
+          "base": 97,
+          "max": 602
+        },
+        "Cool": {
+          "base": 14,
+          "max": 87
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Drifting_Midnight"
+    },
+    "1020750215": {
+      "id": "1020750215",
+      "title": "Feather-Laced Breeze",
+      "variantIds": [
+        1020750215,
+        1022750215,
+        1023750215
+      ],
+      "rarity": 4,
+      "categoryId": 16,
+      "scores": {
+        "Elegant": {
+          "base": 46,
+          "max": 286
+        },
+        "Fresh": {
+          "base": 11,
+          "max": 69
+        },
+        "Sweet": {
+          "base": 17,
+          "max": 106
+        },
+        "Sexy": {
+          "base": 93,
+          "max": 577
+        },
+        "Cool": {
+          "base": 13,
+          "max": 81
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Feather-Laced_Breeze"
+    },
+    "1020760215": {
+      "id": "1020760215",
+      "title": "Bone-Cradled Dream",
+      "variantIds": [
+        1020760215,
+        1022760215,
+        1023760215
+      ],
+      "rarity": 4,
+      "categoryId": 7,
+      "scores": {
+        "Elegant": {
+          "base": 48,
+          "max": 298
+        },
+        "Fresh": {
+          "base": 16,
+          "max": 100
+        },
+        "Sweet": {
+          "base": 10,
+          "max": 62
+        },
+        "Sexy": {
+          "base": 95,
+          "max": 589
+        },
+        "Cool": {
+          "base": 11,
+          "max": 69
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Bone-Cradled_Dream"
+    },
+    "1020900215": {
+      "id": "1020900215",
+      "title": "Prismatic Night",
+      "variantIds": [
+        1020900215,
+        1022900215,
+        1023900215
+      ],
+      "rarity": 4,
+      "categoryId": 8,
+      "scores": {
+        "Elegant": {
+          "base": 331,
+          "max": 2053
+        },
+        "Fresh": {
+          "base": 58,
+          "max": 360
+        },
+        "Sweet": {
+          "base": 117,
+          "max": 726
+        },
+        "Sexy": {
+          "base": 619,
+          "max": 3838
+        },
+        "Cool": {
+          "base": 75,
+          "max": 465
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Prismatic_Night"
+    },
+    "1020970215": {
+      "id": "1020970215",
+      "title": "Bone-Vow Covenant",
+      "variantIds": [
+        1020970215,
+        1022970215,
+        1023970215
+      ],
+      "rarity": 4,
+      "categoryId": 17,
+      "scores": {
+        "Elegant": {
+          "base": 47,
+          "max": 292
+        },
+        "Fresh": {
+          "base": 17,
+          "max": 106
+        },
+        "Sweet": {
+          "base": 12,
+          "max": 75
+        },
+        "Sexy": {
+          "base": 91,
+          "max": 565
+        },
+        "Cool": {
+          "base": 14,
+          "max": 87
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Bone-Vow_Covenant"
+    },
+    "1021740025": {
+      "id": "1021740025",
+      "title": "Quiet Night Watch",
+      "variantIds": [
+        1021740025,
+        1026740025
+      ],
+      "rarity": 4,
+      "categoryId": 6,
+      "scores": {
+        "Elegant": {
+          "base": 106,
+          "max": 658
+        },
+        "Fresh": {
+          "base": 52,
+          "max": 323
+        },
+        "Sweet": {
+          "base": 15,
+          "max": 93
+        },
+        "Sexy": {
+          "base": 20,
+          "max": 124
+        },
+        "Cool": {
+          "base": 18,
+          "max": 112
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Quiet_Night_Watch"
+    },
+    "1021770017": {
+      "id": "1021770017",
+      "title": "Remaining Silhouette",
+      "variantIds": [
+        1021770017,
+        1026770017
+      ],
+      "rarity": 4,
+      "categoryId": 12,
+      "scores": {
+        "Elegant": {
+          "base": 16,
+          "max": 100
+        },
+        "Fresh": {
+          "base": 19,
+          "max": 118
+        },
+        "Sweet": {
+          "base": 10,
+          "max": 62
+        },
+        "Sexy": {
+          "base": 108,
+          "max": 670
+        },
+        "Cool": {
+          "base": 56,
+          "max": 348
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Remaining_Silhouette"
+    },
+    "1029300070": {
+      "id": "1029300070",
+      "title": "Unending Longing",
+      "variantIds": [
+        1026300070,
+        1029300070
+      ],
+      "rarity": 4,
+      "categoryId": 15,
+      "scores": {
+        "Elegant": {
+          "base": 371,
+          "max": 2301
+        },
+        "Fresh": {
+          "base": 35,
+          "max": 217
+        },
+        "Sweet": {
+          "base": 184,
+          "max": 1141
+        },
+        "Sexy": {
+          "base": 68,
+          "max": 422
+        },
+        "Cool": {
+          "base": 43,
+          "max": 267
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Unending_Longing"
+    },
+    "1029300071": {
+      "id": "1029300071",
+      "title": "Longing Reminiscence",
+      "variantIds": [
+        1026300071,
+        1029300071
+      ],
+      "rarity": 4,
+      "categoryId": 15,
+      "scores": {
+        "Elegant": {
+          "base": 181,
+          "max": 1123
+        },
+        "Fresh": {
+          "base": 62,
+          "max": 385
+        },
+        "Sweet": {
+          "base": 35,
+          "max": 217
+        },
+        "Sexy": {
+          "base": 361,
+          "max": 2239
+        },
+        "Cool": {
+          "base": 61,
+          "max": 379
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Longing_Reminiscence"
+    },
+    "1020100389": {
+      "id": "1020100389",
+      "title": "Dawn Melody",
+      "variantIds": [
+        1020100389,
+        1022100389,
+        1023100389
+      ],
+      "rarity": 4,
+      "categoryId": 0,
+      "scores": {
+        "Elegant": {
+          "base": 66,
+          "max": 410
+        },
+        "Fresh": {
+          "base": 215,
+          "max": 1333
+        },
+        "Sweet": {
+          "base": 424,
+          "max": 2629
+        },
+        "Sexy": {
+          "base": 64,
+          "max": 397
+        },
+        "Cool": {
+          "base": 71,
+          "max": 441
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Dawn_Melody"
+    },
+    "1020500389": {
+      "id": "1020500389",
+      "title": "Lush Branches",
+      "variantIds": [
+        1020500389,
+        1022500389,
+        1023500389
+      ],
+      "rarity": 4,
+      "categoryId": 11,
+      "scores": {
+        "Elegant": {
+          "base": 26,
+          "max": 162
+        },
+        "Fresh": {
+          "base": 73,
+          "max": 453
+        },
+        "Sweet": {
+          "base": 140,
+          "max": 868
+        },
+        "Sexy": {
+          "base": 20,
+          "max": 124
+        },
+        "Cool": {
+          "base": 21,
+          "max": 131
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Lush_Branches"
+    },
+    "1020600389": {
+      "id": "1020600389",
+      "title": "Dawn to Dusk",
+      "variantIds": [
+        1020600389,
+        1022600389,
+        1023600389
+      ],
+      "rarity": 4,
+      "categoryId": 2,
+      "scores": {
+        "Elegant": {
+          "base": 23,
+          "max": 143
+        },
+        "Fresh": {
+          "base": 115,
+          "max": 713
+        },
+        "Sweet": {
+          "base": 235,
+          "max": 1457
+        },
+        "Sexy": {
+          "base": 22,
+          "max": 137
+        },
+        "Cool": {
+          "base": 25,
+          "max": 155
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Dawn_to_Dusk"
+    },
+    "1020720389": {
+      "id": "1020720389",
+      "title": "Feathers and Leaves",
+      "variantIds": [
+        1020720389,
+        1022720389,
+        1023720389
+      ],
+      "rarity": 4,
+      "categoryId": 4,
+      "scores": {
+        "Elegant": {
+          "base": 14,
+          "max": 87
+        },
+        "Fresh": {
+          "base": 55,
+          "max": 341
+        },
+        "Sweet": {
+          "base": 105,
+          "max": 651
+        },
+        "Sexy": {
+          "base": 17,
+          "max": 106
+        },
+        "Cool": {
+          "base": 19,
+          "max": 118
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Feathers_and_Leaves"
+    },
+    "1020730389": {
+      "id": "1020730389",
+      "title": "Woodland Melody",
+      "variantIds": [
+        1020730389,
+        1022730389,
+        1023730389
+      ],
+      "rarity": 4,
+      "categoryId": 5,
+      "scores": {
+        "Elegant": {
+          "base": 13,
+          "max": 81
+        },
+        "Fresh": {
+          "base": 55,
+          "max": 341
+        },
+        "Sweet": {
+          "base": 108,
+          "max": 670
+        },
+        "Sexy": {
+          "base": 13,
+          "max": 81
+        },
+        "Cool": {
+          "base": 21,
+          "max": 131
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Woodland_Melody"
+    },
+    "1020740389": {
+      "id": "1020740389",
+      "title": "Life's Insight",
+      "variantIds": [
+        1020740389,
+        1022740389,
+        1023740389
+      ],
+      "rarity": 4,
+      "categoryId": 6,
+      "scores": {
+        "Elegant": {
+          "base": 18,
+          "max": 112
+        },
+        "Fresh": {
+          "base": 55,
+          "max": 341
+        },
+        "Sweet": {
+          "base": 109,
+          "max": 676
+        },
+        "Sexy": {
+          "base": 13,
+          "max": 81
+        },
+        "Cool": {
+          "base": 15,
+          "max": 93
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Life's_Insight"
+    },
+    "1020770389": {
+      "id": "1020770389",
+      "title": "Distant Dreams",
+      "variantIds": [
+        1020770389,
+        1022770389,
+        1023770389
+      ],
+      "rarity": 4,
+      "categoryId": 12,
+      "scores": {
+        "Elegant": {
+          "base": 11,
+          "max": 69
+        },
+        "Fresh": {
+          "base": 56,
+          "max": 348
+        },
+        "Sweet": {
+          "base": 113,
+          "max": 701
+        },
+        "Sexy": {
+          "base": 16,
+          "max": 100
+        },
+        "Cool": {
+          "base": 15,
+          "max": 93
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Distant_Dreams"
+    },
+    "1020900389": {
+      "id": "1020900389",
+      "title": "Veil of Moonlight",
+      "variantIds": [
+        1020900389,
+        1022900389,
+        1023900389
+      ],
+      "rarity": 4,
+      "categoryId": 8,
+      "scores": {
+        "Elegant": {
+          "base": 122,
+          "max": 757
+        },
+        "Fresh": {
+          "base": 373,
+          "max": 2313
+        },
+        "Sweet": {
+          "base": 706,
+          "max": 4378
+        },
+        "Sexy": {
+          "base": 104,
+          "max": 645
+        },
+        "Cool": {
+          "base": 95,
+          "max": 589
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Veil_of_Moonlight"
+    },
+    "1020100206": {
+      "id": "1020100206",
+      "title": "Glowing Embers",
+      "variantIds": [
+        1020100206,
+        1022100206,
+        1023100206
+      ],
+      "rarity": 4,
+      "categoryId": 0,
+      "scores": {
+        "Elegant": {
+          "base": 58,
+          "max": 360
+        },
+        "Fresh": {
+          "base": 80,
+          "max": 496
+        },
+        "Sweet": {
+          "base": 73,
+          "max": 453
+        },
+        "Sexy": {
+          "base": 213,
+          "max": 1321
+        },
+        "Cool": {
+          "base": 447,
+          "max": 2772
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Glowing_Embers"
+    },
+    "1020100374": {
+      "id": "1020100374",
+      "title": "Starry Radiance",
+      "variantIds": [
+        1020100374,
+        1022100374,
+        1023100374
+      ],
+      "rarity": 4,
+      "categoryId": 0,
+      "scores": {
+        "Elegant": {
+          "base": 58,
+          "max": 360
+        },
+        "Fresh": {
+          "base": 45,
+          "max": 279
+        },
+        "Sweet": {
+          "base": 471,
+          "max": 2921
+        },
+        "Sexy": {
+          "base": 52,
+          "max": 323
+        },
+        "Cool": {
+          "base": 244,
+          "max": 1513
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Starry_Radiance"
+    },
+    "1020100377": {
+      "id": "1020100377",
+      "title": "Catching Light",
+      "variantIds": [
+        1020100377,
+        1022100377,
+        1023100377
+      ],
+      "rarity": 4,
+      "categoryId": 0,
+      "scores": {
+        "Elegant": {
+          "base": 467,
+          "max": 2896
+        },
+        "Fresh": {
+          "base": 236,
+          "max": 1464
+        },
+        "Sweet": {
+          "base": 62,
+          "max": 385
+        },
+        "Sexy": {
+          "base": 45,
+          "max": 279
+        },
+        "Cool": {
+          "base": 60,
+          "max": 372
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Catching_Light"
+    },
+    "1020100378": {
+      "id": "1020100378",
+      "title": "Veil of Night",
+      "variantIds": [
+        1020100378,
+        1022100378,
+        1023100378
+      ],
+      "rarity": 4,
+      "categoryId": 0,
+      "scores": {
+        "Elegant": {
+          "base": 227,
+          "max": 1408
+        },
+        "Fresh": {
+          "base": 60,
+          "max": 372
+        },
+        "Sweet": {
+          "base": 71,
+          "max": 441
+        },
+        "Sexy": {
+          "base": 438,
+          "max": 2716
+        },
+        "Cool": {
+          "base": 74,
+          "max": 459
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Veil_of_Night"
+    },
+    "1020500206": {
+      "id": "1020500206",
+      "title": "Pristine Heart",
+      "variantIds": [
+        1020500206,
+        1022500206,
+        1023500206
+      ],
+      "rarity": 4,
+      "categoryId": 11,
+      "scores": {
+        "Elegant": {
+          "base": 17,
+          "max": 106
+        },
+        "Fresh": {
+          "base": 20,
+          "max": 124
+        },
+        "Sweet": {
+          "base": 20,
+          "max": 124
+        },
+        "Sexy": {
+          "base": 76,
+          "max": 472
+        },
+        "Cool": {
+          "base": 156,
+          "max": 968
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Pristine_Heart"
+    },
+    "1020500374": {
+      "id": "1020500374",
+      "title": "Achromatic Light",
+      "variantIds": [
+        1020500374,
+        1022500374,
+        1023500374
+      ],
+      "rarity": 4,
+      "categoryId": 11,
+      "scores": {
+        "Elegant": {
+          "base": 21,
+          "max": 131
+        },
+        "Fresh": {
+          "base": 27,
+          "max": 168
+        },
+        "Sweet": {
+          "base": 147,
+          "max": 912
+        },
+        "Sexy": {
+          "base": 19,
+          "max": 118
+        },
+        "Cool": {
+          "base": 76,
+          "max": 472
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Achromatic_Light"
+    },
+    "1020600206": {
+      "id": "1020600206",
+      "title": "Riding the Wind",
+      "variantIds": [
+        1020600206,
+        1022600206,
+        1023600206
+      ],
+      "rarity": 4,
+      "categoryId": 2,
+      "scores": {
+        "Elegant": {
+          "base": 23,
+          "max": 143
+        },
+        "Fresh": {
+          "base": 32,
+          "max": 199
+        },
+        "Sweet": {
+          "base": 41,
+          "max": 255
+        },
+        "Sexy": {
+          "base": 112,
+          "max": 695
+        },
+        "Cool": {
+          "base": 227,
+          "max": 1408
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Riding_the_Wind"
+    },
+    "1020600374": {
+      "id": "1020600374",
+      "title": "Wishful Traces",
+      "variantIds": [
+        1020600374,
+        1022600374,
+        1023600374
+      ],
+      "rarity": 4,
+      "categoryId": 2,
+      "scores": {
+        "Elegant": {
+          "base": 37,
+          "max": 230
+        },
+        "Fresh": {
+          "base": 34,
+          "max": 211
+        },
+        "Sweet": {
+          "base": 217,
+          "max": 1346
+        },
+        "Sexy": {
+          "base": 41,
+          "max": 255
+        },
+        "Cool": {
+          "base": 106,
+          "max": 658
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Wishful_Traces"
+    },
+    "1020600377": {
+      "id": "1020600377",
+      "title": "Song of Starlight",
+      "variantIds": [
+        1020600377,
+        1022600377,
+        1023600377
+      ],
+      "rarity": 4,
+      "categoryId": 2,
+      "scores": {
+        "Elegant": {
+          "base": 230,
+          "max": 1426
+        },
+        "Fresh": {
+          "base": 115,
+          "max": 713
+        },
+        "Sweet": {
+          "base": 30,
+          "max": 186
+        },
+        "Sexy": {
+          "base": 33,
+          "max": 205
+        },
+        "Cool": {
+          "base": 27,
+          "max": 168
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Song_of_Starlight"
+    },
+    "1020600378": {
+      "id": "1020600378",
+      "title": "Finale of Splendor",
+      "variantIds": [
+        1020600378,
+        1022600378,
+        1023600378
+      ],
+      "rarity": 4,
+      "categoryId": 2,
+      "scores": {
+        "Elegant": {
+          "base": 122,
+          "max": 757
+        },
+        "Fresh": {
+          "base": 31,
+          "max": 193
+        },
+        "Sweet": {
+          "base": 22,
+          "max": 137
+        },
+        "Sexy": {
+          "base": 235,
+          "max": 1457
+        },
+        "Cool": {
+          "base": 25,
+          "max": 155
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Finale_of_Splendor"
+    },
+    "1020710377": {
+      "id": "1020710377",
+      "title": "Misty Dawn",
+      "variantIds": [
+        1020710377,
+        1022710377,
+        1023710377
+      ],
+      "rarity": 4,
+      "categoryId": 3,
+      "scores": {
+        "Elegant": {
+          "base": 119,
+          "max": 738
+        },
+        "Fresh": {
+          "base": 59,
+          "max": 366
+        },
+        "Sweet": {
+          "base": 13,
+          "max": 81
+        },
+        "Sexy": {
+          "base": 15,
+          "max": 93
+        },
+        "Cool": {
+          "base": 11,
+          "max": 69
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Misty_Dawn"
+    },
+    "1020710378": {
+      "id": "1020710378",
+      "title": "Rhythmic Bloom",
+      "variantIds": [
+        1020710378,
+        1022710378,
+        1023710378
+      ],
+      "rarity": 4,
+      "categoryId": 3,
+      "scores": {
+        "Elegant": {
+          "base": 60,
+          "max": 372
+        },
+        "Fresh": {
+          "base": 16,
+          "max": 100
+        },
+        "Sweet": {
+          "base": 12,
+          "max": 75
+        },
+        "Sexy": {
+          "base": 115,
+          "max": 713
+        },
+        "Cool": {
+          "base": 14,
+          "max": 87
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Rhythmic_Bloom"
+    },
+    "1020720206": {
+      "id": "1020720206",
+      "title": "Fearless Crown",
+      "variantIds": [
+        1020720206,
+        1022720206,
+        1023720206
+      ],
+      "rarity": 4,
+      "categoryId": 4,
+      "scores": {
+        "Elegant": {
+          "base": 19,
+          "max": 118
+        },
+        "Fresh": {
+          "base": 11,
+          "max": 69
+        },
+        "Sweet": {
+          "base": 15,
+          "max": 93
+        },
+        "Sexy": {
+          "base": 58,
+          "max": 360
+        },
+        "Cool": {
+          "base": 115,
+          "max": 713
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Fearless_Crown"
+    },
+    "1020720374": {
+      "id": "1020720374",
+      "title": "Misty Blossom",
+      "variantIds": [
+        1020720374,
+        1022720374,
+        1023720374
+      ],
+      "rarity": 4,
+      "categoryId": 4,
+      "scores": {
+        "Elegant": {
+          "base": 19,
+          "max": 118
+        },
+        "Fresh": {
+          "base": 14,
+          "max": 87
+        },
+        "Sweet": {
+          "base": 113,
+          "max": 701
+        },
+        "Sexy": {
+          "base": 16,
+          "max": 100
+        },
+        "Cool": {
+          "base": 56,
+          "max": 348
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Misty_Blossom"
+    },
+    "1020720377": {
+      "id": "1020720377",
+      "title": "Moonlit Grace",
+      "variantIds": [
+        1020720377,
+        1022720377,
+        1023720377
+      ],
+      "rarity": 4,
+      "categoryId": 4,
+      "scores": {
+        "Elegant": {
+          "base": 114,
+          "max": 707
+        },
+        "Fresh": {
+          "base": 58,
+          "max": 360
+        },
+        "Sweet": {
+          "base": 13,
+          "max": 81
+        },
+        "Sexy": {
+          "base": 18,
+          "max": 112
+        },
+        "Cool": {
+          "base": 15,
+          "max": 93
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Moonlit_Grace"
+    },
+    "1020730374": {
+      "id": "1020730374",
+      "title": "Breezy Blooms",
+      "variantIds": [
+        1020730374,
+        1022730374,
+        1023730374
+      ],
+      "rarity": 4,
+      "categoryId": 5,
+      "scores": {
+        "Elegant": {
+          "base": 17,
+          "max": 106
+        },
+        "Fresh": {
+          "base": 18,
+          "max": 112
+        },
+        "Sweet": {
+          "base": 113,
+          "max": 701
+        },
+        "Sexy": {
+          "base": 14,
+          "max": 87
+        },
+        "Cool": {
+          "base": 56,
+          "max": 348
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Breezy_Blooms"
+    },
+    "1020730377": {
+      "id": "1020730377",
+      "title": "Dreamlit Kiss",
+      "variantIds": [
+        1020730377,
+        1022730377,
+        1023730377
+      ],
+      "rarity": 4,
+      "categoryId": 5,
+      "scores": {
+        "Elegant": {
+          "base": 114,
+          "max": 707
+        },
+        "Fresh": {
+          "base": 58,
+          "max": 360
+        },
+        "Sweet": {
+          "base": 14,
+          "max": 87
+        },
+        "Sexy": {
+          "base": 19,
+          "max": 118
+        },
+        "Cool": {
+          "base": 12,
+          "max": 75
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Dreamlit_Kiss"
+    },
+    "1020730378": {
+      "id": "1020730378",
+      "title": "Flawless Treasure",
+      "variantIds": [
+        1020730378,
+        1022730378,
+        1023730378
+      ],
+      "rarity": 4,
+      "categoryId": 5,
+      "scores": {
+        "Elegant": {
+          "base": 58,
+          "max": 360
+        },
+        "Fresh": {
+          "base": 11,
+          "max": 69
+        },
+        "Sweet": {
+          "base": 16,
+          "max": 100
+        },
+        "Sexy": {
+          "base": 114,
+          "max": 707
+        },
+        "Cool": {
+          "base": 19,
+          "max": 118
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Flawless_Treasure"
+    },
+    "1020740377": {
+      "id": "1020740377",
+      "title": "Clusters of Shade",
+      "variantIds": [
+        1020740377,
+        1022740377,
+        1023740377
+      ],
+      "rarity": 4,
+      "categoryId": 6,
+      "scores": {
+        "Elegant": {
+          "base": 113,
+          "max": 701
+        },
+        "Fresh": {
+          "base": 59,
+          "max": 366
+        },
+        "Sweet": {
+          "base": 13,
+          "max": 81
+        },
+        "Sexy": {
+          "base": 21,
+          "max": 131
+        },
+        "Cool": {
+          "base": 11,
+          "max": 69
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Clusters_of_Shade"
+    },
+    "1020740378": {
+      "id": "1020740378",
+      "title": "Finale Ovation",
+      "variantIds": [
+        1020740378,
+        1022740378,
+        1023740378
+      ],
+      "rarity": 4,
+      "categoryId": 6,
+      "scores": {
+        "Elegant": {
+          "base": 58,
+          "max": 360
+        },
+        "Fresh": {
+          "base": 15,
+          "max": 93
+        },
+        "Sweet": {
+          "base": 12,
+          "max": 75
+        },
+        "Sexy": {
+          "base": 115,
+          "max": 713
+        },
+        "Cool": {
+          "base": 18,
+          "max": 112
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Finale_Ovation"
+    },
+    "1020760206": {
+      "id": "1020760206",
+      "title": "Dragon Bone Covenant",
+      "variantIds": [
+        1020760206,
+        1022760206,
+        1023760206
+      ],
+      "rarity": 4,
+      "categoryId": 7,
+      "scores": {
+        "Elegant": {
+          "base": 20,
+          "max": 124
+        },
+        "Fresh": {
+          "base": 18,
+          "max": 112
+        },
+        "Sweet": {
+          "base": 17,
+          "max": 106
+        },
+        "Sexy": {
+          "base": 53,
+          "max": 329
+        },
+        "Cool": {
+          "base": 109,
+          "max": 676
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Dragon_Bone_Covenant"
+    },
+    "1020760374": {
+      "id": "1020760374",
+      "title": "Hue Seeker",
+      "variantIds": [
+        1020760374,
+        1022760374,
+        1023760374
+      ],
+      "rarity": 4,
+      "categoryId": 7,
+      "scores": {
+        "Elegant": {
+          "base": 21,
+          "max": 131
+        },
+        "Fresh": {
+          "base": 17,
+          "max": 106
+        },
+        "Sweet": {
+          "base": 112,
+          "max": 695
+        },
+        "Sexy": {
+          "base": 12,
+          "max": 75
+        },
+        "Cool": {
+          "base": 56,
+          "max": 348
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Hue_Seeker"
+    },
+    "1020770206": {
+      "id": "1020770206",
+      "title": "Arm of Honor",
+      "variantIds": [
+        1020770206,
+        1022770206,
+        1023770206
+      ],
+      "rarity": 4,
+      "categoryId": 12,
+      "scores": {
+        "Elegant": {
+          "base": 14,
+          "max": 87
+        },
+        "Fresh": {
+          "base": 15,
+          "max": 93
+        },
+        "Sweet": {
+          "base": 15,
+          "max": 93
+        },
+        "Sexy": {
+          "base": 60,
+          "max": 372
+        },
+        "Cool": {
+          "base": 113,
+          "max": 701
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Arm_of_Honor"
+    },
+    "1020770374": {
+      "id": "1020770374",
+      "title": "Where Colors Dwell",
+      "variantIds": [
+        1020770374,
+        1022770374,
+        1023770374
+      ],
+      "rarity": 4,
+      "categoryId": 12,
+      "scores": {
+        "Elegant": {
+          "base": 13,
+          "max": 81
+        },
+        "Fresh": {
+          "base": 22,
+          "max": 137
+        },
+        "Sweet": {
+          "base": 114,
+          "max": 707
+        },
+        "Sexy": {
+          "base": 11,
+          "max": 69
+        },
+        "Cool": {
+          "base": 57,
+          "max": 354
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Where_Colors_Dwell"
+    },
+    "1020770377": {
+      "id": "1020770377",
+      "title": "Ephemeral Reverie",
+      "variantIds": [
+        1020770377,
+        1022770377,
+        1023770377
+      ],
+      "rarity": 4,
+      "categoryId": 12,
+      "scores": {
+        "Elegant": {
+          "base": 113,
+          "max": 701
+        },
+        "Fresh": {
+          "base": 59,
+          "max": 366
+        },
+        "Sweet": {
+          "base": 11,
+          "max": 69
+        },
+        "Sexy": {
+          "base": 15,
+          "max": 93
+        },
+        "Cool": {
+          "base": 19,
+          "max": 118
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Ephemeral_Reverie"
+    },
+    "1020900206": {
+      "id": "1020900206",
+      "title": "Unwavering Fortitude",
+      "variantIds": [
+        1020900206,
+        1022900206,
+        1023900206
+      ],
+      "rarity": 4,
+      "categoryId": 8,
+      "scores": {
+        "Elegant": {
+          "base": 97,
+          "max": 602
+        },
+        "Fresh": {
+          "base": 136,
+          "max": 844
+        },
+        "Sweet": {
+          "base": 105,
+          "max": 651
+        },
+        "Sexy": {
+          "base": 365,
+          "max": 2263
+        },
+        "Cool": {
+          "base": 747,
+          "max": 4632
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Unwavering_Fortitude"
+    },
+    "1020900374": {
+      "id": "1020900374",
+      "title": "Starlight Sparkle",
+      "variantIds": [
+        1020900374,
+        1022900374,
+        1023900374
+      ],
+      "rarity": 4,
+      "categoryId": 8,
+      "scores": {
+        "Elegant": {
+          "base": 74,
+          "max": 459
+        },
+        "Fresh": {
+          "base": 116,
+          "max": 720
+        },
+        "Sweet": {
+          "base": 754,
+          "max": 4675
+        },
+        "Sexy": {
+          "base": 141,
+          "max": 875
+        },
+        "Cool": {
+          "base": 364,
+          "max": 2257
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Starlight_Sparkle"
+    },
+    "1020900377": {
+      "id": "1020900377",
+      "title": "Lone Reflection",
+      "variantIds": [
+        1020900377,
+        1022900377,
+        1023900377
+      ],
+      "rarity": 4,
+      "categoryId": 8,
+      "scores": {
+        "Elegant": {
+          "base": 739,
+          "max": 4582
+        },
+        "Fresh": {
+          "base": 366,
+          "max": 2270
+        },
+        "Sweet": {
+          "base": 108,
+          "max": 670
+        },
+        "Sexy": {
+          "base": 130,
+          "max": 806
+        },
+        "Cool": {
+          "base": 106,
+          "max": 658
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Lone_Reflection"
+    },
+    "1020900378": {
+      "id": "1020900378",
+      "title": "Dream Echo",
+      "variantIds": [
+        1020900378,
+        1022900378,
+        1023900378
+      ],
+      "rarity": 4,
+      "categoryId": 8,
+      "scores": {
+        "Elegant": {
+          "base": 387,
+          "max": 2400
+        },
+        "Fresh": {
+          "base": 98,
+          "max": 608
+        },
+        "Sweet": {
+          "base": 76,
+          "max": 472
+        },
+        "Sexy": {
+          "base": 762,
+          "max": 4725
+        },
+        "Cool": {
+          "base": 127,
+          "max": 788
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Dream_Echo"
+    },
+    "1020920378": {
+      "id": "1020920378",
+      "title": "Strolling in Bloom",
+      "variantIds": [
+        1020920378,
+        1022920378,
+        1023920378
+      ],
+      "rarity": 4,
+      "categoryId": 13,
+      "scores": {
+        "Elegant": {
+          "base": 52,
+          "max": 323
+        },
+        "Fresh": {
+          "base": 20,
+          "max": 124
+        },
+        "Sweet": {
+          "base": 18,
+          "max": 112
+        },
+        "Sexy": {
+          "base": 108,
+          "max": 670
+        },
+        "Cool": {
+          "base": 19,
+          "max": 118
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Strolling_in_Bloom"
+    },
+    "1020940378": {
+      "id": "1020940378",
+      "title": "Waltz Variations",
+      "variantIds": [
+        1020940378,
+        1022940378,
+        1023940378
+      ],
+      "rarity": 4,
+      "categoryId": 18,
+      "scores": {
+        "Elegant": {
+          "base": 59,
+          "max": 366
+        },
+        "Fresh": {
+          "base": 16,
+          "max": 100
+        },
+        "Sweet": {
+          "base": 12,
+          "max": 75
+        },
+        "Sexy": {
+          "base": 116,
+          "max": 720
+        },
+        "Cool": {
+          "base": 14,
+          "max": 87
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Waltz_Variations"
+    },
+    "1020950206": {
+      "id": "1020950206",
+      "title": "Dreamlike Return",
+      "variantIds": [
+        1020950206,
+        1022950206,
+        1023950206
+      ],
+      "rarity": 4,
+      "categoryId": 14,
+      "scores": {
+        "Elegant": {
+          "base": 18,
+          "max": 112
+        },
+        "Fresh": {
+          "base": 15,
+          "max": 93
+        },
+        "Sweet": {
+          "base": 12,
+          "max": 75
+        },
+        "Sexy": {
+          "base": 57,
+          "max": 354
+        },
+        "Cool": {
+          "base": 116,
+          "max": 720
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Dreamlike_Return"
+    },
+    "1020100109": {
+      "id": "1020100109",
+      "title": "Song of Freedom",
+      "variantIds": [
+        1020100109,
+        1022100109,
+        1023100109
+      ],
+      "rarity": 4,
+      "categoryId": 0,
+      "scores": {
+        "Elegant": {
+          "base": 424,
+          "max": 2629
+        },
+        "Fresh": {
+          "base": 64,
+          "max": 397
+        },
+        "Sweet": {
+          "base": 65,
+          "max": 403
+        },
+        "Sexy": {
+          "base": 218,
+          "max": 1352
+        },
+        "Cool": {
+          "base": 69,
+          "max": 428
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Song_of_Freedom"
+    },
+    "1020100207": {
+      "id": "1020100207",
+      "title": "Jade Step Silhouette",
+      "variantIds": [
+        1020100207,
+        1022100207,
+        1023100207
+      ],
+      "rarity": 4,
+      "categoryId": 0,
+      "scores": {
+        "Elegant": {
+          "base": 59,
+          "max": 366
+        },
+        "Fresh": {
+          "base": 447,
+          "max": 2772
+        },
+        "Sweet": {
+          "base": 214,
+          "max": 1327
+        },
+        "Sexy": {
+          "base": 61,
+          "max": 379
+        },
+        "Cool": {
+          "base": 60,
+          "max": 372
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Jade_Step_Silhouette"
+    },
+    "1020100368": {
+      "id": "1020100368",
+      "title": "Starwoven Bond",
+      "variantIds": [
+        1020100368,
+        1022100368,
+        1023100368
+      ],
+      "rarity": 4,
+      "categoryId": 0,
+      "scores": {
+        "Elegant": {
+          "base": 215,
+          "max": 1333
+        },
+        "Fresh": {
+          "base": 51,
+          "max": 317
+        },
+        "Sweet": {
+          "base": 67,
+          "max": 416
+        },
+        "Sexy": {
+          "base": 443,
+          "max": 2747
+        },
+        "Cool": {
+          "base": 64,
+          "max": 397
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Starwoven_Bond"
+    },
+    "1020300368": {
+      "id": "1020300368",
+      "title": "Flowing Moonlight",
+      "variantIds": [
+        1020300368,
+        1022300368,
+        1023300368
+      ],
+      "rarity": 4,
+      "categoryId": 15,
+      "scores": {
+        "Elegant": {
+          "base": 185,
+          "max": 1147
+        },
+        "Fresh": {
+          "base": 49,
+          "max": 304
+        },
+        "Sweet": {
+          "base": 47,
+          "max": 292
+        },
+        "Sexy": {
+          "base": 378,
+          "max": 2344
+        },
+        "Cool": {
+          "base": 41,
+          "max": 255
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Flowing_Moonlight"
+    },
+    "1020410368": {
+      "id": "1020410368",
+      "title": "Starry Waltz",
+      "variantIds": [
+        1020410368,
+        1022410368,
+        1023410368
+      ],
+      "rarity": 4,
+      "categoryId": 19,
+      "scores": {
+        "Elegant": {
+          "base": 186,
+          "max": 1154
+        },
+        "Fresh": {
+          "base": 39,
+          "max": 242
+        },
+        "Sweet": {
+          "base": 70,
+          "max": 434
+        },
+        "Sexy": {
+          "base": 369,
+          "max": 2288
+        },
+        "Cool": {
+          "base": 36,
+          "max": 224
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Starry_Waltz"
+    },
+    "1020500109": {
+      "id": "1020500109",
+      "title": "Throne of Thorns",
+      "variantIds": [
+        1020500109,
+        1022500109,
+        1023500109
+      ],
+      "rarity": 4,
+      "categoryId": 11,
+      "scores": {
+        "Elegant": {
+          "base": 144,
+          "max": 893
+        },
+        "Fresh": {
+          "base": 25,
+          "max": 155
+        },
+        "Sweet": {
+          "base": 20,
+          "max": 124
+        },
+        "Sexy": {
+          "base": 72,
+          "max": 447
+        },
+        "Cool": {
+          "base": 19,
+          "max": 118
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Throne_of_Thorns"
+    },
+    "1020600072": {
+      "id": "1020600072",
+      "title": "Berry Trails",
+      "variantIds": [
+        1020600072,
+        1022600072
+      ],
+      "rarity": 4,
+      "categoryId": 2,
+      "scores": {
+        "Elegant": {
+          "base": 35,
+          "max": 217
+        },
+        "Fresh": {
+          "base": 23,
+          "max": 143
+        },
+        "Sweet": {
+          "base": 110,
+          "max": 682
+        },
+        "Sexy": {
+          "base": 226,
+          "max": 1402
+        },
+        "Cool": {
+          "base": 26,
+          "max": 162
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Berry_Trails"
+    },
+    "1020600109": {
+      "id": "1020600109",
+      "title": "Old Dream's Shelter",
+      "variantIds": [
+        1020600109,
+        1022600109,
+        1023600109
+      ],
+      "rarity": 4,
+      "categoryId": 2,
+      "scores": {
+        "Elegant": {
+          "base": 223,
+          "max": 1383
+        },
+        "Fresh": {
+          "base": 32,
+          "max": 199
+        },
+        "Sweet": {
+          "base": 22,
+          "max": 137
+        },
+        "Sexy": {
+          "base": 113,
+          "max": 701
+        },
+        "Cool": {
+          "base": 31,
+          "max": 193
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Old_Dream's_Shelter"
+    },
+    "1020600207": {
+      "id": "1020600207",
+      "title": "Crystalline Tones",
+      "variantIds": [
+        1020600207,
+        1022600207,
+        1023600207
+      ],
+      "rarity": 4,
+      "categoryId": 2,
+      "scores": {
+        "Elegant": {
+          "base": 22,
+          "max": 137
+        },
+        "Fresh": {
+          "base": 226,
+          "max": 1402
+        },
+        "Sweet": {
+          "base": 110,
+          "max": 682
+        },
+        "Sexy": {
+          "base": 26,
+          "max": 162
+        },
+        "Cool": {
+          "base": 36,
+          "max": 224
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Crystalline_Tones"
+    },
+    "1020600368": {
+      "id": "1020600368",
+      "title": "Veiled Longing",
+      "variantIds": [
+        1020600368,
+        1022600368,
+        1023600368
+      ],
+      "rarity": 4,
+      "categoryId": 2,
+      "scores": {
+        "Elegant": {
+          "base": 109,
+          "max": 676
+        },
+        "Fresh": {
+          "base": 34,
+          "max": 211
+        },
+        "Sweet": {
+          "base": 24,
+          "max": 149
+        },
+        "Sexy": {
+          "base": 215,
+          "max": 1333
+        },
+        "Cool": {
+          "base": 37,
+          "max": 230
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Veiled_Longing"
+    },
+    "1020710207": {
+      "id": "1020710207",
+      "title": "Vanishing Bloom",
+      "variantIds": [
+        1020710207,
+        1022710207,
+        1023710207
+      ],
+      "rarity": 4,
+      "categoryId": 3,
+      "scores": {
+        "Elegant": {
+          "base": 20,
+          "max": 124
+        },
+        "Fresh": {
+          "base": 108,
+          "max": 670
+        },
+        "Sweet": {
+          "base": 53,
+          "max": 329
+        },
+        "Sexy": {
+          "base": 15,
+          "max": 93
+        },
+        "Cool": {
+          "base": 14,
+          "max": 87
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Vanishing_Bloom"
+    },
+    "1020710368": {
+      "id": "1020710368",
+      "title": "Silverveil Dream",
+      "variantIds": [
+        1020710368,
+        1022710368,
+        1023710368
+      ],
+      "rarity": 4,
+      "categoryId": 3,
+      "scores": {
+        "Elegant": {
+          "base": 53,
+          "max": 329
+        },
+        "Fresh": {
+          "base": 19,
+          "max": 118
+        },
+        "Sweet": {
+          "base": 11,
+          "max": 69
+        },
+        "Sexy": {
+          "base": 107,
+          "max": 664
+        },
+        "Cool": {
+          "base": 20,
+          "max": 124
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Silverveil_Dream"
+    },
+    "1020720109": {
+      "id": "1020720109",
+      "title": "Dawn of New Life",
+      "variantIds": [
+        1020720109,
+        1022720109,
+        1023720109
+      ],
+      "rarity": 4,
+      "categoryId": 4,
+      "scores": {
+        "Elegant": {
+          "base": 107,
+          "max": 664
+        },
+        "Fresh": {
+          "base": 20,
+          "max": 124
+        },
+        "Sweet": {
+          "base": 13,
+          "max": 81
+        },
+        "Sexy": {
+          "base": 52,
+          "max": 323
+        },
+        "Cool": {
+          "base": 19,
+          "max": 118
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Dawn_of_New_Life"
+    },
+    "1020720368": {
+      "id": "1020720368",
+      "title": "Starfield Legend",
+      "variantIds": [
+        1020720368,
+        1022720368,
+        1023720368
+      ],
+      "rarity": 4,
+      "categoryId": 4,
+      "scores": {
+        "Elegant": {
+          "base": 55,
+          "max": 341
+        },
+        "Fresh": {
+          "base": 15,
+          "max": 93
+        },
+        "Sweet": {
+          "base": 20,
+          "max": 124
+        },
+        "Sexy": {
+          "base": 107,
+          "max": 664
+        },
+        "Cool": {
+          "base": 14,
+          "max": 87
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Starfield_Legend"
+    },
+    "1020730109": {
+      "id": "1020730109",
+      "title": "Euphonious Echoes",
+      "variantIds": [
+        1020730109,
+        1022730109,
+        1023730109
+      ],
+      "rarity": 4,
+      "categoryId": 5,
+      "scores": {
+        "Elegant": {
+          "base": 114,
+          "max": 707
+        },
+        "Fresh": {
+          "base": 11,
+          "max": 69
+        },
+        "Sweet": {
+          "base": 14,
+          "max": 87
+        },
+        "Sexy": {
+          "base": 58,
+          "max": 360
+        },
+        "Cool": {
+          "base": 13,
+          "max": 81
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Euphonious_Echoes"
+    },
+    "1020730207": {
+      "id": "1020730207",
+      "title": "Moonlit Dreams",
+      "variantIds": [
+        1020730207,
+        1022730207,
+        1023730207
+      ],
+      "rarity": 4,
+      "categoryId": 5,
+      "scores": {
+        "Elegant": {
+          "base": 16,
+          "max": 100
+        },
+        "Fresh": {
+          "base": 111,
+          "max": 689
+        },
+        "Sweet": {
+          "base": 55,
+          "max": 341
+        },
+        "Sexy": {
+          "base": 11,
+          "max": 69
+        },
+        "Cool": {
+          "base": 17,
+          "max": 106
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Moonlit_Dreams"
+    },
+    "1020730368": {
+      "id": "1020730368",
+      "title": "Note of Inspiration",
+      "variantIds": [
+        1020730368,
+        1022730368,
+        1023730368
+      ],
+      "rarity": 4,
+      "categoryId": 5,
+      "scores": {
+        "Elegant": {
+          "base": 54,
+          "max": 335
+        },
+        "Fresh": {
+          "base": 20,
+          "max": 124
+        },
+        "Sweet": {
+          "base": 14,
+          "max": 87
+        },
+        "Sexy": {
+          "base": 104,
+          "max": 645
+        },
+        "Cool": {
+          "base": 19,
+          "max": 118
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Note_of_Inspiration"
+    },
+    "1020740207": {
+      "id": "1020740207",
+      "title": "The Near Horizon",
+      "variantIds": [
+        1020740207,
+        1022740207,
+        1023740207
+      ],
+      "rarity": 4,
+      "categoryId": 6,
+      "scores": {
+        "Elegant": {
+          "base": 15,
+          "max": 93
+        },
+        "Fresh": {
+          "base": 114,
+          "max": 707
+        },
+        "Sweet": {
+          "base": 56,
+          "max": 348
+        },
+        "Sexy": {
+          "base": 12,
+          "max": 75
+        },
+        "Cool": {
+          "base": 12,
+          "max": 75
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/The_Near_Horizon"
+    },
+    "1020760109": {
+      "id": "1020760109",
+      "title": "With You in Heart",
+      "variantIds": [
+        1020760109,
+        1022760109,
+        1023760109
+      ],
+      "rarity": 4,
+      "categoryId": 7,
+      "scores": {
+        "Elegant": {
+          "base": 107,
+          "max": 664
+        },
+        "Fresh": {
+          "base": 14,
+          "max": 87
+        },
+        "Sweet": {
+          "base": 18,
+          "max": 112
+        },
+        "Sexy": {
+          "base": 53,
+          "max": 329
+        },
+        "Cool": {
+          "base": 18,
+          "max": 112
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/With_You_in_Heart"
+    },
+    "1020760207": {
+      "id": "1020760207",
+      "title": "Dancing in Glimmers",
+      "variantIds": [
+        1020760207,
+        1022760207,
+        1023760207
+      ],
+      "rarity": 4,
+      "categoryId": 7,
+      "scores": {
+        "Elegant": {
+          "base": 14,
+          "max": 87
+        },
+        "Fresh": {
+          "base": 109,
+          "max": 676
+        },
+        "Sweet": {
+          "base": 56,
+          "max": 348
+        },
+        "Sexy": {
+          "base": 14,
+          "max": 87
+        },
+        "Cool": {
+          "base": 16,
+          "max": 100
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Dancing_in_Glimmers"
+    },
+    "1020760368": {
+      "id": "1020760368",
+      "title": "Midnight Waltz",
+      "variantIds": [
+        1020760368,
+        1022760368,
+        1023760368
+      ],
+      "rarity": 4,
+      "categoryId": 7,
+      "scores": {
+        "Elegant": {
+          "base": 54,
+          "max": 335
+        },
+        "Fresh": {
+          "base": 18,
+          "max": 112
+        },
+        "Sweet": {
+          "base": 20,
+          "max": 124
+        },
+        "Sexy": {
+          "base": 103,
+          "max": 639
+        },
+        "Cool": {
+          "base": 16,
+          "max": 100
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Midnight_Waltz"
+    },
+    "1020770368": {
+      "id": "1020770368",
+      "title": "Whispers of All Life",
+      "variantIds": [
+        1020770368,
+        1022770368,
+        1023770368
+      ],
+      "rarity": 4,
+      "categoryId": 12,
+      "scores": {
+        "Elegant": {
+          "base": 58,
+          "max": 360
+        },
+        "Fresh": {
+          "base": 17,
+          "max": 106
+        },
+        "Sweet": {
+          "base": 15,
+          "max": 93
+        },
+        "Sexy": {
+          "base": 110,
+          "max": 682
+        },
+        "Cool": {
+          "base": 11,
+          "max": 69
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Whispers_of_All_Life"
+    },
+    "1020780109": {
+      "id": "1020780109",
+      "title": "My Requiem",
+      "variantIds": [
+        1020780109,
+        1022780109,
+        1023780109
+      ],
+      "rarity": 4,
+      "categoryId": 10,
+      "scores": {
+        "Elegant": {
+          "base": 107,
+          "max": 664
+        },
+        "Fresh": {
+          "base": 17,
+          "max": 106
+        },
+        "Sweet": {
+          "base": 16,
+          "max": 100
+        },
+        "Sexy": {
+          "base": 56,
+          "max": 348
+        },
+        "Cool": {
+          "base": 14,
+          "max": 87
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/My_Requiem"
+    },
+    "1020780207": {
+      "id": "1020780207",
+      "title": "The World as a Score",
+      "variantIds": [
+        1020780207,
+        1022780207,
+        1023780207
+      ],
+      "rarity": 4,
+      "categoryId": 10,
+      "scores": {
+        "Elegant": {
+          "base": 14,
+          "max": 87
+        },
+        "Fresh": {
+          "base": 110,
+          "max": 682
+        },
+        "Sweet": {
+          "base": 54,
+          "max": 335
+        },
+        "Sexy": {
+          "base": 20,
+          "max": 124
+        },
+        "Cool": {
+          "base": 12,
+          "max": 75
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/The_World_as_a_Score"
+    },
+    "1020900109": {
+      "id": "1020900109",
+      "title": "Yesterday's Breeze",
+      "variantIds": [
+        1020900109,
+        1022900109,
+        1023900109
+      ],
+      "rarity": 4,
+      "categoryId": 8,
+      "scores": {
+        "Elegant": {
+          "base": 689,
+          "max": 4272
+        },
+        "Fresh": {
+          "base": 114,
+          "max": 707
+        },
+        "Sweet": {
+          "base": 126,
+          "max": 782
+        },
+        "Sexy": {
+          "base": 340,
+          "max": 2108
+        },
+        "Cool": {
+          "base": 132,
+          "max": 819
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Yesterday's_Breeze"
+    },
+    "1020900207": {
+      "id": "1020900207",
+      "title": "Roaming Song of Strings",
+      "variantIds": [
+        1020900207,
+        1022900207,
+        1023900207
+      ],
+      "rarity": 4,
+      "categoryId": 8,
+      "scores": {
+        "Elegant": {
+          "base": 123,
+          "max": 763
+        },
+        "Fresh": {
+          "base": 732,
+          "max": 4539
+        },
+        "Sweet": {
+          "base": 357,
+          "max": 2214
+        },
+        "Sexy": {
+          "base": 70,
+          "max": 434
+        },
+        "Cool": {
+          "base": 118,
+          "max": 732
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Roaming_Song_of_Strings"
+    },
+    "1020940207": {
+      "id": "1020940207",
+      "title": "Hazy Moment",
+      "variantIds": [
+        1020940207,
+        1022940207,
+        1023940207
+      ],
+      "rarity": 4,
+      "categoryId": 18,
+      "scores": {
+        "Elegant": {
+          "base": 18,
+          "max": 112
+        },
+        "Fresh": {
+          "base": 104,
+          "max": 645
+        },
+        "Sweet": {
+          "base": 54,
+          "max": 335
+        },
+        "Sexy": {
+          "base": 20,
+          "max": 124
+        },
+        "Cool": {
+          "base": 15,
+          "max": 93
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Hazy_Moment"
+    },
+    "1021710036": {
+      "id": "1021710036",
+      "title": "Bone-Deep Blossom",
+      "variantIds": [
+        1021710036,
+        1026710036
+      ],
+      "rarity": 4,
+      "categoryId": 3,
+      "scores": {
+        "Elegant": {
+          "base": 108,
+          "max": 670
+        },
+        "Fresh": {
+          "base": 11,
+          "max": 69
+        },
+        "Sweet": {
+          "base": 57,
+          "max": 354
+        },
+        "Sexy": {
+          "base": 15,
+          "max": 93
+        },
+        "Cool": {
+          "base": 18,
+          "max": 112
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Bone-Deep_Blossom"
+    },
+    "1020100067": {
+      "id": "1020100067",
+      "title": "Rings of Memory",
+      "variantIds": [
+        1020100067,
+        1022100067,
+        1023100067
+      ],
+      "rarity": 4,
+      "categoryId": 0,
+      "scores": {
+        "Elegant": {
+          "base": 71,
+          "max": 441
+        },
+        "Fresh": {
+          "base": 374,
+          "max": 2319
+        },
+        "Sweet": {
+          "base": 193,
+          "max": 1197
+        },
+        "Sexy": {
+          "base": 45,
+          "max": 279
+        },
+        "Cool": {
+          "base": 37,
+          "max": 230
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Rings_of_Memory"
+    },
+    "1020300067": {
+      "id": "1020300067",
+      "title": "Intertwined Roots",
+      "variantIds": [
+        1020300067,
+        1022300067,
+        1023300067
+      ],
+      "rarity": 4,
+      "categoryId": 15,
+      "scores": {
+        "Elegant": {
+          "base": 49,
+          "max": 304
+        },
+        "Fresh": {
+          "base": 308,
+          "max": 1910
+        },
+        "Sweet": {
+          "base": 146,
+          "max": 906
+        },
+        "Sexy": {
+          "base": 50,
+          "max": 310
+        },
+        "Cool": {
+          "base": 47,
+          "max": 292
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Intertwined_Roots"
+    },
+    "1020410067": {
+      "id": "1020410067",
+      "title": "Kaleidoscope Mind",
+      "variantIds": [
+        1020410067,
+        1022410067,
+        1023410067
+      ],
+      "rarity": 4,
+      "categoryId": 19,
+      "scores": {
+        "Elegant": {
+          "base": 54,
+          "max": 335
+        },
+        "Fresh": {
+          "base": 302,
+          "max": 1873
+        },
+        "Sweet": {
+          "base": 153,
+          "max": 949
+        },
+        "Sexy": {
+          "base": 50,
+          "max": 310
+        },
+        "Cool": {
+          "base": 41,
+          "max": 255
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Kaleidoscope_Mind"
+    },
+    "1020500067": {
+      "id": "1020500067",
+      "title": "Verdant Imprint",
+      "variantIds": [
+        1020500067,
+        1022500067,
+        1023500067
+      ],
+      "rarity": 4,
+      "categoryId": 11,
+      "scores": {
+        "Elegant": {
+          "base": 14,
+          "max": 87
+        },
+        "Fresh": {
+          "base": 134,
+          "max": 831
+        },
+        "Sweet": {
+          "base": 64,
+          "max": 397
+        },
+        "Sexy": {
+          "base": 12,
+          "max": 75
+        },
+        "Cool": {
+          "base": 16,
+          "max": 100
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Verdant_Imprint"
+    },
+    "1020600067": {
+      "id": "1020600067",
+      "title": "Verdant Melody",
+      "variantIds": [
+        1020600067,
+        1022600067,
+        1023600067
+      ],
+      "rarity": 4,
+      "categoryId": 2,
+      "scores": {
+        "Elegant": {
+          "base": 31,
+          "max": 193
+        },
+        "Fresh": {
+          "base": 189,
+          "max": 1172
+        },
+        "Sweet": {
+          "base": 91,
+          "max": 565
+        },
+        "Sexy": {
+          "base": 23,
+          "max": 143
+        },
+        "Cool": {
+          "base": 26,
+          "max": 162
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Verdant_Melody"
+    },
+    "1020720067": {
+      "id": "1020720067",
+      "title": "Breeze's Melody",
+      "variantIds": [
+        1020720067,
+        1022720067,
+        1023720067
+      ],
+      "rarity": 4,
+      "categoryId": 4,
+      "scores": {
+        "Elegant": {
+          "base": 17,
+          "max": 106
+        },
+        "Fresh": {
+          "base": 91,
+          "max": 565
+        },
+        "Sweet": {
+          "base": 40,
+          "max": 248
+        },
+        "Sexy": {
+          "base": 16,
+          "max": 100
+        },
+        "Cool": {
+          "base": 16,
+          "max": 100
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Breeze's_Melody"
+    },
+    "1020760067": {
+      "id": "1020760067",
+      "title": "Whispering Grove",
+      "variantIds": [
+        1020760067,
+        1022760067,
+        1023760067
+      ],
+      "rarity": 4,
+      "categoryId": 7,
+      "scores": {
+        "Elegant": {
+          "base": 13,
+          "max": 81
+        },
+        "Fresh": {
+          "base": 93,
+          "max": 577
+        },
+        "Sweet": {
+          "base": 46,
+          "max": 286
+        },
+        "Sexy": {
+          "base": 12,
+          "max": 75
+        },
+        "Cool": {
+          "base": 16,
+          "max": 100
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Whispering_Grove"
+    },
+    "1020940067": {
+      "id": "1020940067",
+      "title": "Awakening Buds",
+      "variantIds": [
+        1020940067,
+        1022940067,
+        1023940067
+      ],
+      "rarity": 4,
+      "categoryId": 18,
+      "scores": {
+        "Elegant": {
+          "base": 16,
+          "max": 100
+        },
+        "Fresh": {
+          "base": 91,
+          "max": 565
+        },
+        "Sweet": {
+          "base": 44,
+          "max": 273
+        },
+        "Sexy": {
+          "base": 17,
+          "max": 106
+        },
+        "Cool": {
+          "base": 13,
+          "max": 81
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Awakening_Buds"
+    },
+    "1020100268": {
+      "id": "1020100268",
+      "title": "Crimson-Bound Life",
+      "variantIds": [
+        1020100268,
+        1022100268,
+        1023100268,
+        1024100268,
+        1025100268
+      ],
+      "rarity": 5,
+      "categoryId": 0,
+      "scores": {
+        "Elegant": {
+          "base": 79,
+          "max": 490
+        },
+        "Fresh": {
+          "base": 73,
+          "max": 453
+        },
+        "Sweet": {
+          "base": 271,
+          "max": 1681
+        },
+        "Sexy": {
+          "base": 83,
+          "max": 515
+        },
+        "Cool": {
+          "base": 559,
+          "max": 3466
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Crimson-Bound_Life"
+    },
+    "1020200268": {
+      "id": "1020200268",
+      "title": "Emberwood Wanderings",
+      "variantIds": [
+        1020200268,
+        1022200268,
+        1023200268,
+        1024200268,
+        1025200268
+      ],
+      "rarity": 5,
+      "categoryId": 1,
+      "scores": {
+        "Elegant": {
+          "base": 39,
+          "max": 242
+        },
+        "Fresh": {
+          "base": 33,
+          "max": 205
+        },
+        "Sweet": {
+          "base": 119,
+          "max": 738
+        },
+        "Sexy": {
+          "base": 22,
+          "max": 137
+        },
+        "Cool": {
+          "base": 232,
+          "max": 1439
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Emberwood_Wanderings"
+    },
+    "1020410276": {
+      "id": "1020410276",
+      "title": "Roaming in the Woods",
+      "variantIds": [
+        1020410276,
+        1022410276
+      ],
+      "rarity": 5,
+      "categoryId": 19,
+      "scores": {
+        "Elegant": {
+          "base": 75,
+          "max": 465
+        },
+        "Fresh": {
+          "base": 432,
+          "max": 2679
+        },
+        "Sweet": {
+          "base": 225,
+          "max": 1395
+        },
+        "Sexy": {
+          "base": 85,
+          "max": 527
+        },
+        "Cool": {
+          "base": 57,
+          "max": 354
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Roaming_in_the_Woods"
+    },
+    "1020500012": {
+      "id": "1020500012",
+      "title": "Glimmering Chirp",
+      "variantIds": [
+        1020500012,
+        1022500012
+      ],
+      "rarity": 5,
+      "categoryId": 11,
+      "scores": {
+        "Elegant": {
+          "base": 24,
+          "max": 149
+        },
+        "Fresh": {
+          "base": 33,
+          "max": 205
+        },
+        "Sweet": {
+          "base": 178,
+          "max": 1104
+        },
+        "Sexy": {
+          "base": 24,
+          "max": 149
+        },
+        "Cool": {
+          "base": 92,
+          "max": 571
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Glimmering_Chirp"
+    },
+    "1020500268": {
+      "id": "1020500268",
+      "title": "Unrestrained Fairytale",
+      "variantIds": [
+        1020500268,
+        1022500268,
+        1023500268,
+        1024500268,
+        1025500268
+      ],
+      "rarity": 5,
+      "categoryId": 11,
+      "scores": {
+        "Elegant": {
+          "base": 21,
+          "max": 131
+        },
+        "Fresh": {
+          "base": 30,
+          "max": 186
+        },
+        "Sweet": {
+          "base": 93,
+          "max": 577
+        },
+        "Sexy": {
+          "base": 24,
+          "max": 149
+        },
+        "Cool": {
+          "base": 187,
+          "max": 1160
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Unrestrained_Fairytale"
+    },
+    "1020600268": {
+      "id": "1020600268",
+      "title": "Hunting Memories",
+      "variantIds": [
+        1020600268,
+        1022600268,
+        1023600268,
+        1024600268,
+        1025600268
+      ],
+      "rarity": 5,
+      "categoryId": 2,
+      "scores": {
+        "Elegant": {
+          "base": 44,
+          "max": 273
+        },
+        "Fresh": {
+          "base": 40,
+          "max": 248
+        },
+        "Sweet": {
+          "base": 138,
+          "max": 856
+        },
+        "Sexy": {
+          "base": 27,
+          "max": 168
+        },
+        "Cool": {
+          "base": 280,
+          "max": 1736
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Hunting_Memories"
+    },
+    "1020710268": {
+      "id": "1020710268",
+      "title": "Misty Twilight Woodsong",
+      "variantIds": [
+        1020710268,
+        1022710268,
+        1023710268,
+        1024710268,
+        1025710268
+      ],
+      "rarity": 5,
+      "categoryId": 3,
+      "scores": {
+        "Elegant": {
+          "base": 16,
+          "max": 100
+        },
+        "Fresh": {
+          "base": 16,
+          "max": 100
+        },
+        "Sweet": {
+          "base": 73,
+          "max": 453
+        },
+        "Sexy": {
+          "base": 19,
+          "max": 118
+        },
+        "Cool": {
+          "base": 140,
+          "max": 868
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Misty_Twilight_Woodsong"
+    },
+    "1020710276": {
+      "id": "1020710276",
+      "title": "Lightward Dreamer",
+      "variantIds": [
+        1020710276,
+        1022710276
+      ],
+      "rarity": 5,
+      "categoryId": 3,
+      "scores": {
+        "Elegant": {
+          "base": 133,
+          "max": 825
+        },
+        "Fresh": {
+          "base": 18,
+          "max": 112
+        },
+        "Sweet": {
+          "base": 19,
+          "max": 118
+        },
+        "Sexy": {
+          "base": 70,
+          "max": 434
+        },
+        "Cool": {
+          "base": 23,
+          "max": 143
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Lightward_Dreamer"
+    },
+    "1020730268": {
+      "id": "1020730268",
+      "title": "Deep Wood Traces",
+      "variantIds": [
+        1020730268,
+        1022730268,
+        1023730268,
+        1024730268,
+        1025730268
+      ],
+      "rarity": 5,
+      "categoryId": 5,
+      "scores": {
+        "Elegant": {
+          "base": 19,
+          "max": 118
+        },
+        "Fresh": {
+          "base": 18,
+          "max": 112
+        },
+        "Sweet": {
+          "base": 72,
+          "max": 447
+        },
+        "Sexy": {
+          "base": 16,
+          "max": 100
+        },
+        "Cool": {
+          "base": 135,
+          "max": 837
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Deep_Wood_Traces"
+    },
+    "1020740276": {
+      "id": "1020740276",
+      "title": "Weightless Freedom",
+      "variantIds": [
+        1020740276,
+        1022740276
+      ],
+      "rarity": 5,
+      "categoryId": 6,
+      "scores": {
+        "Elegant": {
+          "base": 63,
+          "max": 391
+        },
+        "Fresh": {
+          "base": 24,
+          "max": 149
+        },
+        "Sweet": {
+          "base": 135,
+          "max": 837
+        },
+        "Sexy": {
+          "base": 20,
+          "max": 124
+        },
+        "Cool": {
+          "base": 19,
+          "max": 118
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Weightless_Freedom"
+    },
+    "1020760268": {
+      "id": "1020760268",
+      "title": "Crimson Obsidian",
+      "variantIds": [
+        1020760268,
+        1022760268,
+        1023760268,
+        1024760268,
+        1025760268
+      ],
+      "rarity": 5,
+      "categoryId": 7,
+      "scores": {
+        "Elegant": {
+          "base": 14,
+          "max": 87
+        },
+        "Fresh": {
+          "base": 21,
+          "max": 131
+        },
+        "Sweet": {
+          "base": 69,
+          "max": 428
+        },
+        "Sexy": {
+          "base": 21,
+          "max": 131
+        },
+        "Cool": {
+          "base": 137,
+          "max": 850
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Crimson_Obsidian"
+    },
+    "1020770268": {
+      "id": "1020770268",
+      "title": "Crimson Moonlight",
+      "variantIds": [
+        1020770268,
+        1022770268,
+        1023770268,
+        1024770268,
+        1025770268
+      ],
+      "rarity": 5,
+      "categoryId": 12,
+      "scores": {
+        "Elegant": {
+          "base": 13,
+          "max": 81
+        },
+        "Fresh": {
+          "base": 22,
+          "max": 137
+        },
+        "Sweet": {
+          "base": 63,
+          "max": 391
+        },
+        "Sexy": {
+          "base": 24,
+          "max": 149
+        },
+        "Cool": {
+          "base": 147,
+          "max": 912
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Crimson_Moonlight"
+    },
+    "1020900268": {
+      "id": "1020900268",
+      "title": "Burning Thorns",
+      "variantIds": [
+        1020900268,
+        1022900268,
+        1023900268,
+        1024900268,
+        1025900268
+      ],
+      "rarity": 5,
+      "categoryId": 8,
+      "scores": {
+        "Elegant": {
+          "base": 99,
+          "max": 614
+        },
+        "Fresh": {
+          "base": 102,
+          "max": 633
+        },
+        "Sweet": {
+          "base": 486,
+          "max": 3014
+        },
+        "Sexy": {
+          "base": 105,
+          "max": 651
+        },
+        "Cool": {
+          "base": 933,
+          "max": 5785
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Burning_Thorns"
+    },
+    "1020940268": {
+      "id": "1020940268",
+      "title": "Thorn Walker",
+      "variantIds": [
+        1020940268,
+        1022940268,
+        1023940268,
+        1024940268,
+        1025940268
+      ],
+      "rarity": 5,
+      "categoryId": 18,
+      "scores": {
+        "Elegant": {
+          "base": 18,
+          "max": 112
+        },
+        "Fresh": {
+          "base": 17,
+          "max": 106
+        },
+        "Sweet": {
+          "base": 70,
+          "max": 434
+        },
+        "Sexy": {
+          "base": 14,
+          "max": 87
+        },
+        "Cool": {
+          "base": 146,
+          "max": 906
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Thorn_Walker"
+    },
+    "1021720037": {
+      "id": "1021720037",
+      "title": "Sweet Grace",
+      "variantIds": [
+        1021720037,
+        1026720037
+      ],
+      "rarity": 5,
+      "categoryId": 4,
+      "scores": {
+        "Elegant": {
+          "base": 16,
+          "max": 100
+        },
+        "Fresh": {
+          "base": 68,
+          "max": 422
+        },
+        "Sweet": {
+          "base": 135,
+          "max": 837
+        },
+        "Sexy": {
+          "base": 23,
+          "max": 143
+        },
+        "Cool": {
+          "base": 20,
+          "max": 124
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Sweet_Grace"
+    },
+    "1021780020": {
+      "id": "1021780020",
+      "title": "Eternal Garden",
+      "variantIds": [
+        1021780020,
+        1026780020
+      ],
+      "rarity": 5,
+      "categoryId": 10,
+      "scores": {
+        "Elegant": {
+          "base": 68,
+          "max": 422
+        },
+        "Fresh": {
+          "base": 19,
+          "max": 118
+        },
+        "Sweet": {
+          "base": 19,
+          "max": 118
+        },
+        "Sexy": {
+          "base": 134,
+          "max": 831
+        },
+        "Cool": {
+          "base": 22,
+          "max": 137
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Eternal_Garden"
+    },
+    "1021720067": {
+      "id": "1021720067",
+      "title": "Black Velvet Shadow",
+      "variantIds": [
+        1021720067,
+        1026720067
+      ],
+      "rarity": 5,
+      "categoryId": 4,
+      "scores": {
+        "Elegant": {
+          "base": 136,
+          "max": 844
+        },
+        "Fresh": {
+          "base": 71,
+          "max": 441
+        },
+        "Sweet": {
+          "base": 19,
+          "max": 118
+        },
+        "Sexy": {
+          "base": 15,
+          "max": 93
+        },
+        "Cool": {
+          "base": 21,
+          "max": 131
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Black_Velvet_Shadow"
+    },
+    "1021720074": {
+      "id": "1021720074",
+      "title": "Dream in Flowers",
+      "variantIds": [
+        1021720074,
+        1026720074
+      ],
+      "rarity": 5,
+      "categoryId": 4,
+      "scores": {
+        "Elegant": {
+          "base": 70,
+          "max": 434
+        },
+        "Fresh": {
+          "base": 24,
+          "max": 149
+        },
+        "Sweet": {
+          "base": 135,
+          "max": 837
+        },
+        "Sexy": {
+          "base": 13,
+          "max": 81
+        },
+        "Cool": {
+          "base": 20,
+          "max": 124
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Dream_in_Flowers"
+    },
+    "1021780074": {
+      "id": "1021780074",
+      "title": "Incandescent Edge",
+      "variantIds": [
+        1021780074,
+        1026780074
+      ],
+      "rarity": 5,
+      "categoryId": 10,
+      "scores": {
+        "Elegant": {
+          "base": 73,
+          "max": 453
+        },
+        "Fresh": {
+          "base": 13,
+          "max": 81
+        },
+        "Sweet": {
+          "base": 26,
+          "max": 162
+        },
+        "Sexy": {
+          "base": 17,
+          "max": 106
+        },
+        "Cool": {
+          "base": 134,
+          "max": 831
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Incandescent_Edge"
+    },
+    "1021790006": {
+      "id": "1021790006",
+      "title": "Hidden Fire Clusters",
+      "variantIds": [
+        1021790006,
+        1026790006
+      ],
+      "rarity": 5,
+      "categoryId": 20,
+      "scores": {
+        "Elegant": {
+          "base": 22,
+          "max": 137
+        },
+        "Fresh": {
+          "base": 18,
+          "max": 112
+        },
+        "Sweet": {
+          "base": 19,
+          "max": 118
+        },
+        "Sexy": {
+          "base": 71,
+          "max": 441
+        },
+        "Cool": {
+          "base": 133,
+          "max": 825
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Hidden_Fire_Clusters"
+    },
+    "1021920031": {
+      "id": "1021920031",
+      "title": "Sealed Relic Light",
+      "variantIds": [
+        1021920031,
+        1026920031
+      ],
+      "rarity": 5,
+      "categoryId": 13,
+      "scores": {
+        "Elegant": {
+          "base": 70,
+          "max": 434
+        },
+        "Fresh": {
+          "base": 19,
+          "max": 118
+        },
+        "Sweet": {
+          "base": 23,
+          "max": 143
+        },
+        "Sexy": {
+          "base": 134,
+          "max": 831
+        },
+        "Cool": {
+          "base": 17,
+          "max": 106
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Sealed_Relic_Light"
+    },
+    "1021710034": {
+      "id": "1021710034",
+      "title": "Funeral of the Forest",
+      "variantIds": [
+        1021710034,
+        1026710034
+      ],
+      "rarity": 5,
+      "categoryId": 3,
+      "scores": {
+        "Elegant": {
+          "base": 69,
+          "max": 428
+        },
+        "Fresh": {
+          "base": 20,
+          "max": 124
+        },
+        "Sweet": {
+          "base": 20,
+          "max": 124
+        },
+        "Sexy": {
+          "base": 134,
+          "max": 831
+        },
+        "Cool": {
+          "base": 19,
+          "max": 118
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Funeral_of_the_Forest"
+    },
+    "1029720005": {
+      "id": "1029720005",
+      "title": "Professional Choice",
+      "variantIds": [
+        1026720005,
+        1029720005
+      ],
+      "rarity": 4,
+      "categoryId": 4,
+      "scores": {
+        "Elegant": {
+          "base": 12,
+          "max": 75
+        },
+        "Fresh": {
+          "base": 109,
+          "max": 676
+        },
+        "Sweet": {
+          "base": 19,
+          "max": 118
+        },
+        "Sexy": {
+          "base": 16,
+          "max": 100
+        },
+        "Cool": {
+          "base": 54,
+          "max": 335
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Professional_Choice"
+    },
+    "1020100217": {
+      "id": "1020100217",
+      "title": "Frosty Forest Patrol",
+      "variantIds": [
+        1020100217,
+        1022100217,
+        1023100217
+      ],
+      "rarity": 4,
+      "categoryId": 0,
+      "scores": {
+        "Elegant": {
+          "base": 457,
+          "max": 2834
+        },
+        "Fresh": {
+          "base": 44,
+          "max": 273
+        },
+        "Sweet": {
+          "base": 64,
+          "max": 397
+        },
+        "Sexy": {
+          "base": 224,
+          "max": 1389
+        },
+        "Cool": {
+          "base": 81,
+          "max": 503
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Frosty_Forest_Patrol"
+    },
+    "1020100298": {
+      "id": "1020100298",
+      "title": "End of the Mist",
+      "variantIds": [
+        1020100298,
+        1022100298,
+        1023100298
+      ],
+      "rarity": 4,
+      "categoryId": 0,
+      "scores": {
+        "Elegant": {
+          "base": 82,
+          "max": 509
+        },
+        "Fresh": {
+          "base": 74,
+          "max": 459
+        },
+        "Sweet": {
+          "base": 437,
+          "max": 2710
+        },
+        "Sexy": {
+          "base": 57,
+          "max": 354
+        },
+        "Cool": {
+          "base": 221,
+          "max": 1371
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/End_of_the_Mist"
+    },
+    "1020100381": {
+      "id": "1020100381",
+      "title": "Dangling Dream Gallery",
+      "variantIds": [
+        1020100381,
+        1022100381,
+        1023100381
+      ],
+      "rarity": 4,
+      "categoryId": 0,
+      "scores": {
+        "Elegant": {
+          "base": 459,
+          "max": 2846
+        },
+        "Fresh": {
+          "base": 228,
+          "max": 1414
+        },
+        "Sweet": {
+          "base": 73,
+          "max": 453
+        },
+        "Sexy": {
+          "base": 50,
+          "max": 310
+        },
+        "Cool": {
+          "base": 61,
+          "max": 379
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Dangling_Dream_Gallery"
+    },
+    "1020300217": {
+      "id": "1020300217",
+      "title": "Cruising Forest Wind",
+      "variantIds": [
+        1020300217,
+        1022300217,
+        1023300217
+      ],
+      "rarity": 4,
+      "categoryId": 15,
+      "scores": {
+        "Elegant": {
+          "base": 386,
+          "max": 2394
+        },
+        "Fresh": {
+          "base": 57,
+          "max": 354
+        },
+        "Sweet": {
+          "base": 47,
+          "max": 292
+        },
+        "Sexy": {
+          "base": 182,
+          "max": 1129
+        },
+        "Cool": {
+          "base": 52,
+          "max": 323
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Cruising_Forest_Wind"
+    },
+    "1020410217": {
+      "id": "1020410217",
+      "title": "Echoes of the Groves",
+      "variantIds": [
+        1020410217,
+        1022410217,
+        1023410217
+      ],
+      "rarity": 4,
+      "categoryId": 19,
+      "scores": {
+        "Elegant": {
+          "base": 380,
+          "max": 2356
+        },
+        "Fresh": {
+          "base": 73,
+          "max": 453
+        },
+        "Sweet": {
+          "base": 40,
+          "max": 248
+        },
+        "Sexy": {
+          "base": 184,
+          "max": 1141
+        },
+        "Cool": {
+          "base": 48,
+          "max": 298
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Echoes_of_the_Groves"
+    },
+    "1020500298": {
+      "id": "1020500298",
+      "title": "The New Daughter",
+      "variantIds": [
+        1020500298,
+        1022500298,
+        1023500298
+      ],
+      "rarity": 4,
+      "categoryId": 11,
+      "scores": {
+        "Elegant": {
+          "base": 16,
+          "max": 100
+        },
+        "Fresh": {
+          "base": 21,
+          "max": 131
+        },
+        "Sweet": {
+          "base": 153,
+          "max": 949
+        },
+        "Sexy": {
+          "base": 22,
+          "max": 137
+        },
+        "Cool": {
+          "base": 78,
+          "max": 484
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/The_New_Daughter"
     }
   }
 }
