@@ -40,14 +40,30 @@
         "independent: HTTPError HTTP Error 404: Not Found",
         "fandom: HTTPError HTTP Error 403: Forbidden"
       ]
+    },
+    "1020760350": {
+      "title": "Unfading Heart",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: score table not detected",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "1021710031": {
+      "title": "Butterfly Dream",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: score table not detected",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
     }
   },
   "gameVersion": "2.11.2",
   "totalCatalogEntries": 2109,
-  "matchedEntries": 835,
-  "unattempted": 1269,
-  "lastRunUTC": "2026-11-26T12:34:38.847690+00:00",
+  "matchedEntries": 953,
+  "unattempted": 1149,
+  "lastRunUTC": "2026-11-26T23:55:50.569945+00:00",
   "summary": {
-    "not_found_or_unparsed": 5
+    "not_found_or_unparsed": 7
   }
 }
