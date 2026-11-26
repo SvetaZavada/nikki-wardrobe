@@ -44,9 +44,9 @@
   },
   "gameVersion": "2.11.2",
   "totalCatalogEntries": 2109,
-  "matchedEntries": 715,
-  "unattempted": 1389,
-  "lastRunUTC": "2026-11-25T23:43:04.779657+00:00",
+  "matchedEntries": 835,
+  "unattempted": 1269,
+  "lastRunUTC": "2026-11-26T12:34:38.847690+00:00",
   "summary": {
     "not_found_or_unparsed": 5
   }
