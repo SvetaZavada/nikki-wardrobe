@@ -56,14 +56,974 @@
         "independent: score table not detected",
         "fandom: HTTPError HTTP Error 403: Forbidden"
       ]
+    },
+    "2020100529": {
+      "title": "Her Name in the Sand",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020200529": {
+      "title": "To All That Shines",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020600529": {
+      "title": "From Here Light Endures",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020710529": {
+      "title": "Butterfly from Afar",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020720529": {
+      "title": "Curtained Night",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020760529": {
+      "title": "Before Words",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020770529": {
+      "title": "Salvation from Both",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020790529": {
+      "title": "Let All Things Be",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020890529": {
+      "title": "Bloom in Shadow",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020900529": {
+      "title": "Poetically Man Dwells",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020920529": {
+      "title": "Unveiling the Void",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020940529": {
+      "title": "Answer Born in World",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020100543": {
+      "title": "\"Your Breath\"",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020500543": {
+      "title": "\"Lingering\"",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020600543": {
+      "title": "\"Reunion\"",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020710543": {
+      "title": "\"Gazing Afar\"",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020720543": {
+      "title": "\"Persuading to Stay\"",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020730543": {
+      "title": "\"Our Poem\"",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020760543": {
+      "title": "\"My Heart\"",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020770543": {
+      "title": "\"Moment\"",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020900543": {
+      "title": "\"Echoes of the Masses\"",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2021730061": {
+      "title": "Splendid Crystal Glow",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2021780103": {
+      "title": "Glory of Valor",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2021940013": {
+      "title": "Glory Sash",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020300591": {
+      "title": "Veil of the Void",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020410591": {
+      "title": "So-Called Ideal",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020600591": {
+      "title": "Lone Deduction",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020770591": {
+      "title": "Proof at Hand",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020100262": {
+      "title": "Far-Dream Homelands",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020600262": {
+      "title": "Heartward Bud",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020730262": {
+      "title": "Wanderer's Nature",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020740262": {
+      "title": "Songbound Pact",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020750262": {
+      "title": "Half Scroll of Night",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020760262": {
+      "title": "Circle's Embrace",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020900262": {
+      "title": "Eternal Heartfire",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020920262": {
+      "title": "Veiled Still Lake",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020940262": {
+      "title": "Wish-Forged Vision",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020950262": {
+      "title": "Together at the End",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2021900031": {
+      "title": "Splendid Cut",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2029410095": {
+      "title": "First Smile",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2029740034": {
+      "title": "Silver Pearl Pilgrimage",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2029900034": {
+      "title": "Poem of Stillness",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2029900037": {
+      "title": "Half-Hidden Fragrance",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2029900060": {
+      "title": "Thorned Springlight",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2029900068": {
+      "title": "Blues' End",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2029930060": {
+      "title": "Falling Renown",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2029940034": {
+      "title": "Cool-Toned Collection",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2021770019": {
+      "title": "Heart-Etched Hues",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020100526": {
+      "title": "Tide Tidings Unforetold",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020200526": {
+      "title": "Endless as Sea",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020500526": {
+      "title": "Gazing from the Past",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020600526": {
+      "title": "To the Departing Sail",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020720526": {
+      "title": "Moon-Shrouding Veil",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020730526": {
+      "title": "Converging Voices",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020760526": {
+      "title": "Surging Heart",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020770526": {
+      "title": "Most Beautiful Words",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020780526": {
+      "title": "Unfolding Hues",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020900526": {
+      "title": "Fragrance Beyond",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020100291": {
+      "title": "Snowy Dusk",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020200291": {
+      "title": "Blazing Wind Surge",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020500291": {
+      "title": "Midnight Ghost",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020600291": {
+      "title": "Fading Glimmers",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020720291": {
+      "title": "Crown of Lost Paths",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020730291": {
+      "title": "Hushed Night",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020760291": {
+      "title": "Rainless Land",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020770291": {
+      "title": "Bygone Warmth",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020780291": {
+      "title": "Ashes to Silence",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020900291": {
+      "title": "Gleam Beyond Walls",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2021200039": {
+      "title": "Thousand and One Pages",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2021710041": {
+      "title": "Woodborne Life",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2021720119": {
+      "title": "Flowers & Water",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2021780129": {
+      "title": "Moment's Heart",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2021780130": {
+      "title": "Untamed Gallop",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2021950011": {
+      "title": "Ink Everlasting",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2021950012": {
+      "title": "Glow Aloft",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020100365": {
+      "title": "Chronicle of Awakening",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020100433": {
+      "title": "One More Dawnlight",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020500365": {
+      "title": "Call for Change",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020500433": {
+      "title": "Clutch Radiant Hours",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020600365": {
+      "title": "Wind of Hope",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020600433": {
+      "title": "Call Me by Your World",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020710365": {
+      "title": "Blossoming Butterfly",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020720365": {
+      "title": "Eternal Spring",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020720433": {
+      "title": "Ruler of Cosmos",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020730365": {
+      "title": "Daylight Ripples",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020730433": {
+      "title": "Creation of One's Own",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020750433": {
+      "title": "Plucking the Stars",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020760365": {
+      "title": "Lasting Joy",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020770433": {
+      "title": "Stay in This Moment",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020780433": {
+      "title": "At What Cost",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020900365": {
+      "title": "World's Whisper",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020900433": {
+      "title": "Fool's Dream Unfulfilled",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020920365": {
+      "title": "Voice of Creation",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020950365": {
+      "title": "Thoughts of Creation",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020950433": {
+      "title": "Be Not Silent Shadow",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020100579": {
+      "title": "Grasping the Thoughts",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020100581": {
+      "title": "Lights at Her Side",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020100590": {
+      "title": "Glimmer in Cracks",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020200590": {
+      "title": "Echoes of the Vein",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020300579": {
+      "title": "Composed Departure",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020300581": {
+      "title": "Fade into Shadow",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020300590": {
+      "title": "Stonecarving Notes",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020410579": {
+      "title": "Stirring Soulglow",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020410581": {
+      "title": "Swift Steps",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020410590": {
+      "title": "Countryside Trails",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020500579": {
+      "title": "As Breeze Calls",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020500581": {
+      "title": "Silent Track",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020600579": {
+      "title": "Into the Unknown",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020600581": {
+      "title": "Targeted Assault",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020600590": {
+      "title": "Song-Leading Journey",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020720281": {
+      "title": "Mystic Blooms",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020720579": {
+      "title": "Listen to Morning Dew",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020720590": {
+      "title": "Stonelit Pursuit",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020730110": {
+      "title": "Night Butterfly",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020730435": {
+      "title": "Mystic Crystals",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020740110": {
+      "title": "Night Raid Declaration",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020740442": {
+      "title": "Adorned with Past Light",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020750435": {
+      "title": "Midnight Rebellion",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020760579": {
+      "title": "Adaptive Spirit",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
+    },
+    "2020770579": {
+      "title": "Transmute to Gold",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: HTTPError HTTP Error 404: Not Found",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
     }
   },
-  "gameVersion": "2.11.2",
-  "totalCatalogEntries": 2109,
+  "gameVersion": "3.0.1",
+  "totalCatalogEntries": 2344,
   "matchedEntries": 953,
-  "unattempted": 1149,
-  "lastRunUTC": "2026-11-26T23:55:50.569945+00:00",
+  "unattempted": 1264,
+  "lastRunUTC": "2026-11-27T12:23:15.820528+00:00",
   "summary": {
-    "not_found_or_unparsed": 7
+    "not_found_or_unparsed": 127
   }
 }
