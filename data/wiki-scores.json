@@ -33541,6 +33541,177 @@
       },
       "source": "independent",
       "url": "https://infinitynikki.wiki/Spiritual_String"
+    },
+    "1020980186": {
+      "id": "1020980186",
+      "title": "Brighter Now",
+      "variantIds": [
+        1020980186,
+        1022980186,
+        1023980186
+      ],
+      "rarity": 4,
+      "categoryId": 7,
+      "scores": {
+        "Elegant": {
+          "base": 14,
+          "max": 87
+        },
+        "Fresh": {
+          "base": 13,
+          "max": 81
+        },
+        "Sweet": {
+          "base": 12,
+          "max": 75
+        },
+        "Sexy": {
+          "base": 47,
+          "max": 292
+        },
+        "Cool": {
+          "base": 94,
+          "max": 583
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Brighter_Now"
+    },
+    "1021730031": {
+      "id": "1021730031",
+      "title": "Skybound Hunt",
+      "variantIds": [
+        1021730031,
+        1026730031
+      ],
+      "rarity": 4,
+      "categoryId": 5,
+      "scores": {
+        "Elegant": {
+          "base": 112,
+          "max": 695
+        },
+        "Fresh": {
+          "base": 11,
+          "max": 69
+        },
+        "Sweet": {
+          "base": 20,
+          "max": 124
+        },
+        "Sexy": {
+          "base": 55,
+          "max": 341
+        },
+        "Cool": {
+          "base": 12,
+          "max": 75
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Skybound_Hunt"
+    },
+    "1021730032": {
+      "id": "1021730032",
+      "title": "Woodland Music",
+      "variantIds": [
+        1021730032,
+        1026730032
+      ],
+      "rarity": 4,
+      "categoryId": 5,
+      "scores": {
+        "Elegant": {
+          "base": 19,
+          "max": 118
+        },
+        "Fresh": {
+          "base": 108,
+          "max": 670
+        },
+        "Sweet": {
+          "base": 10,
+          "max": 62
+        },
+        "Sexy": {
+          "base": 54,
+          "max": 335
+        },
+        "Cool": {
+          "base": 19,
+          "max": 118
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Woodland_Music"
+    },
+    "1021740018": {
+      "id": "1021740018",
+      "title": "Bones of Giants",
+      "variantIds": [
+        1021740018,
+        1026740018
+      ],
+      "rarity": 4,
+      "categoryId": 6,
+      "scores": {
+        "Elegant": {
+          "base": 102,
+          "max": 633
+        },
+        "Fresh": {
+          "base": 53,
+          "max": 329
+        },
+        "Sweet": {
+          "base": 17,
+          "max": 106
+        },
+        "Sexy": {
+          "base": 19,
+          "max": 118
+        },
+        "Cool": {
+          "base": 18,
+          "max": 112
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Bones_of_Giants"
+    },
+    "1029750004": {
+      "id": "1029750004",
+      "title": "Arrow Unleashed",
+      "variantIds": [
+        1026750004,
+        1029750004
+      ],
+      "rarity": 4,
+      "categoryId": 16,
+      "scores": {
+        "Elegant": {
+          "base": 12,
+          "max": 75
+        },
+        "Fresh": {
+          "base": 55,
+          "max": 341
+        },
+        "Sweet": {
+          "base": 20,
+          "max": 124
+        },
+        "Sexy": {
+          "base": 11,
+          "max": 69
+        },
+        "Cool": {
+          "base": 112,
+          "max": 695
+        }
+      },
+      "source": "independent",
+      "url": "https://infinitynikki.wiki/Arrow_Unleashed"
     }
   }
 }
