@@ -1936,14 +1936,22 @@
         "independent: HTTPError HTTP Error 404: Not Found",
         "fandom: HTTPError HTTP Error 403: Forbidden"
       ]
+    },
+    "1020410282": {
+      "title": "Feathered Journey",
+      "status": "not_found_or_unparsed",
+      "details": [
+        "independent: score table not detected",
+        "fandom: HTTPError HTTP Error 403: Forbidden"
+      ]
     }
   },
   "gameVersion": "3.0.1",
   "totalCatalogEntries": 2344,
-  "matchedEntries": 958,
-  "unattempted": 1144,
-  "lastRunUTC": "2026-11-27T23:35:03.131205+00:00",
+  "matchedEntries": 1077,
+  "unattempted": 1024,
+  "lastRunUTC": "2026-11-28T11:48:15.647779+00:00",
   "summary": {
-    "not_found_or_unparsed": 242
+    "not_found_or_unparsed": 243
   }
 }
